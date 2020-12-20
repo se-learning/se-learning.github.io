@@ -1,117 +1,181 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
+<html lang="en">
+<head>
+    <title>Tree Mindmap for learning</title>
+    <!-- Meta -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Hello VuePress</title>
-    <meta name="generator" content="VuePress 1.7.1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">    
+    <link rel="shortcut icon" href="favicon.ico">  
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- FontAwesome JS -->
+    <script defer src="assets/fontawesome/js/all.js"></script>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
+    <!-- Plugins CSS -->    
+    <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css">    
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+
+</head> 
+
+<body class="landing-page">   
+	
+	<!-- GITHUB BUTTON JS -->
+    <!-- <script async defer src="https://buttons.github.io/buttons.js"></script> -->
+     
+    <!--FACEBOOK LIKE BUTTON JAVASCRIPT SDK-->
+    <!-- <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=994736563909741&autoLogAppEvents=1"></script> -->
     
-    <meta name="description" content="Just playing around">
+    <div class="page-wrapper">
+        
+        <!-- ******Header****** -->
+        <header class="header text-center">
+            <div class="container">
+                <div class="branding">
+                    <h1 class="logo">
+                        <span aria-hidden="true" class="icon_documents_alt icon"></span>
+                        <span class="text-highlight">Pretty</span><span class="text-bold">Docs</span>
+                    </h1>
+                </div><!--//branding-->
+                <div class="tagline">
+                    <p>Free Bootstrap 4 theme for your project documentation</p>
+                    <p>Designed with <i class="fas fa-heart"></i> for developers</p>
+                </div><!--//tagline-->
+                
+	             <div class="main-search-box pt-3 pb-4 d-inline-block">
+	                 <form class="form-inline search-form justify-content-center" action="" method="get">
+	            
+			            <input type="text" placeholder="Enter search terms..." name="search" class="form-control search-input">
+			            
+			            <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
+			            
+			        </form>
+	             </div>
+                 
+                <div class="social-container">
+	                <!-- Replace with your Github Button -->
+	                <div class="github-btn mb-2">
+						<a class="github-button" href="https://github.com/xriley/PrettyDocs-Theme" data-size="large" aria-label="Star xriley/PrettyDocs-Theme on GitHub">Star</a>
+                        <a class="github-button" href="https://github.com/xriley" data-size="large" aria-label="Follow @xriley on GitHub">Follow @xriley</a>
+	                </div>
+	                <!-- Replace with your Twitter Button -->
+                    <div class="twitter-tweet">
+                        <a href="https://twitter.com/3rdwave_themes?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @3rdwave_themes</a>
+                        <!-- <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+                    </div><!--//tweet-->
+                    <!-- Replace with your Facebook Button -->
+                    <div class="fb-like" data-href="https://themes.3rdwavemedia.com/" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>         
+                 </div><!--//social-container-->
+                 
+                
+            </div><!--//container-->
+        </header><!--//header-->
+        
+        <section class="cards-section text-center">
+            <div class="container">
+                <h2 class="title">Getting started is easy!</h2>
+                <div class="intro">
+                    <p>Welcome to prettyDocs. This landing page is an example of how you can use a card view to present segments of your documentation. You can customise the icon fonts based on your needs.</p>
+                    <div class="cta-container">
+                        <a class="btn btn-primary btn-cta" href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/prettydocs-free-bootstrap-theme-for-developers-and-startups/" target="_blank"><i class="fas fa-cloud-download-alt"></i> Download Now</a>
+                    </div><!--//cta-container-->
+                </div><!--//intro-->
+                <div id="cards-wrapper" class="cards-wrapper row">
+                    <div class="item item-green col-lg-12 col-12">
+                        <div class="item-inner">
+                            <div class="icon-holder">
+                                <i class="icon fa fa-paper-plane"></i>
+                            </div><!--//icon-holder-->
+                            <h3 class="title">Start</h3>
+                            <p class="intro">Tree mindmap for learning</p>
+                            <a class="link" href="wiki.html"><span></span></a>
+                        </div><!--//item-inner-->
+                    </div><!--//item-->
+                    <div class="item item-green col-lg-4 col-6">
+                        <div class="item-inner">
+                            <div class="icon-holder">
+                                <i class="icon fa fa-paper-plane"></i>
+                            </div><!--//icon-holder-->
+                            <h3 class="title">Quick Start</h3>
+                            <p class="intro">Demo example, consectetuer adipiscing elit</p>
+                            <a class="link" href="start.html"><span></span></a>
+                        </div><!--//item-inner-->
+                    </div><!--//item-->
+                    <div class="item item-pink item-2 col-lg-4 col-6">
+                        <div class="item-inner">
+                            <div class="icon-holder">
+                                <span aria-hidden="true" class="icon icon_puzzle_alt"></span>
+                            </div><!--//icon-holder-->
+                            <h3 class="title">Components</h3>
+                            <p class="intro">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+                            <a class="link" href="components.html"><span></span></a>
+                        </div><!--//item-inner-->
+                    </div><!--//item-->
+                    <div class="item item-blue col-lg-4 col-6">
+                        <div class="item-inner">
+                            <div class="icon-holder">
+                                <span aria-hidden="true" class="icon icon_datareport_alt"></span>
+                            </div><!--//icon-holder-->
+                            <h3 class="title">Charts</h3>
+                            <p class="intro">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+                            <a class="link" href="charts.html"><span></span></a>
+                        </div><!--//item-inner-->
+                    </div><!--//item-->
+                    <div class="item item-purple col-lg-4 col-6">
+                        <div class="item-inner">
+                            <div class="icon-holder">
+                                <span aria-hidden="true" class="icon icon_lifesaver"></span>
+                            </div><!--//icon-holder-->
+                            <h3 class="title">FAQs</h3>
+                            <p class="intro">Layout for FAQ page. Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+                            <a class="link" href="faqs.html"><span></span></a>
+                        </div><!--//item-inner-->
+                    </div><!--//item-->
+                    <div class="item item-primary col-lg-4 col-6">
+                        <div class="item-inner">
+                            <div class="icon-holder">
+                                <span aria-hidden="true" class="icon icon_genius"></span>
+                            </div><!--//icon-holder-->
+                            <h3 class="title">Showcase</h3>
+                            <p class="intro">Layout for showcase page. Lorem ipsum dolor sit amet, consectetuer adipiscing elit </p>
+                            <a class="link" href="showcase.html"><span></span></a>
+                        </div><!--//item-inner-->
+                    </div><!--//item-->
+                    <div class="item item-orange col-lg-4 col-6">
+                        <div class="item-inner">
+                            <div class="icon-holder">
+                                <span aria-hidden="true" class="icon icon_gift"></span>
+                            </div><!--//icon-holder-->
+                            <h3 class="title">License &amp; Credits</h3>
+                            <p class="intro">Layout for license &amp; credits page. Consectetuer adipiscing elit.</p>
+                            <a class="link" href="license.html"><span></span></a>
+                        </div><!--//item-inner-->
+                    </div><!--//item-->
+                </div><!--//cards-->
+                
+            </div><!--//container-->
+        </section><!--//cards-section-->
+    </div><!--//page-wrapper-->
     
-    <link rel="preload" href="/docs/assets/css/0.styles.80adea03.css" as="style"><link rel="preload" href="/docs/assets/js/app.64f0cc09.js" as="script"><link rel="preload" href="/docs/assets/js/2.0725c41a.js" as="script"><link rel="preload" href="/docs/assets/js/8.c8cc3e1b.js" as="script"><link rel="preload" href="/docs/assets/js/5.5af04fe9.js" as="script"><link rel="preload" href="/docs/assets/js/4.91df60c9.js" as="script"><link rel="preload" href="/docs/assets/js/6.05d4d9fc.js" as="script"><link rel="prefetch" href="/docs/assets/js/10.f6e293d6.js"><link rel="prefetch" href="/docs/assets/js/11.e6e94685.js"><link rel="prefetch" href="/docs/assets/js/12.6b44a722.js"><link rel="prefetch" href="/docs/assets/js/13.a217d1f1.js"><link rel="prefetch" href="/docs/assets/js/3.a969e1d2.js"><link rel="prefetch" href="/docs/assets/js/7.97bbc12b.js"><link rel="prefetch" href="/docs/assets/js/9.4504ade5.js">
-    <link rel="stylesheet" href="/docs/assets/css/0.styles.80adea03.css">
-  </head>
-  <body>
-    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/docs/" aria-current="page" class="home-link router-link-exact-active router-link-active"><!----> <span class="site-name">Hello VuePress</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/docs/guide/" class="nav-link">
-  Guide
-</a></div><div class="nav-item"><a href="/docs/config/" class="nav-link">
-  Config Reference
-</a></div><div class="nav-item"><a href="/docs/plugin/" class="nav-link">
-  Plugin
-</a></div><div class="nav-item"><a href="/docs/theme/" class="nav-link">
-  Theme
-</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Learn More" class="dropdown-title"><span class="title">Learn More</span> <span class="arrow down"></span></button> <button type="button" aria-label="Learn More" class="mobile-dropdown-title"><span class="title">Learn More</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
-          API
-        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/docs/api/cli.html" class="nav-link">
-  CLI
-</a></li><li class="dropdown-subitem"><a href="/docs/api/node.html" class="nav-link">
-  Node
-</a></li></ul></li><li class="dropdown-item"><h4>
-          Contributing Guide
-        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/docs/miscellaneous/local-development.html" class="nav-link">
-  Local Development
-</a></li><li class="dropdown-subitem"><a href="/docs/miscellaneous/design-concepts.html" class="nav-link">
-  Design Concepts
-</a></li><li class="dropdown-subitem"><a href="/docs/faq/" class="nav-link">
-  FAQ
-</a></li><li class="dropdown-subitem"><a href="/docs/miscellaneous/glossary.html" class="nav-link">
-  Glossary
-</a></li></ul></li><li class="dropdown-item"><h4>
-          Resources
-        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://v0.vuepress.vuejs.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
-  0.x Docs
-  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/docs/miscellaneous/migration-guide.html" class="nav-link">
-  Migrate from 0.x
-</a></li><li class="dropdown-subitem"><a href="https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
-  Changelog
-  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/docs/guide/" class="nav-link">
-  Guide
-</a></div><div class="nav-item"><a href="/docs/config/" class="nav-link">
-  Config Reference
-</a></div><div class="nav-item"><a href="/docs/plugin/" class="nav-link">
-  Plugin
-</a></div><div class="nav-item"><a href="/docs/theme/" class="nav-link">
-  Theme
-</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Learn More" class="dropdown-title"><span class="title">Learn More</span> <span class="arrow down"></span></button> <button type="button" aria-label="Learn More" class="mobile-dropdown-title"><span class="title">Learn More</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
-          API
-        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/docs/api/cli.html" class="nav-link">
-  CLI
-</a></li><li class="dropdown-subitem"><a href="/docs/api/node.html" class="nav-link">
-  Node
-</a></li></ul></li><li class="dropdown-item"><h4>
-          Contributing Guide
-        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/docs/miscellaneous/local-development.html" class="nav-link">
-  Local Development
-</a></li><li class="dropdown-subitem"><a href="/docs/miscellaneous/design-concepts.html" class="nav-link">
-  Design Concepts
-</a></li><li class="dropdown-subitem"><a href="/docs/faq/" class="nav-link">
-  FAQ
-</a></li><li class="dropdown-subitem"><a href="/docs/miscellaneous/glossary.html" class="nav-link">
-  Glossary
-</a></li></ul></li><li class="dropdown-item"><h4>
-          Resources
-        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://v0.vuepress.vuejs.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
-  0.x Docs
-  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="/docs/miscellaneous/migration-guide.html" class="nav-link">
-  Migrate from 0.x
-</a></li><li class="dropdown-subitem"><a href="https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
-  Changelog
-  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <!----></nav>  <!----> </aside> <main aria-labelledby="main-title" class="home"><header class="hero"><img src="/docs/hero.png" alt="hero"> <h1 id="main-title">
-      Hello VuePress
-    </h1> <p class="description">
-      Just playing around
-    </p> <p class="action"><a href="/docs/guide/getting-started.html" class="nav-link action-button">
-  Get Started →
-</a></p></header> <!----> <div class="theme-default-content custom content__default"><h2 id="links"><a href="#links" class="header-anchor">#</a> Links</h2> <p>VuePress is composed of two parts: a <a href="https://github.com/vuejs/vuepress/tree/master/packages/%40vuepress/core" target="_blank" rel="noopener noreferrer">minimalistic static site generator<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> with a Vue-powered <a href="/docs/theme/">theming system</a> and <a href="/docs/plugin/">Plugin API</a>, and a <a href="/docs/theme/default-theme-config.html">default theme</a> optimized for writing technical documentation. It was created to support the documentation needs of Vue’s own sub projects.</p> <h2 id="code"><a href="#code" class="header-anchor">#</a> Code</h2> <p><code>nuxt generate</code></p> <div class="theme-code-group" data-v-32c2d7ed><div class="theme-code-group__nav" data-v-32c2d7ed><ul class="theme-code-group__ul" data-v-32c2d7ed></ul></div> <div class="theme-code-block theme-code-block__active" data-v-6d04095e><div class="language-bash extra-class" data-v-6d04095e><pre class="language-bash" data-v-6d04095e><code data-v-6d04095e><span class="token function" data-v-6d04095e>yarn</span> create vuepress-site <span class="token punctuation" data-v-6d04095e>[</span>optionalDirectoryName<span class="token punctuation" data-v-6d04095e>]</span>
-</code></pre></div></div> <div class="theme-code-block" data-v-6d04095e><div class="language-bash extra-class" data-v-6d04095e><pre class="language-bash" data-v-6d04095e><code data-v-6d04095e>npx create-vuepress-site <span class="token punctuation" data-v-6d04095e>[</span>optionalDirectoryName<span class="token punctuation" data-v-6d04095e>]</span>
-</code></pre></div></div> <pre class="pre-blank" data-v-32c2d7ed>// Make sure to add code blocks to your code group</pre></div> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
-    <span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        <span class="token property">&quot;docs:dev&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vuepress dev docs&quot;</span><span class="token punctuation">,</span>
-        <span class="token property">&quot;docs:build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vuepress build docs&quot;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>.
-├─ docs
-│  ├─ README.md
-│  └─ .vuepress
-│     └─ config.js
-└─ package.json
-</code></pre></div><div class="language-js extra-class"><div class="highlight-lines"><div class="highlighted"> </div><br><br><div class="highlighted"> </div><br><div class="highlighted"> </div><div class="highlighted"> </div><br><br><br><br><br></div><pre class="language-js"><code><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span> <span class="token comment">// Highlighted</span>
-  <span class="token function">data</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span>
-      msg<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Highlighted!
-      This line isn't highlighted,
-      but this and the next 2 are.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
-      motd<span class="token operator">:</span> <span class="token string">'VuePress is awesome'</span><span class="token punctuation">,</span>
-      lorem<span class="token operator">:</span> <span class="token string">'ipsum'</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre></div><h2 id="list"><a href="#list" class="header-anchor">#</a> List</h2> <p><strong>Built-in Markdown extensions</strong></p> <ul><li><a href="/docs/guide/markdown.html#table-of-contents">Table of Contents</a></li> <li><a href="/docs/guide/markdown.html#custom-containers">Custom Containers</a></li></ul> <p><strong>List 2</strong></p> <ul><li>Project Name</li> <li>Description</li></ul> <p><strong>Ordered list</strong></p> <ol><li><p>First install <a href="https://www.npmjs.com/package/surge" target="_blank" rel="noopener noreferrer">surge<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>, if you haven’t already.</p></li> <li><p>Run <code>yarn docs:build</code> or <code>npm run docs:build</code>.</p></li> <li><p>Deploy to surge by typing <code>surge docs/.vuepress/dist</code>.</p></li></ol> <h1 id="table"><a href="#table" class="header-anchor">#</a> Table</h1> <table><thead><tr><th>Relative Path</th> <th>Page Routing</th></tr></thead> <tbody><tr><td>/README.md</td> <td>/</td></tr> <tr><td>/guide/README.md</td> <td>/guide/</td></tr> <tr><td>/config.md</td> <td>/config.html</td></tr></tbody></table> <h2 id="typography"><a href="#typography" class="header-anchor">#</a> Typography</h2> <h3 id="bold"><a href="#bold" class="header-anchor">#</a> Bold</h3> <p><strong>Bold text</strong></p> <h3 id="italic"><a href="#italic" class="header-anchor">#</a> Italic</h3> <p><em>If your project is using webpack 3.x, you may notice some installation issues with npm. In this case, we recommend using Yarn.</em>*</p> <h2 id="alert"><a href="#alert" class="header-anchor">#</a> Alert</h2> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>This is a tip</p></div> <div class="custom-block warning"><p class="custom-block-title">WARNING</p> <p>This is a warning</p></div> <div class="custom-block danger"><p class="custom-block-title">STOP</p> <p>This is a dangerous warning</p></div> <details class="custom-block details"><summary>Click me to view the code</summary> <p>This is a details block, which does not work in IE / Edge</p></details> <blockquote><p>Alert in markdown</p></blockquote> <div style="text-align:center;"><p class="demo">
-  Hello this is &lt;demo-1&gt;
-</p></div> <div class="features"><div class="feature"><h2>Simplicity First</h2> <p>Minimal setup with markdown-centered project structure helps you focus on writing.</p></div> <div class="feature"><h2>Vue-Powered</h2> <p>Enjoy the dev experience of Vue + webpack, use Vue components in markdown, and develop custom themes with Vue.</p></div> <div class="feature"><h2>Performant</h2> <p>VuePress generates pre-rendered static HTML for each page, and runs as an SPA once a page is loaded.</p></div></div></div> <div class="footer">
-    MIT Licensed | Copyright © 2018-present Evan You
-  </div></main></div><div class="global-ui"></div></div>
-    <script src="/docs/assets/js/app.64f0cc09.js" defer></script><script src="/docs/assets/js/2.0725c41a.js" defer></script><script src="/docs/assets/js/8.c8cc3e1b.js" defer></script><script src="/docs/assets/js/5.5af04fe9.js" defer></script><script src="/docs/assets/js/4.91df60c9.js" defer></script><script src="/docs/assets/js/6.05d4d9fc.js" defer></script>
-  </body>
-</html>
+    <footer class="footer text-center">
+        <div class="container">
+            <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+            <small class="copyright">Designed with <i class="fas fa-heart"></i> by <a href="https://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a> for developers</small>
+            
+        </div><!--//container-->
+    </footer><!--//footer-->
+    
+     
+    <!-- Main Javascript -->          
+    <script type="text/javascript" src="assets/plugins/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>     
+    <script type="text/javascript" src="assets/plugins/stickyfill/dist/stickyfill.min.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    
+</body>
+</html> 
+
