@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+
+</style>
+</head>
+<body>
+
+
+<div>
+	<h2>Super centered: place-items: center</h2>
+	<div style="display: grid; place-items: center; min-height: 300px; border: 1px solid black;">
+	  <div style="background-color: green; width: 100px; height: 100px;">
+		
+	  </div>
+	</div>
+</div>
+
+<style>
+.ex2 .parent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ex2 .box {
+  flex: 0 1 150px;
+  margin: 5px;
+  
+  border: 1px solid black;
+  background-color: azure;
+}
+</style>
+
+<div class="ex2">
+	<h2>The Deconstructed Pancake: flex: &lt;grow&gt; &lt;shrink&gt; &lt;baseWidth&gt;</h2>
+	<div class="parent" style="min-height: 300px; border: 1px solid black;">
+		<div class="box">1</div>
+		<div class="box">2</div>
+		<div class="box">3</div>
+	</div>	
+</div>
+
+<style>
+.ex3 .parent {
+  display: grid;
+  grid-template-columns: minmax(150px, 25%) 1fr;
+}
+</style>
+
+<div class="ex3">
+	<h2>Sidebar Says: grid-template-columns: minmax(&lt;min&gt;, &lt;max&gt;) …)</h2>
+	<div class="parent" style="min-height: 300px; border: 1px solid black;">
+		<div style="background-color: #1abc9c;">Min: 150px/ Max: 25%</div>
+		<div style="background-color: #8e44ad;">This element takes the second grid position (1fr), meaning it takes up the rest of the remaining space</div>
+	</div>	
+</div>
+
+<style>
+.ex4 .parent {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+</style>
+
+<div class="ex4">
+	<h2>Pancake Stack: grid-template-rows: auto 1fr auto</h2>
+	<div class="parent" style="min-height: 200px; height: 50vh; border: 1px solid black;">
+		<div style="background-color: #1abc9c; padding: 8px 16px;">Header</div>
+		<div style="background-color: #02b3e4; padding: 8px 16px;">Main</div>
+		<div style="background-color: #8e44ad; padding: 8px 16px;">Footer</div>
+	</div>	
+</div>
+
+<style>
+.ex5 .parent {
+  display: grid;
+  grid-template: auto 1fr auto / auto 1fr auto;
+}
+</style>
+
+<div class="ex5">
+	<h2>Classic Holy Grail Layout: grid-template: auto 1fr auto / auto 1fr auto</h2>
+	<div class="parent" style="min-height: 200px; height: 50vh; border: 1px solid black;">
+		<div style="background-color: #1abc9c; padding: 8px 16px; grid-column: 1 / 4;">Header</div>
+		<div style="background-color: #F6c23e; padding: 8px 16px; grid-column: 1 / 2;">Left Sidebar</div>
+		<div style="background-color: #02b3e4; padding: 8px 16px;">Main</div>
+		<div style="background-color: #f97307; padding: 8px 16px;">Right Sidebar</div>
+		<div style="background-color: #8e44ad; padding: 8px 16px; grid-column: 1 / 4;">Footer</div>
+	</div>	
+</div>
+
+<style>
+.ex6 .parent {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+.child-span-12 {
+  grid-column: 1 / 13;
+}
+.child-span-6 {
+  grid-column: 2 / 8;
+}
+.child-span-4 {
+  grid-column: 1 / span 4;
+}
+.child-span-2 {
+  grid-column: 4 / span 2;
+}
+</style>
+
+<div class="ex6">
+	<h2>12-Span Grid: grid-template-columns: repeat(12, 1fr)</h2>
+	<div class="parent" style="height: 400px; border: 1px solid black;">
+		<div class="child-span-12" style="background-color: #1abc9c; padding: 8px 16px;">Span 12</div>
+		<div class="child-span-6" style="background-color: #F6c23e; padding: 8px 16px;">Span 6</div>
+		<div class="child-span-4" style="background-color: #02b3e4; padding: 8px 16px;">Span 4</div>
+		<div class="child-span-2" style="background-color: #f97307; padding: 8px 16px;">Span 2</div>
+	</div>	
+</div>
+
+<style>
+.ex7 .parent {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+</style>
+
+<div class="ex7">
+	<h2>RAM (Repeat, Auto, MinMax): grid-template-columns(auto-fit, minmax(&lt;base&gt;, 1fr))</h2>
+	<div class="parent" style="width: 50vw; height: 400px; border: 1px solid black;">
+		<div class="" style="background-color: #1abc9c;">1</div>
+		<div class="" style="background-color: #F6c23e;">2</div>
+		<div class="" style="background-color: #02b3e4;">3</div>
+		<div class="" style="background-color: #f97307;">4</div>
+	</div>	
+</div>
+
+<style>
+	.ex8 .parent {
+		height: auto;
+		display: grid;
+		grid-gap: 1rem;
+		grid-template-columns: repeat(3, 1fr);
+		width: 50vw;
+	}
+	.ex8 .card {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: 8px 16px;
+	}
+	.ex8 .visual {
+		width: 100%;
+		height: 100px;
+	}
+</style>
+
+<div class="ex8">
+	<h2>Line Up: justify-content: space-between</h2>
+	<div class="parent" style="height: 300px; border: 1px solid black;">
+		<div class="card" style="background-color: azure;">
+			<div>Title - Card 1</div>
+			<div>Medium length description with a few more words here.</div>
+			<div class="visual" style="background-color: #F6c23e;"></div>
+		</div>
+		<div class="card" style="background-color: azure;">
+			<div>Title - Card 2</div>
+			<div>Long Description. Lorem ipsum dolor sit, amet consectetur adipisicing elit.</div>
+			<div class="visual" style="background-color: #02b3e4;"></div>
+		</div>
+		<div class="card" style="background-color: azure;">
+			<div>Title - Card 3</div>
+			<div>Short description.</div>
+			<div class="visual" style="background-color: #f97307;"></div>
+		</div>
+	</div>	
+</div>
+
+
+<style>
+	.ex9 .parent {
+		display: grid;
+		place-items: center;
+	}
+	.ex9 .card {
+		display: flex;
+		width: clamp(23ch, 50%, 46ch);
+		flex-direction: column;
+		padding: 8px 16px;
+	}
+	.ex9 .visual {
+		width: 100%;
+		height: 100px;
+	}
+</style>
+
+<div class="ex9">
+	<h2>Clamping My Style: clamp(&lt;min&gt;, &lt;actual&gt;, &lt;max&gt;)</h2>
+	<div class="parent" style="height: 300px; border: 1px solid black;">
+		<div class="card" style="background-color: azure;">
+			<div>Title - Card 1</div>
+			<div>Medium length description with a few more words here.</div>
+			<div class="visual" style="background-color: #F6c23e;"></div>
+		</div>
+	</div>
+</div>
+
+<style>
+	.ex10 .parent {
+		display: grid;
+		place-items: center;
+	}
+	.ex10 .card {
+		display: flex;
+		width: 30%;
+		flex-direction: column;
+		padding: 8px 16px;
+	}
+	.ex10 .visual {
+		aspect-ratio: 16 / 9;
+	}
+</style>
+
+<div class="ex10">
+	<h2>Respect for Aspect: aspect-ratio: &lt;width&gt; / &lt;height&gt;</h2>
+	<div class="parent" style="height: 300px; border: 1px solid black;">
+		<div class="card" style="background-color: azure;">
+			<div>Title - Card 1</div>
+			<div>Medium length description with a few more words here.</div>
+			<div class="visual" style="background-color: #F6c23e;"></div>
+		</div>
+	</div>
+</div>
+
+<style>
+	
+	.ex11 .container {
+		background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/0236.jpg");
+		background-size: cover;
+		height: 100vh;
+		width: 100%;
+		position: relative;
+	}
+	.ex11 .container iframe {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 100%;
+		-o-object-fit: cover;
+		object-fit: cover;
+	}
+
+	.ex11 .boxes {
+		display: flex;
+		margin-right: 10px;
+		overflow: scroll;
+		min-height: 90vh;
+		width: 100%;
+		align-items: center;
+	}
+	.ex11 .boxes p {
+		display: block;
+		font-weight: 600;
+		min-width: 200px;
+		color: white;
+		font-size: 40px;
+	}
+	@media (min-width: 767px) {
+		.ex11 .boxes p {
+			font-size: 60px;
+			min-width: 300px;
+		}
+	}
+
+	.ex11 .box {
+		border: 1px solid rgba(255, 255, 255, 0.7);
+		min-width: 400px;
+		min-height: 95vh;
+		line-height: 1;
+		padding: 15px 15px;
+		transition: all 0.3s ease;
+	}
+	.box:nth-child(1n+1) {
+		border-right: none;
+	}
+	.ex11 .box h1 {
+		font-weight: 400;
+		font-size: 18px;
+	}
+
+	.none {
+		-webkit-backdrop-filter: none;
+		backdrop-filter: none;
+	}
+
+	.grayscale {
+		-webkit-backdrop-filter: grayscale(1);
+		backdrop-filter: grayscale(1);
+	}
+
+	.brightness {
+		-webkit-backdrop-filter: brightness(1.5);
+		backdrop-filter: brightness(1.5);
+	}
+
+	.blur {
+		-webkit-backdrop-filter: blur(5px);
+		backdrop-filter: blur(5px);
+	}
+
+	.contrast {
+		-webkit-backdrop-filter: contrast(0.8);
+		backdrop-filter: contrast(0.8);
+	}
+
+	.drop-shadow {
+		-webkit-backdrop-filter: drop-shadow(4px 4px 10px blue);
+		backdrop-filter: drop-shadow(4px 4px 10px blue);
+	}
+
+	.invert {
+		-webkit-backdrop-filter: invert(0.7);
+		backdrop-filter: invert(0.7);
+	}
+
+	.opacity {
+		-webkit-backdrop-filter: opacity(0.4);
+		backdrop-filter: opacity(0.4);
+	}
+
+	.sepia {
+		-webkit-backdrop-filter: sepia(0.4);
+		backdrop-filter: sepia(0.4);
+	}
+
+	.saturate {
+		-webkit-backdrop-filter: saturate(1.8);
+		backdrop-filter: saturate(1.8);
+	}
+
+	.hue-rotate {
+		-webkit-backdrop-filter: hue-rotate(120deg);
+		backdrop-filter: hue-rotate(120deg);
+	}
+</style>
+
+<div class="ex11">
+	<h2>Backdrop filter</h2>
+	<div class="parent">
+		<div class="container">
+			<div class="boxes">
+			  <p>Scroll → </p>
+			  <div class="box none">
+				<h1>backdrop-filter: none</h1>
+			  </div>
+			  <div class="box grayscale">
+				<h1>backdrop-filter: grayscale(1)</h1>
+			  </div>
+			  <div class="box brightness">
+				<h1>backdrop-filter: brightness(1.5)</h1>
+			  </div>
+			  <div class="box blur">
+				<h1>backdrop-filter: blur(5px)</h1>
+			  </div>
+			  <div class="box contrast">
+				<h1>backdrop-filter: contrast(.8)</h1>
+			  </div>
+			  <div class="box invert">
+				<h1>backdrop-filter: invert(.7)</h1>
+			  </div>
+			  <div class="box opacity">
+				<h1>backdrop-filter: opacity(.4)</h1>
+			  </div>
+			  <div class="box sepia">
+				<h1>backdrop-filter: sepia(.4)</h1>
+			  </div>
+			  <div class="box saturate">
+				<h1>backdrop-filter: saturate(1.8)</h1>
+			  </div>
+			  <div class="box hue-rotate">
+				<h1>backdrop-filter: hue-rotate(120deg)</h1>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

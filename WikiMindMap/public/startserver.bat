@@ -1,0 +1,2 @@
+node servestaticfile.js
+pause

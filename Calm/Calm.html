@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Calm</title>
+	<meta charset='utf-8' />
+</head>
+
+<body>
+	<div id="app">
+		<video id="video" width="100%" controls autoplay="autoplay" :loop="loop" @ended="onVideoEnded">
+			<source id="videoSrc" :src="videos[playingIndex].video" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>
+		<audio id="audio" controls autoplay="autoplay" loop="loop">
+			<source id="audioSrc" :src="videos[playingIndex].audio" type="audio/ogg">
+			Your browser does not support the audio tag.
+		</audio>
+		<!-- <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="retweet" class="svg-inline--fa fa-retweet fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M629.657 343.598L528.971 444.284c-9.373 9.372-24.568 9.372-33.941 0L394.343 343.598c-9.373-9.373-9.373-24.569 0-33.941l10.823-10.823c9.562-9.562 25.133-9.34 34.419.492L480 342.118V160H292.451a24.005 24.005 0 0 1-16.971-7.029l-16-16C244.361 121.851 255.069 96 276.451 96H520c13.255 0 24 10.745 24 24v222.118l40.416-42.792c9.285-9.831 24.856-10.054 34.419-.492l10.823 10.823c9.372 9.372 9.372 24.569-.001 33.941zm-265.138 15.431A23.999 23.999 0 0 0 347.548 352H160V169.881l40.416 42.792c9.286 9.831 24.856 10.054 34.419.491l10.822-10.822c9.373-9.373 9.373-24.569 0-33.941L144.971 67.716c-9.373-9.373-24.569-9.373-33.941 0L10.343 168.402c-9.373 9.373-9.373 24.569 0 33.941l10.822 10.822c9.562 9.562 25.133 9.34 34.419-.491L96 169.881V392c0 13.255 10.745 24 24 24h243.549c21.382 0 32.09-25.851 16.971-40.971l-16.001-16z"></path></svg> -->
+		<div>
+			<button v-for="(item, index) in videos" :data-video="item.video" :data-audio="item.audio" @click="play(index)">Play {{ item.video || item.audio }}</button>
+		</div>
+
+		<br>
+		<div>
+			<button @click="toggleLoop">{{ loop?"Looping":"Not Looping" }}</button>
+		</div>
+	</div>
+
+	<script src="vue.min.js"></script>
+	<!-- <script src="config.js"></script> -->
+	<script>
+
+		var app4 = new Vue({
+			el: '#app',
+			data: {
+				playingIndex: 0,
+				videos: [
+					{ video: "Over The Horizon 2015.mp4", audio: "" },
+					{ video: "Over the Horizon 2018.mp4", audio: "" },
+					{ video: "Over the Horizon 2019.mp4", audio: "" },
+					{ video: "Galaxy’s Nature-Inspired ‘Over the Horizon 2020’.mp4", audio: "" },
+					{ video: "Over the Horizon 2021.mp3", audio: "" },
+					{ video: "MountainLake.mp4", audio: "MountainLake.m4a" },
+					{ video: "RainOnLeaves.mp4", audio: "RainOnLeaves.m4a" },
+					{ video: "SunsetBeach.mp4", audio: "SunsetBeach.m4a" },
+					{ video: "Thunderstorm.mp4", audio: "Thunderstorm.m4a" },
+					{ video: "WindInThePines.mp4", audio: "WindInThePines.m4a" },
+					{ video: "JasperLake.mp4", audio: "JasperLake.m4a" },
+					{ video: "BlueGold.mp4", audio: "BlueGold.m4a" },
+					{ video: "CalmRiver.mp4", audio: "CalmRiver.m4a" },
+				],
+
+				loop: false,
+			}, 
+
+			methods: {
+				play(index) {
+					this.playingIndex = index;
+					if(this.playingIndex<0 || this.playingIndex>=this.videos.length) {
+						this.playingIndex = 0;
+					}					
+
+					document.getElementById("video").load();
+					document.getElementById("audio").load();
+				}, 
+
+				playVideo(videoName) {
+					this.videoSrc = videoName;
+
+					var videoEl = document.getElementById("video");					
+					videoEl.load();
+				},
+
+				playAudio(audioName) {
+					this.audioSrc = audioName;
+					document.getElementById("audio").load();
+				},
+
+				toggleLoop() {
+					this.loop = !this.loop;
+				},
+
+				onVideoEnded() {
+					if(!this.loop) {
+						this.playingIndex += 1;						
+						this.play(this.playingIndex);
+					}
+				}
+			}
+		})
+
+		// document.getElementById('video').addEventListener('ended', function () {
+		// 	console.log(this.currentTime);
+		// 	var nextVideoName = this.getAttribute("data-next");
+		// 	if (nextVideoName) {
+		// 		playVideo(nextVideoName, false);
+		// 		playAudio();
+		// 	}
+		// }, true);
+
+		// var els = document.getElementsByClassName("selectBtns");
+		// for (var i = 0; i < els.length; i++) {
+		// 	var el = els[i];
+		// 	el.addEventListener("click", function () {
+		// 		var name = this.getAttribute("data-name");
+		// 		playVideo(name + ".mp4", true);
+		// 		playAudio(name + ".m4a");
+		// 	})
+		// }
+
+		// var overTheHorizonButtonEls = document.getElementsByClassName("playOverTheHorizon");
+		// for (var i = 0; i < overTheHorizonButtonEls.length; i++) {
+		// 	var el = overTheHorizonButtonEls[i];
+		// 	el.addEventListener("click", function () {
+		// 		var name = this.getAttribute("data-name");
+		// 		playVideo(name, false);
+		// 		playAudio();
+
+		// 		document.getElementById('video').setAttribute("data-next", this.getAttribute("data-next"));
+		// 	})
+		// }
+
+		// function playVideo(videoName, loop) {
+		// 	var videoEl = document.getElementById("video");
+		// 	document.getElementById("videoSrc").src = videoName;
+		// 	videoEl.load();
+		// 	videoEl.loop = (loop == true);
+
+		// }
+
+		// function playAudio(audioName) {
+		// 	document.getElementById("audioSrc").src = audioName;
+		// 	document.getElementById("audio").load();
+		// }
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content='width=device-width, initial-scale=1' name='viewport' />
+    <title>
+        Vuetify Section Templates
+    </title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <!-- <link href="assets/vuetify.min.css" rel="stylesheet"> -->
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+
+    <style>
+        .template-section {
+            position: relative!important;
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <v-app>            
+            <v-app-bar app style="background-color: white;">
+                <v-app-bar-nav-icon @click="homepage.drawer = !homepage.drawer"></v-app-bar-nav-icon>
+        
+                <v-toolbar-title>Application</v-toolbar-title>
+
+                <v-spacer></v-spacer>
+
+                <div>
+                    <v-tabs class="hidden-sm-and-down">
+                        <v-tab v-for="(link, i) in menus" v-bind="link" :key="i" :ripple="false"
+                            active-class="text--primary" class="font-weight-bold" min-width="96" text>
+                            {{ link.text }}
+                        </v-tab>
+                    </v-tabs>
+                </div>
+            </v-app-bar>
+        
+            <v-navigation-drawer v-model="homepage.drawer" fixed temporary>
+                <v-list color="white" shaped>
+                    <v-list-item v-for="(link, i) in menus" :key="i" v-bind="link" color="primary">
+                        <v-list-item-content>
+                            <v-list-item-title>{{ link.text }}</v-list-item-title>
+                        </v-list-item-content>
+                    </v-list-item>
+                </v-list>
+            </v-navigation-drawer>
+        
+            <v-main class="">
+                <!-- <v-container> -->
+                    <transition name="fade">                        
+                        <router-view></router-view>                        
+                    </transition>
+                <!-- </v-container> -->
+            </v-main>
+        </v-app>
+    </div>
+    
+    <!-- Vue Router Pages -->
+    <script type="text/x-template" id="page-templates">
+		<div>
+            <div v-for="section in sections">
+                <h3 :id="section.id" class="text-center mt-6" v-text="section.name"></h3>
+                <div v-for="(component, i) in section.templates" :key="i" >
+                    <div class="text-center">
+                        <v-chip
+                            class=""
+                            color="teal"
+                            text-color="white"
+                            @click="showTemplateCode(component)"
+                        >
+                            {{ component.tag }}
+                            <v-avatar right>
+                                <v-icon>mdi-code-braces</v-icon>
+                            </v-avatar>
+                        </v-chip>
+                    </div>
+                    
+                    <component                         
+                        :is="component.tag" 
+                        v-bind="component.data"
+                        class="template-section" 
+                        :data-tag="component.tag"
+                    ></component>
+                </div>
+            </div>
+            
+            <!-- Dialog -->
+            <v-dialog
+                v-model="dialog"
+                max-width="550"
+            >
+                <v-card>
+                    <v-card-title class="headline">
+                        Template Code
+                    </v-card-title>
+
+                    <v-card-text>
+                        <div>
+                            <div class="d-flex">
+                                <div class="align-self-center text-subtitle-1">Tag</div>
+                                <v-spacer></v-spacer>
+                                <v-btn
+                                    color="teal"
+                                    outlined
+                                    small
+                                    @click.stop="copyTemplateData('templateDialogTag')"
+                                >
+                                    Copy
+                                    <v-icon right>mdi-content-copy</v-icon>
+                                </v-btn>
+                            </div>
+
+                            <kbd id="templateDialogTag" v-if="!!dialogData">&lt;{{ dialogTag }} v-bind="data"&gt;&lt;/{{ dialogTag }}&gt;</kbd>
+                            <kbd id="templateDialogTag" v-else>&lt;{{ dialogTag }}&gt;&lt;/{{ dialogTag }}&gt;</kbd>
+                        </div>
+                        <div v-if="!!dialogData" class="mt-4">
+                            <div class="d-flex">
+                                <div class="align-self-center text-subtitle-1">Data</div>
+                                <v-spacer></v-spacer>
+                                <v-btn
+                                    color="teal"
+                                    outlined
+                                    small
+                                    @click.stop="copyTemplateData('templateDialogData')"
+                                >
+                                    Copy
+                                    <v-icon right>mdi-content-copy</v-icon>
+                                </v-btn>
+                            </div>
+
+                            <div style="overflow-x: auto; background-color: #212529;">
+                                <pre id="templateDialogData" v-text="dialogData" style="color: white"></pre>
+                            </div>
+                        </div>
+                    </v-card-text>
+
+                    <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn
+                            color="green darken-1"
+                            text
+                            @click="dialog = false"
+                        >
+                            Close
+                        </v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-dialog>
+        </div>
+    </script>
+    <!-- End Vue Router Pages -->
+    
+    <!-- <script src="assets/vue.min.js"></script>
+    <script src="assets/vuetify.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+
+    <script src="assets/vue-router.min.js"></script>
+    
+    <script src="assets/commonfns.js"></script>
+
+    <script src="assets/template-vuetify.js"></script>
+    <script src="assets/template-vuetify-components.js"></script>
+    <script src="assets/template-bootstrap.js"></script>
+
+    <script>
+
+        var BasePage = {
+            data() {
+                return {
+                    dialog: false,
+                    dialogTag: '',
+                    dialogData: '',
+                }                
+            },
+            methods: {
+                showTemplateCode(component) {
+                    this.dialog = true;
+                    this.dialogTag = component.tag;
+                    if(!!component.data) {
+                        this.dialogData = component.data;
+                    } else {
+                        this.dialogData = '';
+                    }
+                },
+                copyTemplateData(idEl) {
+                    helperfns.copyElementContent(document.getElementById(idEl));
+                }
+            }
+        }
+
+        const IndexPage = {
+            template: '#page-templates',
+            extends: BasePage,
+            data() {
+                return {
+                    sections: [
+                        {
+                            id: 'header-template-section',
+                            name: 'Header',
+                            templates: [
+                                { tag: 'template-header1' },
+                                { 
+                                    tag: 'template-header2',
+                                    data: {
+                                        links: [
+                                            { name: 'Home', to: '/' },
+                                            { name: 'About', to: '/about' },
+                                            { name: 'Pricing', to: '/about' },
+                                            { name: 'Contact', to: '/about' },
+                                        ]
+                                    }
+                                },                                
+                            ]
+                        },
+                        {
+                            id: 'hero-template-section',
+                            name: 'Hero',
+                            templates: [
+                                { tag: 'template-hero1' },
+                                { 
+                                    tag: 'template-hero2',
+                                    data: {
+                                        title: 'PROMOTE YOUR BUSINESS WITH ZERO',
+                                        subtitle: 'Infographic hypotheses influencer user experience Long madel ture gen-z paradigm shift client partner network product seilans solve management influencer analytics leverage virality. incubator seed round massmarket. buyer agile development growth hacking business-to-consumer ecosystem',
+                                        buttonPrimary: {
+                                            name: 'Discover more',
+                                            to: '/',
+                                        },
+                                        buttonSecondary: {
+                                            name: 'Get started now',
+                                            to: '/about',
+                                        },
+                                        background: 'assets/images/stairway55516411920.jpg',
+                                    }
+                                },
+                                { tag: 'template-hero3' },
+                                { tag: 'template-hero51' },
+                            ]
+                        },
+                        {
+                            id: 'feature-template-section',
+                            name: 'Features',
+                            templates: [
+                                { tag: 'template-feature1' },
+                                { 
+                                    tag: 'template-feature2',
+                                    data: {
+                                        title: 'Theme Features',
+                                        subtitle: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, in! Asperiores, impedit libero. Veniam rerum saepe unde nihil possimus quibusdam esse accusamus mollitia magni fuga.',
+                                        features: [
+                                            {
+                                                title: 'Pixel Perfect Design',
+                                                icon: 'mdi-fountain-pen-tip',
+                                                description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis illum veniam cum dolores ratione commodi beatae quas maxime, laboriosam excepturi solut!',
+                                            },
+                                            {
+                                                title: 'Retina Ready',
+                                                icon: 'mdi-cellphone',
+                                                description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis illum veniam cum dolores ratione commodi beatae quas maxime, laboriosam excepturi solut!',
+                                            },
+                                            {
+                                                color: 'primary',
+                                                dark: true,
+                                                title: 'Easily Customizable',
+                                                icon: 'mdi-pencil-box-outline',
+                                                description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis illum veniam cum dolores ratione commodi beatae quas maxime, laboriosam excepturi solut!',
+                                            },
+                                            {
+                                                title: 'Image Parallax',
+                                                icon: 'mdi-image-size-select-actual',
+                                                description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis illum veniam cum dolores ratione commodi beatae quas maxime, laboriosam excepturi solut!',
+                                            },
+                                            {
+                                                title: 'Seo Optimized',
+                                                icon: 'mdi-ice-pop',
+                                                description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis illum veniam cum dolores ratione commodi beatae quas maxime, laboriosam excepturi solut!',
+                                            },
+                                            {
+                                                title: '24/7 Support',
+                                                icon: 'mdi-help-circle-outline',
+                                                description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis illum veniam cum dolores ratione commodi beatae quas maxime, laboriosam excepturi solut!',
+                                            },
+                                        ],
+                                    }
+                                },
+                                { tag: 'template-feature3' },
+                                { tag: 'template-feature4' },
+                                { tag: 'template-feature6' },
+                            ]
+                        },
+                        {
+                            id: 'stats-template-section',
+                            name: 'Stats',
+                            templates: [
+                                { tag: 'template-stat1' },
+                            ]
+                        },
+                        {
+                            id: 'clients-template-section',
+                            name: 'Clients',
+                            templates: [
+                                { tag: 'template-clients1' },
+                            ]
+                        },
+                        {
+                            id: 'contact-template-section',
+                            name: 'Contact',
+                            templates: [
+                                { tag: 'template-contact1' },
+                                { tag: 'template-contact2' },
+                                { 
+                                    tag: 'template-contact3',
+                                    data: {
+                                        title: 'Liên hệ với chúng tôi',
+                                        subtitle: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo pariatur quidem, quis modi iure nihil commodi suscipit, corporis dicta adipisci, voluptatum quia cupiditate. Nulla minus voluptatum nostrum deleniti, asperiores facere.',
+                                        contactTitle: 'Để lại lời nhắn',
+                                    }
+                                },
+                                { tag: 'template-contact4' },
+                            ]
+                        },
+                        {
+                            id: 'pricing-template-section',
+                            name: 'Pricing',
+                            templates: [
+                                { tag: 'template-pricing1' },
+                            ]
+                        },
+                        {
+                            id: 'blogs-template-section',
+                            name: 'Blogs',
+                            templates: [
+                                { tag: 'template-blog1' },
+                                { 
+                                    tag: 'template-blog2',
+                                    data: {
+                                        articles: [
+                                            {
+                                                src: 'assets/images/canada18993281920.jpg',
+                                                title: 'Mobile first & Responsive',
+                                                text: 'Phasellus lorem enim, luctus ut velit eget, convallis egestas eros. Sed ornare ligula eget tortor tempor, quis porta tellus dictum.',
+                                            },
+                                            {
+                                                src: 'assets/images/bedroom56642211920.jpg',
+                                                title: 'Think outside the box',
+                                                text: 'Nam ut leo ipsum. Maecenas pretium aliquam feugiat. Aenean vel tempor est, vitae tincidunt risus. Sed sodales vestibulum nibh.',
+                                            },
+                                            {
+                                                src: 'assets/images/americawest46937311920.jpg',
+                                                title: 'Small changes, big difference',
+                                                text: 'Vestibulum in dictum velit, in rhoncus nibh. Maecenas neque libero, interdum a dignissim in, aliquet vitae lectus. Phasellus lorem enim, luctus ut velit eget.',
+                                            },
+                                        ],
+                                        columns: 3                                    
+                                    }
+                                },
+                            ]
+                        },
+                        {
+                            id: 'category-template-section',
+                            name: 'Category',
+                            templates: [
+                                { 
+                                    tag: 'template-category1',
+                                    data: {
+                                        layout: [2, 2, 1, 2, 2, 3, 3, 3, 3, 3, 3],
+                                        articles: [
+                                            {
+                                            "title": "Moroccan Days",
+                                            "author": "John L",
+                                            "category": "Travel",
+                                            "hero": "assets/images/americawest46937311920.jpg"
+                                            },
+                                            {
+                                            "title": "Swedish Fishing",
+                                            "author": "Rachel L",
+                                            "category": "Leisure",
+                                            "hero": "assets/images/bedroom56642211920.jpg"
+                                            },
+                                            {
+                                            "title": "The Adventure Begins",
+                                            "hero": "assets/images/canada18993281920.jpg",
+                                            "prominent": true
+                                            },
+                                            {
+                                            "title": "Paris in Spring",
+                                            "author": "John L",
+                                            "category": "Travel",
+                                            "hero": "assets/images/canal54882711920.jpg"
+                                            },
+                                            {
+                                            "title": "Youthful Independence",
+                                            "author": "Rachel L",
+                                            "category": "Political",
+                                            "hero": "assets/images/guggenheimmuseum27072581920.jpg"
+                                            },
+                                            {
+                                            "title": "Trial By Fire",
+                                            "author": "Anthony R",
+                                            "category": "Cooking",
+                                            "hero": "assets/images/stairway55516411920.jpg"
+                                            },
+                                            {
+                                            "title": "Water Ventures",
+                                            "author": "Rachel L",
+                                            "category": "Leisure",
+                                            "hero": "assets/images/thecaucasus52995991920.jpg"
+                                            },
+                                            {
+                                            "title": "Mt. Zekial",
+                                            "author": "Rachel L",
+                                            "category": "Travel",
+                                            "hero": "assets/images/woman45787541920.jpg"
+                                            },
+                                            {
+                                            "title": "Cozumel Caves",
+                                            "author": "Rachel L",
+                                            "category": "Travel",
+                                            "hero": "assets/images/americawest46937311920.jpg"
+                                            },
+                                            {
+                                            "title": "Amazing Ireland",
+                                            "author": "Rachel L",
+                                            "category": "Travel",
+                                            "hero": "assets/images/bedroom56642211920.jpg"
+                                            },
+                                            {
+                                            "title": "Cabin Fever",
+                                            "author": "Rachel L",
+                                            "category": "Travel",
+                                            "hero": "assets/images/canada18993281920.jpg"
+                                            },
+                                            {
+                                            "title": "To the ancient ruins",
+                                            "author": "Rachel L",
+                                            "category": "Travel",
+                                            "hero": "assets/images/canal54882711920.jpg"
+                                            },
+                                            {
+                                            "title": "New fashion trends",
+                                            "author": "Rachel L",
+                                            "category": "Travel",
+                                            "hero": "assets/images/guggenheimmuseum27072581920.jpg"
+                                            },
+                                            {
+                                            "title": "Go on a vacation",
+                                            "author": "Rachel L",
+                                            "category": "Travel",
+                                            "hero": "assets/images/stairway55516411920.jpg"
+                                            }
+                                        ]
+                                    }
+                                },
+                                { tag: 'template-category2' },
+                            ]
+                        },
+                        {
+                            id: 'slider-template-section',
+                            name: 'Sliders',
+                            templates: [
+                                { tag: 'template-slider1' },
+                            ]
+                        },
+                        {
+                            id: 'ecommerce-template-section',
+                            name: 'E-Commerce',
+                            templates: [
+                                { tag: 'template-ecommerce1' },
+                            ]
+                        },
+                        {
+                            id: 'single-product-template-section',
+                            name: 'Single product',
+                            templates: [
+                                { tag: 'template-single-product1' },
+                            ]
+                        },
+                        {
+                            id: 'dashboard-template-section',
+                            name: 'Dashboard',
+                            templates: [
+                                { tag: 'template-dashboard1' },
+                            ]
+                        },
+                        {
+                            id: 'page404-template-section',
+                            name: '404 Page',
+                            templates: [
+                                { tag: 'template-404page1' },
+                            ]
+                        },
+                        {
+                            id: 'footer-template-section',
+                            name: 'Footer',
+                            templates: [
+                                { tag: 'template-footer1' },
+                                { tag: 'template-footer2' },
+                                { tag: 'template-footer3' },
+                            ]
+                        },
+                        
+                        /*
+                        {
+                            id: '-template-section',
+                            name: '',
+                            templates: [
+                                { tag: 'template-' },
+                                { tag: 'template-' },
+                            ]
+                        },
+
+                        */
+                    ]
+                }
+            },
+        }
+		const VuetifyComponentsPage = {
+            template: '#page-templates',
+            extends: BasePage,
+            data() {
+                return {
+                    sections: [
+                        {
+                            id: 'component-template-section',
+                            name: 'Components',
+                            templates: [
+                                { tag: 'template-avatars' },
+                                { tag: 'template-toolbar' },
+                                { tag: 'template-bottom-sheets1' },                                
+                                { tag: 'template-bottom-sheets2' },
+                                { tag: 'template-button-fab' },
+                                { tag: 'template-cards' },
+                                { tag: 'template-cards2' },
+                                { tag: 'template-cards3' },
+                                { tag: 'template-divider1' },
+                                { tag: 'template-divider2' },
+                                { tag: 'template-list1' },
+                                { tag: 'template-list2' },
+                                { tag: 'template-list3' },
+                                { tag: 'template-list4' },
+                                { tag: 'template-list5' },
+                                { tag: 'template-list6' },
+                                { tag: 'template-list7' },
+                                { tag: 'template-list8' },
+                                { tag: 'template-list9' },
+                                { tag: 'template-navigation-drawer1' },
+                                { tag: 'template-navigation-drawer2' },
+                                { tag: 'template-overlay1' },
+                                { tag: 'template-sparkline1' },
+                                { tag: 'template-subheader1' },
+                                { tag: 'template-subheader2' },
+                                
+                            ]
+                        },
+                    ]
+                }
+            },
+        }
+        const BootstrapsPage = {
+            template: '#page-templates',
+            extends: BasePage,
+            data() {
+                return {
+                    sections: [
+                        {
+                            id: 'email-template-section',
+                            name: 'Emails',
+                            templates: [
+                                { tag: 'template-email1' },
+                                { tag: 'template-email2' },
+                                
+                            ]
+                        },
+                    ]
+                }
+            },
+        }
+        const PlaygroundsPage = {
+            template: '#page-templates', 
+            extends: BasePage,
+            data() {
+                return {
+                    sections: [
+                        {
+                            id: 'playgrounds-template-section',
+                            name: 'Playgrounds',
+                            templates: [
+                                {
+                                    tag: 'template-playground1'
+                                },
+                                {
+                                    tag: 'template-feature5',
+                                    data: {
+                                        title: 'PROMOTE YOUR BUSINESS WITH ZERO',
+                                        subtitle: 'Infographic hypotheses influencer user experience Long madel ture gen-z paradigm shift client partner network product seilans solve management influencer analytics leverage virality. incubator seed round massmarket. buyer agile development growth hacking business-to-consumer ecosystem',
+                                        buttonPrimary: {
+                                            name: 'Discover more',
+                                            to: '/',
+                                        },
+                                        buttonSecondary: {
+                                            name: 'Get started now',
+                                            to: '/about',
+                                        },
+                                        background: 'assets/images/stairway55516411920.jpg',
+                                    }
+                                },
+                                
+                            ]
+                        },
+                    ]
+                }
+            },
+        }
+
+		const routes = [
+			{ path:'/', component: IndexPage },
+            { path:'/vuetify-components', component: VuetifyComponentsPage },
+            { path:'/bootstrap-templates', component: BootstrapsPage },
+            { path:'/playgrounds', component: PlaygroundsPage },
+		]
+
+		const router = new VueRouter({
+			routes
+        })
+        
+        var app = new Vue({
+            el: '#app',
+            router: router,
+            vuetify: new Vuetify(),
+            
+            data() {
+                return {
+                    homepage: {
+                        drawer: null,
+                        
+                    },
+                    menus: [
+                        {
+                            text: 'Home',
+                            to: '/',
+                        },
+                        {
+                            text: 'Vuetify Components',
+                            to: '/vuetify-components',
+                        },
+                        {
+                            text: 'Bootstrap Templates',
+                            to: '/bootstrap-templates',
+                        },
+                        {
+                            text: 'Playgrounds',
+                            to: '/playgrounds',
+                        },
+                    ],
+                    
+                }
+            },
+
+            computed: {
+
+            },
+
+            watch: {
+
+            },
+
+            mounted: function() {
+
+            },
+
+            methods: {
+                
+            }
+        })
+    </script>
+
+    <!-- <script src="assets/scopercss/scoper.js"></script> -->
+    <!-- <script src="assets/scoped-polyfill/scoped.js"></script> -->
+</body>
+
+</html>

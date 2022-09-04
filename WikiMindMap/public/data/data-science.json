@@ -1,0 +1,2124 @@
+{
+	"id": "DataScience",
+	"name": "DataScience",
+	"href": "#data-science",
+	"type": "",
+	"shortdescription": "",
+	"description": "DataScienceisaprocess,notanevent.Itistheprocessofusingdatatounderstanddifferentthings,tounderstandtheworld.Formeiswhenyouhaveamodelorhypothesisofaproblem,andyoutrytovalidatethathypothesisormodelwithyourdata.Datascienceistheartofuncoveringtheinsightsandtrendsthatarehidingbehinddata.",
+	"expanded": true,
+	"children": [
+		{
+			"id": "DataScience.WhatisDataScience",
+			"name": "WhatisDataScience",
+			"href": "",
+			"type": "",
+			"shortdescription": "",
+			"description": "",
+			"children": [
+				{
+					"id": "DataScience.WhatisDataScience.DataMining",
+					"name": "DataMining",
+					"href": "#data-mining",
+					"type": "",
+					"shortdescription": "",
+					"description": "",
+					"children": []
+				},
+				{
+					"id": "DataScience.WhatisDataScience.BigData",
+					"name": "BigData",
+					"href": "#big-data",
+					"type": "",
+					"shortdescription": "",
+					"description": "BigDatareferstothedynamic,largeanddisparatevolumesofdatabeingcreatedbypeople,tools,andmachines.Itrequiresnew,innovative,andscalabletechnologytocollect,host,andanalyticallyprocessthevastamountofdatagatheredinordertoderivereal-timebusinessinsightsthatrelatetoconsumers,risk,profit,performance,productivitymanagement,andenhancedshareholdervalue.TheV'sofBigData:velocity,volume,variety,veracity,andvalue.",
+					"children": [
+						{
+							"id": "DataScience.WhatisDataScience.BigData.Hadoop",
+							"name": "Hadoop",
+							"href": "#hadoop",
+							"type": "",
+							"shortdescription": "",
+							"description": "Tookthedataandsliceditintopiecesanddistributedeachandreplicatedeachpieceortriplicatedeachpieceandtheywouldsenditthepiecesofthesefilestothousandsofcomputersfirstitwashundredsbutthennowit'sthousandsnowit'stensofthousands.Andthentheywouldsendthesameprogramtoallthesecomputersinthecluster.Andeachcomputerwouldruntheprogramonitslittlepieceofthefileandsendtheresultsback.Theresultswouldthenbesortedandthoseresultswouldthenberedistributedbacktoanotherprocess.Thefirstprocessiscalledamaporamapperprocessandthesecondonewascalledareduceprocess.Sotheonethingthat'sniceaboutthesebigdataclustersistheyscalelinearly.Youhadtwiceasmanyserversandyougettwicetheperformanceandyoucanhandletwicetheamountofdata.",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "DataScience.ToolsforDataScience",
+			"name": "ToolsforDataScience",
+			"href": "",
+			"type": "",
+			"shortdescription": "",
+			"description": "",
+			"children": [
+				{
+					"id": "DataScience.ToolsforDataScience.LanguagesforDataScience",
+					"name": "LanguagesforDataScience",
+					"href": "",
+					"type": "",
+					"shortdescription": "",
+					"description": "",
+					"children": [
+						{
+							"id": "DataScience.ToolsforDataScience.LanguagesforDataScience.Python",
+							"name": "Python",
+							"href": "#python",
+							"type": "",
+							"shortdescription": "",
+							"description": "1.Pythonisahigh-levelgeneral-purposeprogramminglanguagethatcanbeappliedtomanydifferentclassesofproblems.<br>2.Ithasalarge,standardlibrarythatprovidestoolssuitedtomanydifferenttasks,includingbutnotlimitedtodatabases,automation,webscraping,textprocessing,imageprocessing,machinelearning,anddataanalytics.<br>3.Fordatascience,youcanusePython'sscientificcomputinglibrariessuchasPandas,NumPy,SciPy,andMatplotlib.<br>4.Forartificialintelligence,ithasTensorFlow,PyTorch,Keras,andScikit-learn.<br>5.PythoncanalsobeusedforNaturalLanguageProcessing(NLP)usingtheNaturalLanguageToolkit(NLTK)",
+							"children": []
+						},
+						{
+							"id": "DataScience.ToolsforDataScience.LanguagesforDataScience.R",
+							"name": "R",
+							"href": "#r-language",
+							"type": "",
+							"shortdescription": "",
+							"description": "Rismostoftenusedbystatisticians,mathematicians,anddataminersfordevelopingstatisticalsoftware,graphing,anddataanalysis.Thelanguage’sarray-orientedsyntaxmakesiteasiertotranslatefrommathtocode.",
+							"children": []
+						}
+					]
+				},
+				{
+					"id": "DataScience.ToolsforDataScience.DataScienceTools",
+					"name": "DataScienceTools",
+					"href": "#data-science-tools",
+					"type": "",
+					"shortdescription": "",
+					"description": "<img src='assets/images/datascience.toolsfordatascience.datasciencetools.jpg' />",
+					"children": [
+						{
+							"id": "DataScience.ToolsforDataScience.DataScienceTools.OpenSource",
+							"name": "OpenSource",
+							"href": "#",
+							"type": "",
+							"shortdescription": "",
+							"description": "",
+							"children": [
+								{
+									"id": "DataScience.ToolsforDataScience.DataScienceTools.OpenSource.DataManagement",
+									"name": "DataManagementTools",
+									"href": "#data-management-tools",
+									"type": "",
+									"shortdescription": "",
+									"description": "RelationaldatabasessuchasMySQLandPostgreSQL;NoSQLdatabasessuchasMongoDBApacheCouchDB,andApacheCassandra;andfile-basedtoolssuchastheHadoopFileSystemorCloudFilesystemslikeCeph.Elasticsearchismainlyusedforstoringtextdataandcreatingasearchindexforfastdocumentretrieval.<img src='assets/images/datascience.toolsfordatascience.datasciencetools.datamanagement.jpg' />",
+									"children": []
+								},
+								{
+									"id": "DataScience.ToolsforDataScience.DataScienceTools.OpenSource.DataIntegrationAndTransformation",
+									"name": "DataIntegrationAndTransformation",
+									"href": "#data-integration-and-transformation-tools",
+									"type": "",
+									"shortdescription": "",
+									"description": "ApacheAirFlow,originallycreatedbyAirBNB;KubeFlow,whichenablesyoutoexecutedatasciencepipelinesontopofKubernetes;ApacheKafka,whichoriginatedfromLinkedIn;ApacheNifi,whichdeliversaverynicevisualeditor;ApacheSparkSQL(whichenablesyoutouseANSISQLandscalesuptocomputeclustersof1000sofnodes),andNodeRED,whichalsoprovidesavisualeditor.NodeREDconsumessolittleinresourcesthatitevenrunsonsmalldeviceslikeaRaspberryPi.<img src='assets/images/datascience.toolsfordatascience.datasciencetools.dataintegrationandtransformation.jpg' />",
+									"children": []
+								},
+								{
+									"id": "DataScience.ToolsforDataScience.DataScienceTools.OpenSource.DataVisualization",
+									"name": "DataVisualization",
+									"href": "#data-visualization-tools",
+									"type": "",
+									"shortdescription": "",
+									"description": "Hue,whichcancreatevisualizationsfromSQLqueries.Kibana,adataexplorationandvisualizationwebapplication,islimitedtoElasticsearch(thedataprovider).ApacheSupersetisadataexplorationandvisualizationwebapplication.<img src='assets/images/datascience.toolsfordatascience.datasciencetools.datavisualization.jpg' />",
+									"children": []
+								},
+								{
+									"id": "DataScience.ToolsforDataScience.DataScienceTools.OpenSource.ModelDeployment",
+									"name": "ModelDeployment",
+									"href": "#model-deployment-tools",
+									"type": "",
+									"shortdescription": "",
+									"description": "ApachePredictionIOcurrentlyonlysupportsApacheSparkMLmodelsfordeployment,butsupportforallsortsofotherlibrariesisontheroadmap.Seldonisaninterestingproductsinceitsupportsnearlyeveryframework,includingTensorFlow,ApacheSparkML,R,andscikit-learn.SeldoncanrunontopofKubernetesandRedhatOpenShift.AnotherwaytodeploySparkMLmodelsisbyusingMLeap.Finally,TensorFlowcanserveanyofitsmodelsusingtheTensorFlowservice.YoucandeploytoanembeddeddevicelikeaRaspberryPiorasmartphoneusingTensorFlowLite,andevendeploytoawebbrowserusingTensorFlow.JS.<img src='assets/images/datascience.toolsfordatascience.datasciencetools.modeldeployment.jpg' />",
+									"children": []
+								},
+								{
+									"id": "DataScience.ToolsforDataScience.DataScienceTools.OpenSource.ModelMonitoringandAssessment",
+									"name": "ModelMonitoringandAssessment",
+									"href": "#model-monitoring-and-assessment-tools",
+									"type": "",
+									"shortdescription": "",
+									"description": "ModelDBisamachinemodelmetadatabasewhereinformationaboutthemodelsarestoredandcanbequeried.ItnativelysupportsApacheSparkMLPipelinesandscikit-learn.Ageneric,multi-purposetoolcalledPrometheusisalsowidelyusedformachinelearningmodelmonitoring,althoughit’snotspecificallymadeforthispurpose.Modelperformanceisnotexclusivelymeasuredthroughaccuracy.Modelbiasagainstprotectedgroupslikegenderorraceisalsoimportant.TheIBMAIFairness360opensourcetoolkitdoesexactlythis.Itdetectsandmitigatesagainstbiasinmachinelearningmodels.Machinelearningmodels,especiallyneural-network-baseddeeplearningmodels,canbesubjecttoadversarialattacks,whereanattackertriestofoolthemodelwithmanipulateddataorbymanipulatingthemodelitself.TheIBMAdversarialRobustness360Toolboxcanbeusedtodetectvulnerabilitytoadversarialattacksandhelpmakethemodelmorerobust.Machinelearningmodesareoftenconsideredtobeablackboxthatappliessomemysterious“magic.”TheIBMAIExplainability360Toolkitmakesthemachinelearningprocessmoreunderstandablebyfindingsimilarexampleswithinadatasetthatcanbepresentedtoauserformanualcomparison.TheIBMAIExplainability360Toolkitcanalsoillustratetrainingforasimplermachinelearningmodelbyexplaininghowdifferentinputvariablesaffectthefinaldecisionofthemodel.<img src='assets/images/datascience.toolsfordatascience.datasciencetools.modelmonitoringandassessment.jpg' />",
+									"children": []
+								},
+								{
+									"id": "DataScience.ToolsforDataScience.DataScienceTools.OpenSource.CodeAssetManagement",
+									"name": "CodeAssetManagement",
+									"href": "#code-asset-management-tools",
+									"type": "",
+									"shortdescription": "",
+									"description": "Gitisnowthestandard.MultipleserviceshaveemergedtosupportGit,withthemostprominentbeingGitHub,whichprovideshostingforsoftwaredevelopmentversionmanagement.Therunner-upisdefinitelyGitLab,whichhastheadvantageofbeingafullyopensourceplatformthatyoucanhostandmanageyourself.AnotherchoiceisBitbucket.<img src='assets/images/datascience.toolsfordatascience.datasciencetools.costassetmanament.jpg' />",
+									"children": []
+								},
+								{
+									"id": "DataScience.ToolsforDataScience.DataScienceTools.OpenSource.DataAssetManagement",
+									"name": "DataAssetManagement",
+									"href": "#data-asset-management-tools",
+									"type": "",
+									"shortdescription": "",
+									"description": "Dataassetmanagement,alsoknownasdatagovernanceordatalineage,isanothercrucialpartofenterprisegradedatascience.Datahastobeversionedandannotatedwithmetadata.ApacheAtlasisatoolthatsupportsthistask.Anotherinterestingproject,ODPiEgeria,ismanagedthroughtheLinuxFoundationandisanopenecosystem.ItoffersasetofopenAPIs,types,andinterchangeprotocolsthatmetadatarepositoriesusetoshareandexchangedata.Finally,Kyloisanopensourcedatalakemanagementsoftwareplatformthatprovidesextensivesupportforawiderangeofdataassetmanagementtasks.<img src='assets/images/datascience.toolsfordatascience.datasciencetools.dataassetmanagement.jpg' />",
+									"children": []
+								},
+								{
+									"id": "DataScience.ToolsforDataScience.DataScienceTools.OpenSource.DevelopmentEnvironments",
+									"name": "DevelopmentEnvironments",
+									"href": "#development-environments-tools",
+									"type": "",
+									"shortdescription": "",
+									"description": "<img src='assets/images/datascience.toolsfordatascience.datasciencetools.developmentenvironments.jpg' />",
+									"children": []
+								},
+								{
+									"id": "DataScience.ToolsforDataScience.DataScienceTools.OpenSource.ExecutionEnvironments",
+									"name": "ExecutionEnvironments",
+									"href": "#execution-environments-tools",
+									"type": "",
+									"shortdescription": "",
+									"description": "Sometimesyourdatadoesn’tfitintoasinglecomputer’sstorageormainmemorycapacity.That’swhereclusterexecutionenvironmentscomein.Thewellknowncluster-computingframeworkApacheSparkisamongthemostactiveApacheprojectsandisusedacrossallindustries,includinginmanyFortune500companies.ThekeypropertyofApacheSparkislinearscalability.Thismeans,ifyoudoublethenumberofserversinacluster,you’llalsoroughlydoubleitsperformance.AfterApacheSparkbegantogainmarketshare,ApacheFlinkwascreated.ThekeydifferencebetweenApacheSparkandApacheFlinkisthatApacheSparkisabatchdataprocessingengine,capableofprocessinghugeamountsofdatafilebyfile.ApacheFlink,ontheotherhand,isastreamprocessingimage,withitsmainfocusonprocessingreal-timedatastreams.Althoughenginesupportsbothdataprocessingparadigms,ApacheSparkisusuallythechoiceinmostusecases.Oneofthelatestdevelopmentsinthedatascienceexecutionenvironmentsiscalled“Ray,”whichhasaclearfocusonlarge-scaledeeplearningmodeltraining.<img src='assets/images/datascience.toolsfordatascience.datasciencetools.executionenvironments.jpg' />",
+									"children": []
+								},
+								{
+									"id": "DataScience.ToolsforDataScience.DataScienceTools.OpenSource.FullyIntegratedVisualTools",
+									"name": "FullyIntegratedVisualTools",
+									"href": "#fully-integrated-visual-tools",
+									"type": "",
+									"shortdescription": "",
+									"description": "Mostimportanttasksaresupportedbythesetools;thesetasksincludedataintegration,transformation,datavisualization,andmodelbuilding.KNIMEoriginatedattheUniversityofKonstanzin2004.Asyoucansee,KNIMEhasavisualuserinterfacewithdrag-and-dropcapabilities.Italsohasbuilt-invisualizationcapabilities.KnimecanbebeextendedbyprogramminginRandPython,andhasconnectorstoApacheSpark.AnotherexampleofthisgroupoftoolsisOrange.It’slessflexiblethanKNIME,buteasiertouse.<img src='assets/images/datascience.toolsfordatascience.datasciencetools.fullyintegratedvisualtools.jpg' />",
+									"children": []
+								}
+							]
+						},
+						{
+							"id": "DataScience.ToolsforDataScience.DataScienceTools.CommercialTools",
+							"name": "CommercialTools",
+							"href": "#",
+							"type": "",
+							"shortdescription": "",
+							"description": "",
+							"children": [
+								{
+									"id": "DataScience.ToolsforDataScience.DataScienceTools.CommercialTools.DataManagement",
+									"name": "DataManagementCommercialTools",
+									"href": "#data-management-commercial-tools",
+									"type": "",
+									"shortdescription": "",
+									"description": "<img src='assets/images/datascience.toolsfordatascience.datasciencetools.datamanagementcommercial.jpg' />",
+									"children": []
+								},
+								{
+									"id": "DataScience.ToolsforDataScience.DataScienceTools.CommercialTools.DataIntegrationAndTransformation",
+									"name": "DataIntegrationAndTransformationCommercialTools",
+									"href": "#data-integration-and-transformation-commercial-tools",
+									"type": "",
+									"shortdescription": "",
+									"description": "<img src='assets/images/datascience.toolsfordatascience.datasciencetools.dataintegrationandtransformationcommercial.jpg' />",
+									"children": []
+								},
+								{
+									"id": "DataScience.ToolsforDataScience.DataScienceTools.CommercialTools.DataVisualization",
+									"name": "DataVisualizationCommercialTools",
+									"href": "#data-visualization-commercial-tools",
+									"type": "",
+									"shortdescription": "",
+									"description": "<img src='assets/images/datascience.toolsfordatascience.datasciencetools.datavisualizationcommercial.jpg' />",
+									"children": []
+								},
+								{
+									"id": "DataScience.ToolsforDataScience.DataScienceTools.CommercialTools.ModelBuildingCommercial",
+									"name": "ModelBuildingTools",
+									"href": "#model-building-commercial-tools",
+									"type": "",
+									"shortdescription": "",
+									"description": "<img src='assets/images/datascience.toolsfordatascience.datasciencetools.modelbuildingcommercial.jpg' />",
+									"children": []
+								},
+								{
+									"id": "DataScience.ToolsforDataScience.DataScienceTools.CommercialTools.ModelDeployment",
+									"name": "ModelDeploymentCommercialTools",
+									"href": "#model-deployment-commercial-tools",
+									"type": "",
+									"shortdescription": "",
+									"description": "<img src='assets/images/datascience.toolsfordatascience.datasciencetools.modeldeploymentcommercial.jpg' />",
+									"children": []
+								},
+								{
+									"id": "DataScience.ToolsforDataScience.DataScienceTools.CommercialTools.DataAssetManagement",
+									"name": "DataAssetManagementCommercialTools",
+									"href": "#data-asset-management-commercial-tools",
+									"type": "",
+									"shortdescription": "",
+									"description": "<img src='assets/images/datascience.toolsfordatascience.datasciencetools.dataassetmanagementcommercial.jpg' />",
+									"children": []
+								},
+								{
+									"id": "DataScience.ToolsforDataScience.DataScienceTools.CommercialTools.DevelopmentEnvironments",
+									"name": "DevelopmentEnvironmentsCommercialTools",
+									"href": "#development-environments-commercial-tools",
+									"type": "",
+									"shortdescription": "",
+									"description": "<img src='assets/images/datascience.toolsfordatascience.datasciencetools.developmentenvironments.jpg' />",
+									"children": []
+								},
+								{
+									"id": "DataScience.ToolsforDataScience.DataScienceTools.CommercialTools.ExecutionEnvironments",
+									"name": "ExecutionEnvironmentsCommercialTools",
+									"href": "#execution-environments-commercial-tools",
+									"type": "",
+									"shortdescription": "",
+									"description": "IBMWatsonStudioDesktop",
+									"children": []
+								},
+								{
+									"id": "DataScience.ToolsforDataScience.DataScienceTools.CommercialTools.FullyIntegratedVisualTools",
+									"name": "CommercialFullyIntegratedVisualTools",
+									"href": "#fully-integrated-visual-commercial-tools",
+									"type": "",
+									"shortdescription": "",
+									"description": "<img src='assets/images/datascience.toolsfordatascience.datasciencetools.fullyintegratedvisualtoolscommercial.jpg' />",
+									"children": []
+								}
+							]
+						},
+						{
+							"id": "DataScience.ToolsforDataScience.DataScienceTools.CloudBasedTools",
+							"name": "CloudBasedTools",
+							"href": "#",
+							"type": "",
+							"shortdescription": "",
+							"description": "",
+							"children": [
+								{
+									"id": "DataScience.ToolsforDataScience.DataScienceTools.CloudBasedTools.FullyIntegratedVisualToolsandPlatforms",
+									"name": "CloudBasedFullyIntegratedVisualTools",
+									"href": "#fully-integrated-visual-cloud-tools",
+									"type": "",
+									"shortdescription": "",
+									"description": "IBMWatsonStudio<br>IBMWatsonOpenScale<br>AzureMachineLearning<br>H2ODriverlessAI",
+									"children": []
+								},
+								{
+									"id": "DataScience.ToolsforDataScience.DataScienceTools.CloudBasedTools.DataManagement",
+									"name": "DataManagementCloudBasedTools",
+									"href": "#data-management-cloud-tools",
+									"type": "",
+									"shortdescription": "",
+									"description": "AmazonDynamoDB<br>Cloudant<br>CouchDBrelax<br>IBMDb2",
+									"children": []
+								},
+								{
+									"id": "DataScience.ToolsforDataScience.DataScienceTools.CloudBasedTools.DataIntegrationAndTransformation",
+									"name": "DataIntegrationAndTransformationCloudBasedTools",
+									"href": "#data-integration-and-transformation-cloud-tools",
+									"type": "",
+									"shortdescription": "",
+									"description": "Informatica<br>IBMDataRefinery",
+									"children": []
+								},
+								{
+									"id": "DataScience.ToolsforDataScience.DataScienceTools.CloudBasedTools.DataVisualization",
+									"name": "DataVisualizationCloudBasedTools",
+									"href": "#data-visualization-cloud-tools",
+									"type": "",
+									"shortdescription": "",
+									"description": "Datameer<br>IBMCognosAnalytics<br>",
+									"children": []
+								},
+								{
+									"id": "DataScience.ToolsforDataScience.DataScienceTools.CloudBasedTools.ModelBuildingCloudBased",
+									"name": "ModelBuildingTools",
+									"href": "#model-building-cloud-tools",
+									"type": "",
+									"shortdescription": "",
+									"description": "IBMWatsonMachineLearning<br>GoogleAIPlatformTraining",
+									"children": []
+								},
+								{
+									"id": "DataScience.ToolsforDataScience.DataScienceTools.CloudBasedTools.ModelDeployment",
+									"name": "ModelDeploymentCloudBasedTools",
+									"href": "#model-deployment-cloud-tools",
+									"type": "",
+									"shortdescription": "",
+									"description": "IBMSPSSCollaborationandDeploymentServices<br>IBMWatsonMachineLearning",
+									"children": []
+								},
+								{
+									"id": "DataScience.ToolsforDataScience.DataScienceTools.CloudBasedTools.ModelMonitoringandAssessment",
+									"name": "ModelMonitoringandAssessmentCloudTools",
+									"href": "#model-monitoring-and-assessment-cloud-tools",
+									"type": "",
+									"shortdescription": "",
+									"description": "AmazonSageMakerModelMonitor<br>IBMWatsonOpenScale",
+									"children": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "DataScience.Packages,APIs,DataSetsandModels",
+			"name": "Packages,APIs,DataSetsandModels",
+			"href": "#",
+			"type": "",
+			"shortdescription": "",
+			"description": "",
+			"children": [
+				{
+					"id": "DataScience.Packages,APIs,DataSetsandModels.Libraries",
+					"name": "Libraries",
+					"href": "#",
+					"type": "",
+					"shortdescription": "",
+					"description": "",
+					"children": [
+						{
+							"id": "DataScience.Packages,APIs,DataSetsandModels.Libraries.ScientificsComputing",
+							"name": "ScientificsComputing",
+							"href": "#",
+							"type": "",
+							"shortdescription": "",
+							"description": "",
+							"children": [
+								{
+									"id": "DataScience.Packages,APIs,DataSetsandModels.Libraries.ScientificsComputing.Pandas(Datastructures&amp;tools)",
+									"name": "Pandas(Datastructures&amp;tools)",
+									"href": "#pandas",
+									"type": "",
+									"shortdescription": "",
+									"description": "Pandasoffersdatastructuresandtoolsforeffectivedatacleaning,manipulation,andanalysis.Itprovidestoolstoworkwithdifferenttypesofdata.TheprimaryinstrumentofPandasisatwo-dimensionaltableconsistingofcolumnsandrows.Thistableiscalleda“DataFrame”andisdesignedtoprovideeasyindexingsoyoucanworkwithyourdata.",
+									"children": []
+								},
+								{
+									"id": "DataScience.Packages,APIs,DataSetsandModels.Libraries.ScientificsComputing.Numpy(Arrays&amp;matrices)",
+									"name": "Numpy(Arrays&amp;matrices)",
+									"href": "#numpy",
+									"type": "",
+									"shortdescription": "",
+									"description": "NumPylibrariesarebasedonarrays,enablingyoutoapplymathematicalfunctionstothesearrays.PandasisactuallybuiltontopofNumPyDatavisualizationmethodsareagreatwaytocommunicatewithothersandshowthemeaningfulresultsofanalysis.",
+									"children": []
+								},
+								{
+									"id": "DataScience.Packages,APIs,DataSetsandModels.Libraries.ScientificsComputing.SciPy(Integrals,solvingdifferentialequations,optimization)",
+									"name": "SciPy(Integrals,solvingdifferentialequations,optimization)",
+									"href": "#scipy",
+									"type": "",
+									"shortdescription": "",
+									"description": "SciPyincludesfunctionsforsomeadvancedmathproblemsaslistedonthisslide,aswellasdatavisualization.",
+									"children": []
+								}
+							]
+						},
+						{
+							"id": "DataScience.Packages,APIs,DataSetsandModels.Libraries.Visualization",
+							"name": "Visualization",
+							"href": "#",
+							"type": "",
+							"shortdescription": "",
+							"description": "",
+							"children": [
+								{
+									"id": "DataScience.Packages,APIs,DataSetsandModels.Libraries.Visualization.Matplotlib(plots&amp;graphs,mostpopular)",
+									"name": "Matplotlib(plots&amp;graphs,mostpopular)",
+									"href": "#",
+									"type": "",
+									"shortdescription": "",
+									"description": "",
+									"children": []
+								},
+								{
+									"id": "DataScience.Packages,APIs,DataSetsandModels.Libraries.Visualization.Seaborn(plots:heatmaps,timeseries,violinplots)",
+									"name": "Seaborn(plots:heatmaps,timeseries,violinplots)",
+									"href": "#",
+									"type": "",
+									"shortdescription": "",
+									"description": "",
+									"children": []
+								}
+							]
+						},
+						{
+							"id": "DataScience.Packages,APIs,DataSetsandModels.Libraries.MachineLearning&amp;DeepLearning",
+							"name": "MachineLearning&amp;DeepLearning",
+							"href": "#",
+							"type": "",
+							"shortdescription": "",
+							"description": "",
+							"children": [
+								{
+									"id": "DataScience.Packages,APIs,DataSetsandModels.Libraries.MachineLearning&amp;DeepLearning.Scikit-learn(MachineLearning:regression,classification,)",
+									"name": "Scikit-learn(MachineLearning:regression,classification,)",
+									"href": "#",
+									"type": "",
+									"shortdescription": "",
+									"description": "",
+									"children": []
+								},
+								{
+									"id": "DataScience.Packages,APIs,DataSetsandModels.Libraries.MachineLearning&amp;DeepLearning.Statsmodels(Exploredata,estimatestatisticalmodelsandperformstatisticaltests)",
+									"name": "Statsmodels(Exploredata,estimatestatisticalmodelsandperformstatisticaltests)",
+									"href": "#",
+									"type": "",
+									"shortdescription": "",
+									"description": "",
+									"children": []
+								}
+							]
+						},
+						{
+							"id": "DataScience.Packages,APIs,DataSetsandModels.Libraries.DeepLearningLibraries",
+							"name": "DeepLearningLibraries",
+							"href": "#",
+							"type": "",
+							"shortdescription": "",
+							"description": "",
+							"children": [
+								{
+									"id": "DataScience.Packages,APIs,DataSetsandModels.Libraries.DeepLearningLibraries.TensorFlow(DeepLearning:ProductionandDeployment)",
+									"name": "TensorFlow(DeepLearning:ProductionandDeployment)",
+									"href": "#",
+									"type": "",
+									"shortdescription": "",
+									"description": "",
+									"children": []
+								},
+								{
+									"id": "DataScience.Packages,APIs,DataSetsandModels.Libraries.DeepLearningLibraries.PyTorch(DeepLearning:regression,classification,)",
+									"name": "PyTorch(DeepLearning:regression,classification,)",
+									"href": "#",
+									"type": "",
+									"shortdescription": "",
+									"description": "",
+									"children": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"id": "DataScience.Packages,APIs,DataSetsandModels.DataSets",
+					"name": "DataSets",
+					"href": "#",
+					"type": "",
+					"shortdescription": "",
+					"description": "",
+					"children": [
+						{
+							"id": "DataScience.Packages,APIs,DataSetsandModels.DataSets.Opendata",
+							"name": "Opendata",
+							"href": "#open-data-where-to-find",
+							"type": "",
+							"shortdescription": "",
+							"description": "Wheretofindopendata<br>Opendataportallistfromaroundtheworld<br>-http://datacatalogs.org/<br>Governmental,intergovernmentalandorganizationwebsites<br>-http://data.un.org/(UnitedNations)<br>-https://www.data.gov/(USA)<br>-https://www.europeandataportal.eu/en/(Europe)<br>Kaggle<br>-https://www.kaggle.com/datasets<br>Googledatasetsearch<br>-https://datasetsearch.research.google.com/",
+							"children": []
+						},
+						{
+							"id": "DataScience.Packages,APIs,DataSetsandModels.DataSets.CommunityDataLicenseAggrement",
+							"name": "CommunityDataLicenseAggrement",
+							"href": "#cdla",
+							"type": "",
+							"shortdescription": "",
+							"description": "http://cdla.io",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "DataScience.Methodology",
+			"name": "Methodology",
+			"href": "#data-science-methodology",
+			"type": "",
+			"shortdescription": "",
+			"description": "1.FromProblemtoApproach<br>2.FromRequirementstoCollection<br>3.FromUnderstandingtoPreparation<br>4.FromModelingtoEvaluation<br>5.FromDeploymenttoFeedback<br><img src='assets/images/datascience.methodology.jpg' />",
+			"children": []
+		},
+		{
+			"id": "DataScience.DataAnalysiswithPython",
+			"name": "DataAnalysiswithPython",
+			"href": "#",
+			"type": "",
+			"shortdescription": "",
+			"description": "",
+			"children": [
+				{
+					"id": "DataScience.DataAnalysiswithPython.ImportingDatasets",
+					"name": "ImportingDatasets",
+					"href": "#importing-datasets",
+					"type": "",
+					"shortdescription": "",
+					"description": "<ahref='pages data-analysis/da0101en-review-introduction.ipynb'download="">DownloadSampleJupyterNotebook",
+					"children": []
+				},
+				{
+					"id": "DataScience.DataAnalysiswithPython.DataWrangling",
+					"name": "DataWrangling",
+					"href": "#data-wrangling",
+					"type": "",
+					"shortdescription": "",
+					"description": "<ahref='pages data-analysis/da0101en-2-review-data-wrangling.ipynb'download="">DownloadSampleJupyterNotebook",
+					"children": [
+						{
+							"id": "DataScience.DataAnalysiswithPython.DataWrangling.Missingvalues",
+							"name": "Missingvalues",
+							"href": "#missing-values",
+							"type": "",
+							"shortdescription": "",
+							"description": "Dropthemissingvalues<br>-dropthevariable<br>-dropthedataentry<br><br>Replacethemissingvalues<br>-replacewithanaverage(ofsimilardatapoints)<br>-replacebyfrequency<br>-replacebasedonotherfunctions<br><br>Leaveitasmissingdata",
+							"children": []
+						},
+						{
+							"id": "DataScience.DataAnalysiswithPython.DataWrangling.DataNormalization",
+							"name": "DataNormalization",
+							"href": "#data-normalization",
+							"type": "",
+							"shortdescription": "",
+							"description": "<img src='assets/images/datascience.dataanalysiswithpython.datawrangling.datanormalization.jpg' />Normalizationistheprocessoftransformingvaluesofseveralvariablesintoasimilarrange.Typicalnormalizationsincludescalingthevariablesothevariableaverageis0,scalingthevariablesothevarianceis1,orscalingvariablesothevariablevaluesrangefrom0to1",
+							"children": [
+								{
+									"id": "DataScience.DataAnalysiswithPython.DataWrangling.DataNormalization.SimpleFeaturescaling",
+									"name": "SimpleFeaturescaling",
+									"href": "#",
+									"type": "",
+									"shortdescription": "",
+									"description": "",
+									"children": []
+								},
+								{
+									"id": "DataScience.DataAnalysiswithPython.DataWrangling.DataNormalization.Min-Max",
+									"name": "Min-Max",
+									"href": "#",
+									"type": "",
+									"shortdescription": "",
+									"description": "",
+									"children": []
+								},
+								{
+									"id": "DataScience.DataAnalysiswithPython.DataWrangling.DataNormalization.Z-score",
+									"name": "Z-score",
+									"href": "#",
+									"type": "",
+									"shortdescription": "",
+									"description": "",
+									"children": []
+								}
+							]
+						},
+						{
+							"id": "DataScience.DataAnalysiswithPython.DataWrangling.Binning",
+							"name": "Binning",
+							"href": "#binning",
+							"type": "",
+							"shortdescription": "",
+							"description": "Groupingofvaluesinto\"bins\".Binningisaprocessoftransformingcontinuousnumericalvariablesintodiscretecategorical'bins',forgroupedanalysis.<br><br>Example:<br>Inourdataset,\"horsepower\"isarealvaluedvariablerangingfrom48to288,ithas57uniquevalues.Whatifweonlycareaboutthepricedifferencebetweencarswithhighhorsepower,mediumhorsepower,andlittlehorsepower(3types)?Canwerearrangethemintothree‘bins'tosimplifyanalysis?",
+							"children": []
+						},
+						{
+							"id": "DataScience.DataAnalysiswithPython.DataWrangling.One-hotencoding",
+							"name": "One-hotencoding",
+							"href": "#one-hot-encoding",
+							"type": "",
+							"shortdescription": "",
+							"description": "Turncategoricalvariablesintoquantitativevariables.<img src='assets/images/datascience.dataanalysiswithpython.datawrangling.onehotencoding.jpg' />",
+							"children": []
+						}
+					]
+				},
+				{
+					"id": "DataScience.DataAnalysiswithPython.ExploratoryDataAnalysis",
+					"name": "ExploratoryDataAnalysis",
+					"href": "#exploratory-data-analysis",
+					"type": "",
+					"shortdescription": "",
+					"description": "<ahref='pages data-analysis/da0101en-3-review-exploratory-data-analysis.ipynb'download="">DownloadSampleJupyterNotebook",
+					"children": [
+						{
+							"id": "DataScience.DataAnalysiswithPython.ExploratoryDataAnalysis.DescriptiveStatistics",
+							"name": "DescriptiveStatistics",
+							"href": "#descriptive-statistics",
+							"type": "",
+							"shortdescription": "",
+							"description": "df.describe():count,mean,std,min,25%,50%,75%,max<br>value_counts():drive_wheels_counts=df[\"drive-wheels\"].value_counts().to_frame()",
+							"children": [
+								{
+									"id": "DataScience.DataAnalysiswithPython.ExploratoryDataAnalysis.DescriptiveStatistics.BoxPlot",
+									"name": "BoxPlot",
+									"href": "#box-plot",
+									"type": "plots",
+									"shortdescription": "",
+									"description": "<img src='assets/images/datascience.dataanalysiswithpython.exploratorydataanalysis.descriptivestatistics.boxplot.jpg' /><br>sns.boxplot(x=\"drive-wheels\",y=\"price\",data=df)",
+									"children": []
+								},
+								{
+									"id": "DataScience.DataAnalysiswithPython.ExploratoryDataAnalysis.DescriptiveStatistics.ScatterPlot",
+									"name": "ScatterPlot",
+									"href": "#scatter-plot",
+									"type": "plots",
+									"shortdescription": "",
+									"description": "<img src='assets/images/datascience.dataanalysiswithpython.exploratorydataanalysis.descriptivestatistics.scatterplot.jpg' />",
+									"children": []
+								}
+							]
+						},
+						{
+							"id": "DataScience.DataAnalysiswithPython.ExploratoryDataAnalysis.GroupBy",
+							"name": "GroupBy",
+							"href": "#group-by",
+							"type": "",
+							"shortdescription": "",
+							"description": "df_test=df[['drive-wheels','body-style','price']]<br>df_grp=df_test(['drive-wheels','body-style'],as_index=False).mean()",
+							"children": [
+								{
+									"id": "DataScience.DataAnalysiswithPython.ExploratoryDataAnalysis.GroupBy.Pivot",
+									"name": "Pivot",
+									"href": "#pivot",
+									"type": "",
+									"shortdescription": "",
+									"description": "Onevariabledisplayedalongthecolumnsandtheothervariabledisplayedalongtherows<br>Eg:drivewheelsdisplayedalongthecolumnsandbodystyledisplayedalongtherows<br>df_pivot=df_grp.pivot(index='drive-wheels',columns='body-style')",
+									"children": []
+								},
+								{
+									"id": "DataScience.DataAnalysiswithPython.ExploratoryDataAnalysis.GroupBy.Heatmap",
+									"name": "Heatmap",
+									"href": "#heatmap",
+									"type": "plots",
+									"shortdescription": "",
+									"description": "<img src='assets/images/datascience.dataanalysiswithpython.exploratorydataanalysis.groupby.heatmap.jpg' />",
+									"children": []
+								}
+							]
+						},
+						{
+							"id": "DataScience.DataAnalysiswithPython.ExploratoryDataAnalysis.Correlation",
+							"name": "Correlation",
+							"href": "#correlation",
+							"type": "",
+							"shortdescription": "",
+							"description": "statisticalmetricformeasuringtowhatextentdifferentvariablesareinterdependent.Or,ifonevariablechanges,howdoesthisaffectchangeintheothervariable",
+							"children": [
+								{
+									"id": "DataScience.DataAnalysiswithPython.ExploratoryDataAnalysis.Correlation.PearsonCorrelation",
+									"name": "PearsonCorrelation",
+									"href": "#pearson-correlation",
+									"type": "",
+									"shortdescription": "",
+									"description": "Measurethestrengthofthecorrelationbetweentwofeatures<br>-Correlationcoefficient<br>-P-value<br><br>Correlationcoefficient<br>-Closeto+1:Largepositiverelationship<br>-Closeto-1:Largenegativerelationship<br>-Closeto0:Norelationship<br><br>P-value<br>-&lt;0.001Strongcertaintyintheresult<br>-&lt;0.05Moderatecertaintyintheresult<br>-&lt;0.1Weakcertaintyintheresult<br>-&gt;0.1Nocertaintyintheresult<br><br>pearson_coef,p_value=stats.pearsonr(df['horsepower'],df['price'])",
+									"children": []
+								},
+								{
+									"id": "DataScience.DataAnalysiswithPython.ExploratoryDataAnalysis.Correlation.ANOVAAnalisisofVariance",
+									"name": "ANOVAAnalisisofVariance",
+									"href": "#anova",
+									"type": "",
+									"shortdescription": "",
+									"description": "ANOVAcanbeusedtofindthecorrelationbetweendifferentgroupsofacategoricalvariable.Accordingtothecardataset,wecanuseANOVAtoseeifthereisanydifferenceinmeanpriceforthedifferentcarmakessuchaSubaruandHonda.TheANOVAtestreturnstwovalues,theF-testscoreandthep-value.TheF-testcalculatestheratioofvariationbetweengroupsmean,overthevariationwithineachofthesamplegroups.Thep-valueshowswhethertheobtainedresultisstatisticallysignificant.TheF-testcalculatestheratioofvariationbetweengroupsmeansoverthevariationwithineachofthesamplegroupmeans.<br>df_anova=df[['make','price']]<br>grouped_anova=df_anova.groupby(['make'])<br>anova_results_l=stats.f_oneway(grouped_anova.get_group('honda')['price'],grouped_anova.get_group('subaru')['price'])<br>ANOVAresults:F=0.19744,p=F_onewayResult(statistic=0.197),pvalue=0.66)",
+									"children": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"id": "DataScience.DataAnalysiswithPython.ModelDevelopment",
+					"name": "ModelDevelopment",
+					"href": "#model-development",
+					"type": "",
+					"shortdescription": "",
+					"description": "<ahref='pages data-analysis/da0101en-4-review-model-development.ipynb'download="">DownloadSampleJupyterNotebook",
+					"children": [
+						{
+							"id": "DataScience.DataAnalysiswithPython.ModelDevelopment.SimpleLinearRegression",
+							"name": "SimpleLinearRegression",
+							"href": "#simple-linear-regression",
+							"type": "",
+							"shortdescription": "",
+							"description": "",
+							"children": []
+						},
+						{
+							"id": "DataScience.DataAnalysiswithPython.ModelDevelopment.MultipleLinearRegression",
+							"name": "MultipleLinearRegression",
+							"href": "#multiple-linear-regression",
+							"type": "",
+							"shortdescription": "",
+							"description": "",
+							"children": []
+						},
+						{
+							"id": "DataScience.DataAnalysiswithPython.ModelDevelopment.EvaluationusingVisualization",
+							"name": "EvaluationusingVisualization",
+							"href": "#",
+							"type": "",
+							"shortdescription": "",
+							"description": "",
+							"children": [
+								{
+									"id": "DataScience.DataAnalysiswithPython.ModelDevelopment.EvaluationusingVisualization.RegressionPlot",
+									"name": "RegressionPlot",
+									"href": "#regression-plot",
+									"type": "plots",
+									"shortdescription": "",
+									"description": "<img src='assets/images/datascience.dataanalysiswithpython.modeldevelopment.evaluation.regressionplot.jpg' />",
+									"children": []
+								},
+								{
+									"id": "DataScience.DataAnalysiswithPython.ModelDevelopment.EvaluationusingVisualization.ResidualPlot",
+									"name": "ResidualPlot",
+									"href": "#residual-plot",
+									"type": "plots",
+									"shortdescription": "",
+									"description": "<img src='assets/images/datascience.dataanalysiswithpython.modeldevelopment.evaluation.residualplot.jpg' />Subtractingthetargetvaluefromthepredictedvalue.Thenplottingthevalueaccordingly.Weexpecttoseetheresultstohavezeromean,distributedevenlyaroundthexaxiswithsimilarvariance.",
+									"children": []
+								},
+								{
+									"id": "DataScience.DataAnalysiswithPython.ModelDevelopment.EvaluationusingVisualization.DistributionPlot",
+									"name": "DistributionPlot",
+									"href": "#distribution-plot",
+									"type": "plots",
+									"shortdescription": "",
+									"description": "<img src='assets/images/datascience.dataanalysiswithpython.modeldevelopment.evaluation.distributionplot.jpg' />",
+									"children": []
+								}
+							]
+						},
+						{
+							"id": "DataScience.DataAnalysiswithPython.ModelDevelopment.PolynomialRegression",
+							"name": "PolynomialRegression",
+							"href": "#",
+							"type": "",
+							"shortdescription": "",
+							"description": "",
+							"children": [
+								{
+									"id": "DataScience.DataAnalysiswithPython.ModelDevelopment.PolynomialRegression.OneDimension",
+									"name": "OneDimension",
+									"href": "#polynomial-regression",
+									"type": "",
+									"shortdescription": "",
+									"description": "<img src='assets/images/datascience.dataanalysiswithpython.modeldevelopment.polynomialregression.jpg' />",
+									"children": []
+								},
+								{
+									"id": "DataScience.DataAnalysiswithPython.ModelDevelopment.PolynomialRegression.ManyDimensions",
+									"name": "ManyDimensions",
+									"href": "#polynomial-regression-many-dimensions",
+									"type": "",
+									"shortdescription": "",
+									"description": "<img src='assets/images/datascience.dataanalysiswithpython.modeldevelopment.polynomialregressionmanydimensions.jpg' />",
+									"children": []
+								}
+							]
+						},
+						{
+							"id": "DataScience.DataAnalysiswithPython.ModelDevelopment.Pipelines",
+							"name": "Pipelines",
+							"href": "#pipelines",
+							"type": "",
+							"shortdescription": "",
+							"description": "Therearemanystepstogettingaprediction.Forexample,normalization,polynomialtransform,andlinearregression.Wesimplifytheprocessusingapipeline.Pipelinesequentiallyperformaseriesoftransformations.Thelaststepcarriesoutaprediction<br><img src='assets/images/datascience.dataanalysiswithpython.modeldevelopment.pipelines.jpg' />",
+							"children": []
+						},
+						{
+							"id": "DataScience.DataAnalysiswithPython.ModelDevelopment.Evaluation",
+							"name": "Evaluation",
+							"href": "#",
+							"type": "",
+							"shortdescription": "",
+							"description": "",
+							"children": [
+								{
+									"id": "DataScience.DataAnalysiswithPython.ModelDevelopment.Evaluation.MeanSquaredError(MSE)",
+									"name": "MeanSquaredError(MSE)",
+									"href": "#mean-squared-error",
+									"type": "",
+									"shortdescription": "",
+									"description": "",
+									"children": []
+								},
+								{
+									"id": "DataScience.DataAnalysiswithPython.ModelDevelopment.Evaluation.R-squared/R^2/CoefficientofDetermination",
+									"name": "R-squared/R^2/CoefficientofDetermination",
+									"href": "#r-squared",
+									"type": "",
+									"shortdescription": "",
+									"description": "<img src='assets/images/datascience.dataanalysiswithpython.modeldevelopment.evaluation.rsquared.jpg' />Nearonetobeefficient",
+									"children": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"id": "DataScience.DataAnalysiswithPython.ModelEvaluationandRefinement",
+					"name": "ModelEvaluationandRefinement",
+					"href": "#model-evaluation",
+					"type": "",
+					"shortdescription": "",
+					"description": "<ahref='pages data-analysis/da0101en-5-review-model-evaluation-and-refinement.ipynb'download="">DownloadSampleJupyterNotebook",
+					"children": [
+						{
+							"id": "DataScience.DataAnalysiswithPython.ModelEvaluationandRefinement.CrossValidation",
+							"name": "CrossValidation",
+							"href": "#cross-validation",
+							"type": "",
+							"shortdescription": "",
+							"description": "<img src='assets/images/data-science/datascience.dataanalysiswithpython.modelevaluation.crossvalidation.jpg' /><br>ThedatasetissplitintoKequalgroups.Eachgroupisreferredtoasafold.Someofthefoldscanbeusedasatrainingsetwhichweusetotrainthemodelandtheremainingpartsareusedasatestset,whichweusetotestthemodel.Forexample,wecanusethreefoldsfortraining,thenuseonefoldfortesting.Thisisrepeateduntileachpartitionisusedforbothtrainingandtesting.Attheend,weusetheaverageresultsastheestimateofout-of-sampleerror.",
+							"children": []
+						},
+						{
+							"id": "DataScience.DataAnalysiswithPython.ModelEvaluationandRefinement.Underfitting",
+							"name": "Underfitting",
+							"href": "#underfitting",
+							"type": "",
+							"shortdescription": "",
+							"description": "Wherethemodelistoosimpletofitthedata.Ifweincreasetheorderofthepolynomial,themodelfitsbetter,butthemodelisstillnotflexibleenoughandexhibitsunderfitting.",
+							"children": []
+						},
+						{
+							"id": "DataScience.DataAnalysiswithPython.ModelEvaluationandRefinement.Overfitting",
+							"name": "Overfitting",
+							"href": "#overfitting",
+							"type": "",
+							"shortdescription": "",
+							"description": "Themodelistooflexibleandfitsthenoiseratherthanthefunction.",
+							"children": []
+						},
+						{
+							"id": "DataScience.DataAnalysiswithPython.ModelEvaluationandRefinement.RidgeRegression",
+							"name": "RidgeRegression",
+							"href": "#ridge-regression",
+							"type": "",
+							"shortdescription": "",
+							"description": "<img src='assets/images/datascience.dataanalysiswithpython.modelevaluation.ridgeregression.jpg' />Inmanycasesrealdatahasoutliers.Thisisespeciallyevidentforthehigherorderpolynomials.Ridgeregressioncontrolsthemagnitudeofthesepolynomialcoefficientsbyintroducingtheparameteralpha.Alphaisaparameterweselectbeforefittingortrainingthemodel.Eachrowinthefollowingtablerepresentsanincreasingvalueofalpha.<br>Thecolumncorrespondstothedifferentpolynomialcoefficients,andtherowscorrespondtothedifferentvaluesofalpha.Asalphaincreasestheparametersgetsmaller.Thisismostevidentforthehigherorderpolynomialfeatures.ButAlphamustbeselectedcarefully.Ifalphaistoolarge,thecoefficientswillapproachzeroandunderfitthedata.Ifalphaiszero,theoverfittingisevident.Foralphaequalto0.001,theoverfittingbeginstosubside.ForAlphaequalto0.01,theestimatedfunctiontrackstheactualfunction.Whenalphaequalsone,weseethefirstsignsofunderfitting.Theestimatedfunctiondoesnothaveenoughflexibility.Atalphaequalsto10,weseeextremeunderfitting.Itdoesnoteventrackthetwopoints.Inordertoselectalpha,weusecrossvalidation.",
+							"children": []
+						},
+						{
+							"id": "DataScience.DataAnalysiswithPython.ModelEvaluationandRefinement.GridSearch",
+							"name": "GridSearch",
+							"href": "#grid-search",
+							"type": "Algorithm",
+							"shortdescription": "",
+							"description": "Grid-searchisusedtofindtheoptimalhyperparametersofamodelwhichresultsinthemost‘accurate’predictions.<br><img src='assets/images/datascience.dataanalysiswithpython.modelevaluation.gridsearch.jpg' /><br><img src='assets/images/data-science/datascience.dataanalysiswithpython.modelevaluation.gridsearch2.jpg' /><br>Amodelhyperparameterisacharacteristicofamodelthatisexternaltothemodelandwhosevaluecannotbeestimatedfromdata.Thevalueofthehyperparameterhastobesetbeforethelearningprocessbegins.Forexample,cinSupportVectorMachines,kink-NearestNeighbors,thenumberofhiddenlayersinNeuralNetworks.<br><br>Incontrast,aparameterisaninternalcharacteristicofthemodelanditsvaluecanbeestimatedfromdata.Example,betacoefficientsoflinear/logisticregressionorsupportvectorsinSupportVectorMachines.",
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "DataScience.DataVisualizationwithPython",
+			"name": "DataVisualizationwithPython",
+			"href": "#data-visualization",
+			"type": "",
+			"shortdescription": "",
+			"description": "<ahref='pages data-visualization/dv0101en-1-1-1-introduction-to-matplotlib-and-line-plots-py-v2.0.ipynb'download="">DownloadSampleLinePlots<br><ahref='pages data-visualization/dv0101en-2-2-1-area-plots-histograms-and-bar-charts-py-v2.0.ipynb'download="">DownloadSampleAreaPlots,HistogramsandBarCharts<br><ahref='pages data-visualization/dv0101en-2-3-1-pie-charts-box-plots-scatter-plots-and-bubble-plots-py-v2.0.ipynb'download="">DownloadSamplePieCharts,BoxPlots,ScatterPlotsandBubblePlots<br><ahref='pages data-visualization/dv0101en-3-4-1-waffle-charts-word-clouds-and-regression-plots-py-v2.0.ipynb'download="">DownloadSampleWaffleCharts,WordCloudsandRegressionPlots<br><ahref='pages data-visualization/dv0101en-3-5-1-generating-maps-in-python-py-v2.0.ipynb'download="">DownloadSampleMaps",
+			"children": [
+				{
+					"id": "DataScience.DataVisualizationwithPython.LinePlots",
+					"name": "LinePlots",
+					"href": "#line-plots",
+					"type": "plots",
+					"shortdescription": "",
+					"description": "<img src='assets/images/datascience.datavisualizationwithpython.lineplots.jpg' />",
+					"children": []
+				},
+				{
+					"id": "DataScience.DataVisualizationwithPython.AreaPlots",
+					"name": "AreaPlots",
+					"href": "#area-plots",
+					"type": "plots",
+					"shortdescription": "",
+					"description": "<img src='assets/images/datascience.datavisualizationwithpython.areaplots.jpg' />",
+					"children": []
+				},
+				{
+					"id": "DataScience.DataVisualizationwithPython.Histograms",
+					"name": "Histograms",
+					"href": "#histograms",
+					"type": "plots",
+					"shortdescription": "",
+					"description": "<img src='assets/images/datascience.datavisualizationwithpython.histograms.jpg' />",
+					"children": []
+				},
+				{
+					"id": "DataScience.DataVisualizationwithPython.BarCharts",
+					"name": "BarCharts",
+					"href": "#bar-charts",
+					"type": "plots",
+					"shortdescription": "",
+					"description": "<img src='assets/images/datascience.datavisualizationwithpython.barcharts.jpg' />",
+					"children": []
+				},
+				{
+					"id": "DataScience.DataVisualizationwithPython.PieCharts",
+					"name": "PieCharts",
+					"href": "#pie-charts",
+					"type": "plots",
+					"shortdescription": "",
+					"description": "<img src='assets/images/datascience.datavisualizationwithpython.piecharts.jpg' />",
+					"children": []
+				},
+				{
+					"id": "DataScience.DataVisualizationwithPython.BoxPlots",
+					"name": "BoxPlots",
+					"href": "#box-plots",
+					"type": "plots",
+					"shortdescription": "",
+					"description": "<img src='assets/images/datascience.datavisualizationwithpython.boxplots.jpg' />",
+					"children": []
+				},
+				{
+					"id": "DataScience.DataVisualizationwithPython.ScatterPlots",
+					"name": "ScatterPlots",
+					"href": "#scatter-plots",
+					"type": "plots",
+					"shortdescription": "",
+					"description": "<img src='assets/images/datascience.datavisualizationwithpython.scatterplots.jpg' />",
+					"children": []
+				},
+				{
+					"id": "DataScience.DataVisualizationwithPython.WaffleCharts",
+					"name": "WaffleCharts",
+					"href": "#waffle-charts",
+					"type": "plots",
+					"shortdescription": "",
+					"description": "<img src='assets/images/datascience.datavisualizationwithpython.wafflecharts.jpg' />Normallycreatedtodisplayprogresstowardgoals",
+					"children": []
+				},
+				{
+					"id": "DataScience.DataVisualizationwithPython.WordClouds",
+					"name": "WordClouds",
+					"href": "#word-clouds",
+					"type": "plots",
+					"shortdescription": "",
+					"description": "<img src='assets/images/datascience.datavisualizationwithpython.wordclouds.jpg' />AWordcloudisadepictionofthefrequencyofdifferentwordsinsometextualdata.",
+					"children": []
+				},
+				{
+					"id": "DataScience.DataVisualizationwithPython.RegressionPlots",
+					"name": "RegressionPlots",
+					"href": "#regression-plot",
+					"type": "plots",
+					"shortdescription": "",
+					"description": "<img src='assets/images/datascience.dataanalysiswithpython.modeldevelopment.evaluation.regressionplot.jpg' />",
+					"children": []
+				},
+				{
+					"id": "DataScience.DataVisualizationwithPython.MapswithFolium",
+					"name": "MapswithFolium",
+					"href": "#maps-with-folium",
+					"type": "plots",
+					"shortdescription": "",
+					"description": "<img src='assets/images/datascience.datavisualizationwithpython.mapswithfolium.jpg' />",
+					"children": []
+				},
+				{
+					"id": "DataScience.DataVisualizationwithPython.ChoroplethMaps",
+					"name": "ChoroplethMaps",
+					"href": "#choropleth-maps",
+					"type": "plots",
+					"shortdescription": "",
+					"description": "<img src='assets/images/datascience.datavisualizationwithpython.choroplethmaps.jpg' />",
+					"children": []
+				}
+			]
+		},
+		{
+			"id": "DataScience.MachineLearningwithPython",
+			"name": "MachineLearningwithPython",
+			"href": "#machine-learning",
+			"type": "",
+			"shortdescription": "",
+			"description": "",
+			"children": [
+				{
+					"id": "DataScience.MachineLearningwithPython.Techniques",
+					"name": "Techniques",
+					"href": "#machine-learning-techniques",
+					"type": "",
+					"shortdescription": "",
+					"description": "",
+					"children": [
+						{
+							"id": "DataScience.MachineLearningwithPython.Techniques.Regression/Estimation",
+							"name": "Regression/Estimation",
+							"href": "#regression-estimation",
+							"type": "",
+							"shortdescription": "",
+							"description": "Predictingcontinuousvalues",
+							"children": []
+						},
+						{
+							"id": "DataScience.MachineLearningwithPython.Techniques.Classification",
+							"name": "Classification",
+							"href": "#classification",
+							"type": "",
+							"shortdescription": "",
+							"description": "Predictingtheitemclass/categoryofacase",
+							"children": []
+						},
+						{
+							"id": "DataScience.MachineLearningwithPython.Techniques.Clustering",
+							"name": "Clustering",
+							"href": "#clustering",
+							"type": "",
+							"shortdescription": "",
+							"description": "",
+							"children": []
+						},
+						{
+							"id": "DataScience.MachineLearningwithPython.Techniques.Associations",
+							"name": "Associations",
+							"href": "#associations",
+							"type": "",
+							"shortdescription": "",
+							"description": "Associatingfrequentco-occurringitems/events",
+							"children": []
+						},
+						{
+							"id": "DataScience.MachineLearningwithPython.Techniques.Anomalydetection",
+							"name": "Anomalydetection",
+							"href": "#anomaly-detection",
+							"type": "",
+							"shortdescription": "",
+							"description": "Discoveringabnormalandunusualcases",
+							"children": []
+						},
+						{
+							"id": "DataScience.MachineLearningwithPython.Techniques.Sequencemining",
+							"name": "Sequencemining",
+							"href": "#sequence-mining",
+							"type": "",
+							"shortdescription": "",
+							"description": "Predictingnextevents;click-stream(MarkovModel,HMM)",
+							"children": []
+						},
+						{
+							"id": "DataScience.MachineLearningwithPython.Techniques.DimensionReduction",
+							"name": "DimensionReduction",
+							"href": "#dimension-reduction",
+							"type": "",
+							"shortdescription": "",
+							"description": "Reducingthesizeofdata",
+							"children": [
+								{
+									"id": "DataScience.MachineLearningwithPython.Techniques.DimensionReduction.Linear",
+									"name": "Linear",
+									"href": "#",
+									"type": "",
+									"shortdescription": "",
+									"description": "",
+									"children": [
+										{
+											"id": "DataScience.MachineLearningwithPython.Techniques.DimensionReduction.Linear.PrincipleComponentAnalysis(PCA)",
+											"name": "PrincipleComponentAnalysis(PCA)",
+											"href": "#principle-component-analysis",
+											"type": "Method",
+											"shortdescription": "",
+											"description": "<img src='assets/images/data-science/datascience.machinelearningwithpython.techniques.demensionreduction.pca.jpg' /><br>CalculatingPCA<br>1.Centrethedata<br>-Computecovariancematrix<br>-Findtheeigenvectorsandeigenvaluesofcovariancematrix<br>2.Theeigenvectorsbecometheprincipalcomponents<br>3.Theeigenvaluesprovidetheexplainedvariance<br>4.Selectnewdimensionsandprojectthedata",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.Techniques.DimensionReduction.Linear.LinearDiscriminantAnalysis(LDA)",
+											"name": "LinearDiscriminantAnalysis(LDA)",
+											"href": "#",
+											"type": "Method",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.Techniques.DimensionReduction.Linear.Canonicalcorrelationanalysis",
+											"name": "Canonicalcorrelationanalysis",
+											"href": "#",
+											"type": "Method",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.Techniques.DimensionReduction.Linear.Multi-dimensionalscaling",
+											"name": "Multi-dimensionalscaling",
+											"href": "#",
+											"type": "Method",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										}
+									]
+								},
+								{
+									"id": "DataScience.MachineLearningwithPython.Techniques.DimensionReduction.Non-linear",
+									"name": "Non-linear",
+									"href": "#",
+									"type": "",
+									"shortdescription": "",
+									"description": "",
+									"children": [
+										{
+											"id": "DataScience.MachineLearningwithPython.Techniques.DimensionReduction.Non-linear.Manifoldlearning(egSOM,autoencodersetc)",
+											"name": "Manifoldlearning(egSOM,autoencodersetc)",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										}
+									]
+								}
+							]
+						},
+						{
+							"id": "DataScience.MachineLearningwithPython.Techniques.Recommendationsystems",
+							"name": "Recommendationsystems",
+							"href": "#recommendation-systems",
+							"type": "",
+							"shortdescription": "",
+							"description": "Recommendingitems",
+							"children": []
+						}
+					]
+				},
+				{
+					"id": "DataScience.MachineLearningwithPython.SupervisedLearning",
+					"name": "SupervisedLearning",
+					"href": "#",
+					"type": "",
+					"shortdescription": "",
+					"description": "",
+					"children": [
+						{
+							"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Regression",
+							"name": "Regression",
+							"href": "#supervised-regression",
+							"type": "",
+							"shortdescription": "",
+							"description": "Regressionistheprocessofpredictingacontinuousvalueasopposedtopredictingacategoricalvalueinclassification.",
+							"children": [
+								{
+									"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Regression.Types",
+									"name": "Types",
+									"href": "#",
+									"type": "",
+									"shortdescription": "",
+									"description": "",
+									"children": [
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Regression.Types.SimpleLinearRegression",
+											"name": "SimpleLinearRegression",
+											"href": "#simple-linear-regression",
+											"type": "",
+											"shortdescription": "",
+											"description": "<img src='assets/images/datascience.dataanalysiswithpython.modeldevelopment.simplelinearregression.jpg' /><br><ahref='pages machine-learning/ml0101en-reg-simple-linear-regression-co2-py-v1-module-2.ipynb'download="">DownloadSampleJupyterNotebook",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Regression.Types.SimpleNon-linearRegression",
+											"name": "SimpleNon-linearRegression",
+											"href": "#simple-nonlinear-regression",
+											"type": "",
+											"shortdescription": "",
+											"description": "<ahref='pages machine-learning/ml0101en-reg-polynomial-regression-co2-py-v1.ipynb'download="">DownloadSampleJupyterNotebook",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Regression.Types.MultipleLinearRegression",
+											"name": "MultipleLinearRegression",
+											"href": "#multiple-linear-regression",
+											"type": "",
+											"shortdescription": "",
+											"description": "<img src='assets/images/datascience.dataanalysiswithpython.modeldevelopment.multiplelinearregression.jpg' /><br><ahref='pages machine-learning/ml0101en-reg-mulitple-linear-regression-co2-py-v1-module-2.ipynb'download="">DownloadSampleJupyterNotebook",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Regression.Types.MultipleNon-linearRegression",
+											"name": "MultipleNon-linearRegression",
+											"href": "#multiple-nonlinear-regression",
+											"type": "",
+											"shortdescription": "",
+											"description": "<br><ahref='pages machine-learning/ml0101en-reg-nonelinearregression-py-v1.ipynb'download="">DownloadSampleJupyterNotebook<br>Non-linearregressionsarearelationshipbetweenindependentvariablesxandadependentvariableywhichresultinanon-linearfunctionmodeleddata.Essentiallyanyrelationshipthatisnotlinearcanbetermedasnon-linear,andisusuallyrepresentedbythepolynomialofkdegrees(maximumpowerofx).<br>Non-linearfunctionscanhaveelementslikeexponentials,logarithms,fractions,andothers.",
+											"children": []
+										}
+									]
+								},
+								{
+									"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Regression.Applications",
+									"name": "Applications",
+									"href": "#",
+									"type": "",
+									"shortdescription": "",
+									"description": "",
+									"children": [
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Regression.Applications.Salesforecasting",
+											"name": "Salesforecasting",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Regression.Applications.Satisfactionanalysis",
+											"name": "Satisfactionanalysis",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Regression.Applications.Priceestimation",
+											"name": "Priceestimation",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Regression.Applications.Employmentincome",
+											"name": "Employmentincome",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										}
+									]
+								},
+								{
+									"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Regression.Algorithms",
+									"name": "Algorithms",
+									"href": "#",
+									"type": "",
+									"shortdescription": "",
+									"description": "",
+									"children": [
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Regression.Algorithms.Ordinalregression",
+											"name": "Ordinalregression",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Regression.Algorithms.Poissonregression",
+											"name": "Poissonregression",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Regression.Algorithms.Fastforestquantileregression",
+											"name": "Fastforestquantileregression",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Regression.Algorithms.Linear,Polynomial,Lasso,Stepwise,Ridgeregression",
+											"name": "Linear,Polynomial,Lasso,Stepwise,Ridgeregression",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Regression.Algorithms.Bayesianlinearregression",
+											"name": "Bayesianlinearregression",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Regression.Algorithms.Neuralnetworkregression",
+											"name": "Neuralnetworkregression",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Regression.Algorithms.Decisionforestregression",
+											"name": "Decisionforestregression",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Regression.Algorithms.Boosteddecisiontreeregression",
+											"name": "Boosteddecisiontreeregression",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Regression.Algorithms.KNN(K-nearestneighbors)",
+											"name": "KNN(K-nearestneighbors)",
+											"href": "#k-nearest-neighbor",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										}
+									]
+								},
+								{
+									"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Regression.EvaluationMetrics",
+									"name": "EvaluationMetrics",
+									"href": "#regression-evaluation-metrics",
+									"type": "",
+									"shortdescription": "",
+									"description": "<img src='assets/images/datascience.machinelearningwithpython.supervisedlearning.regression.evaluationmetrics.jpg' />",
+									"children": []
+								}
+							]
+						},
+						{
+							"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification",
+							"name": "Classification",
+							"href": "#supervised-classification",
+							"type": "",
+							"shortdescription": "",
+							"description": "Classificationistheprocessofpredictingadiscreteclasslabel,orcategory.",
+							"children": [
+								{
+									"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Applications",
+									"name": "Applications",
+									"href": "#",
+									"type": "",
+									"shortdescription": "",
+									"description": "",
+									"children": [
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Applications.Emailfiltering",
+											"name": "Emailfiltering",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Applications.Speechrecognition",
+											"name": "Speechrecognition",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Applications.Handwritingrecognition",
+											"name": "Handwritingrecognition",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Applications.Biometricidentification",
+											"name": "Biometricidentification",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Applications.Documentclassification",
+											"name": "Documentclassification",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										}
+									]
+								},
+								{
+									"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Algorithms",
+									"name": "Algorithms",
+									"href": "#",
+									"type": "",
+									"shortdescription": "",
+									"description": "",
+									"children": [
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Algorithms.DecisionTrees(ID3,C45,C50)",
+											"name": "DecisionTrees(ID3,C45,C50)",
+											"href": "#decision-tree",
+											"type": "",
+											"shortdescription": "",
+											"description": "<ahref='pages machine-learning/ml0101en-clas-decision-trees-drug-py-v1.ipynb'download="">DownloadSampleJupyterNotebook<br>Algorithm:<br>-Chooseanattributefromyourdataset.<br>-Calculatethesignificanceofattributeinsplittingofdata.<br>-Splitdatabasedonthevalueofthebestattribute<br>-Gotostep1",
+											"children": [
+												{
+													"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Algorithms.DecisionTrees(ID3,C45,C50).BuildingDecisionTree",
+													"name": "BuildingDecisionTree",
+													"href": "#building-decision-tree",
+													"type": "",
+													"shortdescription": "",
+													"description": "<img src='assets/images/datascience.machinelearningwithpython.unsupervisedlearning.classification.algorithms.decisiontrees.building.jpg' />",
+													"children": []
+												},
+												{
+													"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Algorithms.DecisionTrees(ID3,C45,C50).Predictiveness",
+													"name": "Predictiveness",
+													"href": "#",
+													"type": "",
+													"shortdescription": "",
+													"description": "",
+													"children": []
+												},
+												{
+													"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Algorithms.DecisionTrees(ID3,C45,C50).Impurity",
+													"name": "Impurity",
+													"href": "#",
+													"type": "",
+													"shortdescription": "",
+													"description": "",
+													"children": []
+												},
+												{
+													"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Algorithms.DecisionTrees(ID3,C45,C50).Entropy",
+													"name": "Entropy",
+													"href": "#entropy",
+													"type": "",
+													"shortdescription": "",
+													"description": "<img src='assets/images/datascience.machinelearningwithpython.unsupervisedlearning.classification.algorithms.decisiontrees.entropy.jpg' />",
+													"children": []
+												},
+												{
+													"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Algorithms.DecisionTrees(ID3,C45,C50).InformationGain",
+													"name": "InformationGain",
+													"href": "#information-gain",
+													"type": "",
+													"shortdescription": "",
+													"description": "<img src='assets/images/datascience.machinelearningwithpython.unsupervisedlearning.classification.algorithms.decisiontrees.informationgain.jpg' /><br>InformationGainistheinformationthatcanincreasethelevelofcertaintyaftersplitting<br>InformationGain=(Entropybeforesplit)-(weightedentropyaftersplit)",
+													"children": []
+												},
+												{
+													"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Algorithms.DecisionTrees(ID3,C45,C50).RandomForest",
+													"name": "RandomForest",
+													"href": "#random-forest",
+													"type": "EnsembleLearningMethod",
+													"shortdescription": "",
+													"description": "<img src='assets/images/data-science/datascience.machinelearningwithpython.unsupervisedlearning.classification.algorithms.decisiontrees.randomforest.png=""><br>",
+													"children": [
+														{
+															"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Algorithms.DecisionTrees(ID3,C45,C50).RandomForest.BootstrapAggregation(Bagging)",
+															"name": "BootstrapAggregation(Bagging)",
+															"href": "#bagging",
+															"type": "Technique",
+															"shortdescription": "",
+															"description": "Thetrainingalgorithmforrandomforestsappliesthegeneraltechniqueofbootstrapaggregating,orbagging,totreelearners.GivenatrainingsetX=x1,...,xnwithresponsesY=y1,...,yn,baggingrepeatedly(Btimes)selectsarandomsamplewithreplacementofthetrainingsetandfitstreestothesesamples:<br><img src='assets/images/data-science/datascience.machinelearningwithpython.unsupervisedlearning.classification.algorithms.decisiontrees.randomforest.bagging.jpg' /><br>",
+															"children": []
+														}
+													]
+												},
+												{
+													"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Algorithms.DecisionTrees(ID3,C45,C50).GradientBoostedTrees",
+													"name": "GradientBoostedTrees",
+													"href": "#gradient-boosted-trees",
+													"type": "EnsembleLearningMethod",
+													"shortdescription": "",
+													"description": "",
+													"children": [
+														{
+															"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Algorithms.DecisionTrees(ID3,C45,C50).GradientBoostedTrees.Boosting",
+															"name": "Boosting",
+															"href": "#boosting",
+															"type": "Technique",
+															"shortdescription": "",
+															"description": "",
+															"children": []
+														}
+													]
+												}
+											]
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Algorithms.NaiveBayes",
+											"name": "NaiveBayes",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Algorithms.LinearDiscriminantAnalysis",
+											"name": "LinearDiscriminantAnalysis",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Algorithms.k-NearestNeighbor",
+											"name": "k-NearestNeighbor",
+											"href": "#k-nearest-neighbor",
+											"type": "",
+											"shortdescription": "",
+											"description": "<ahref='pages machine-learning/ml0101en-clas-k-nearest-neighbors-custcat-py-v1.ipynb'download="">DownloadSampleJupyterNotebook<br><img src='assets/images/datascience.machinelearningwithpython.unsupervisedlearning.classification.algorithms.knn.png=""><br>Algorithm<br>-PickavalueforK<br>-Calculatethedistanceofunknowncasefromallcases.<br>-SelecttheK-observationsinthetrainingdatathatarenearesttotheunknowndatapoint<br>-PredicttheresponseoftheunknowndatapointusingthemostpopularresponsevaluefromtheK-nearestneighbors.",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Algorithms.LogisticRegression",
+											"name": "LogisticRegression",
+											"href": "#logistic-regression",
+											"type": "",
+											"shortdescription": "",
+											"description": "<ahref='pages machine-learning/ml0101en-clas-logistic-reg-churn-py-v1.ipynb'download="">DownloadSampleJupyterNotebook<br><img src='assets/images/data-science/datascience.machinelearningwithpython.supervisedlearning.classification.algorithms.logisticregression.jpg' />",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Algorithms.NeuralNetworks",
+											"name": "NeuralNetworks",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Algorithms.SupportVectorMachines(SVM)",
+											"name": "SupportVectorMachines(SVM)",
+											"href": "#support-vector-machines",
+											"type": "",
+											"shortdescription": "",
+											"description": "<ahref='pages machine-learning/ml0101en-clas-svm-cancer-py-v1.ipynb'download="">DownloadSampleJupyterNotebook<br>SVMisasupervisedalgorithmthatclassifiescasesbyfindingaseparator.<br>-Mappingdatatoahigh-dimensionalfeaturespace<br>-Findingaseparator<br><img src='assets/images/datascience.machinelearningwithpython.supervisedlearning.classification.algorithms.supportvectormachine.jpg' /><br><img src='assets/images/datascience.machinelearningwithpython.supervisedlearning.classification.algorithms.supportvectormachinedatatransformation.jpg' /><br>Applications:<br>-Imagerecognition<br>-Textcategoryassignment<br>-Detectingspam<br>-Sentimentanalysis<br>-GeneExpressionClassification<br>-Regression,outlierdetectionandclustering",
+											"children": [
+												{
+													"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Algorithms.SupportVectorMachines(SVM).Kernelling",
+													"name": "Kernelling",
+													"href": "#kernelling",
+													"type": "",
+													"shortdescription": "",
+													"description": "Mappingdataintoahigher-dimensionalspace.Themathematicalfunctionusedforthetransformationisknownasthekernelfunction,andcanbeofdifferenttypes,suchas:<br>-Linear<br>-Polynomial<br>-RadialBasisFunction(RBF)<br>-Sigmoid.",
+													"children": []
+												}
+											]
+										}
+									]
+								},
+								{
+									"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Evaluationmetrics",
+									"name": "Evaluationmetrics",
+									"href": "#classification-evaluation-metrics",
+									"type": "",
+									"shortdescription": "",
+									"description": "",
+									"children": [
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Evaluationmetrics.Jaccardindex",
+											"name": "Jaccardindex",
+											"href": "#jaccard-index",
+											"type": "",
+											"shortdescription": "",
+											"description": "<img src='assets/images/datascience.machinelearningwithpython.unsupervisedlearning.classification.evaluationmetrics.jaccardindex.jpg' />",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Evaluationmetrics.F1Score",
+											"name": "F1Score",
+											"href": "#f1-score",
+											"type": "",
+											"shortdescription": "",
+											"description": "<img src='assets/images/datascience.machinelearningwithpython.unsupervisedlearning.classification.evaluationmetrics.f1score.jpg' />",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.SupervisedLearning.Classification.Evaluationmetrics.LogLoss",
+											"name": "LogLoss",
+											"href": "#log-loss",
+											"type": "",
+											"shortdescription": "",
+											"description": "<img src='assets/images/datascience.machinelearningwithpython.unsupervisedlearning.classification.evaluationmetrics.logloss.jpg' /><br>Near0-&gt;Higheraccuracy",
+											"children": []
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning",
+					"name": "UnsupervisedLearning",
+					"href": "#",
+					"type": "",
+					"shortdescription": "",
+					"description": "",
+					"children": [
+						{
+							"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Dimensionreduction",
+							"name": "Dimensionreduction",
+							"href": "#dimension-reduction",
+							"type": "",
+							"shortdescription": "",
+							"description": "Dimensionalityreduction,and/orfeatureselection,playalargeroleinthisbyreducingredundantfeaturestomaketheclassificationeasier.",
+							"children": []
+						},
+						{
+							"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Densityestimation",
+							"name": "Densityestimation",
+							"href": "#density-estimation",
+							"type": "",
+							"shortdescription": "",
+							"description": "Densityestimationisaverysimpleconceptthatismostlyusedtoexplorethedatatofindsomestructurewithinit.",
+							"children": []
+						},
+						{
+							"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Marketbasketanalysis",
+							"name": "Marketbasketanalysis",
+							"href": "#market-basket-analysis",
+							"type": "",
+							"shortdescription": "",
+							"description": "Marketbasketanalysisisamodelingtechniquebaseduponthetheorythatifyoubuyacertaingroupofitems,you'remorelikelytobuyanothergroupofitems.",
+							"children": []
+						},
+						{
+							"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering",
+							"name": "Clustering",
+							"href": "#clustering",
+							"type": "",
+							"shortdescription": "",
+							"description": "<img src='assets/images/datascience.machinelearningwithpython.unsupervisedlearning.clustering.jpg' /><br>Clusteringisgroupingofdatapointsorobjectsthataresomehowsimilarby:<br>-Discoveringstructure<br>-Summarization<br>-Anomalydetection",
+							"children": [
+								{
+									"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Applications",
+									"name": "Applications",
+									"href": "#",
+									"type": "",
+									"shortdescription": "",
+									"description": "",
+									"children": [
+										{
+											"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Applications.Retail/Marketing:Identifybuyingpatternsofcustomers",
+											"name": "Retail/Marketing:Identifybuyingpatternsofcustomers",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Applications.Retail/Marketing:Recommendingnewbooksormoviestonewcustomers",
+											"name": "Retail/Marketing:Recommendingnewbooksormoviestonewcustomers",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Applications.Banking:Frauddetectionincreditcarduse",
+											"name": "Banking:Frauddetectionincreditcarduse",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Applications.Banking:Identifyingclustersofcustomers(eg:loyal)",
+											"name": "Banking:Identifyingclustersofcustomers(eg:loyal)",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Applications.Insurance:Frauddetectioninclaimsanalysis",
+											"name": "Insurance:Frauddetectioninclaimsanalysis",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Applications.Insurance:Insuranceriskofcustomers",
+											"name": "Insurance:Insuranceriskofcustomers",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Applications.Publication:Auto-categorizingnewsbasedontheircontent",
+											"name": "Publication:Auto-categorizingnewsbasedontheircontent",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Applications.Publication:Recommendingsimilarnewsarticles",
+											"name": "Publication:Recommendingsimilarnewsarticles",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Applications.Medicine:Characterizingpatientbehavior",
+											"name": "Medicine:Characterizingpatientbehavior",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Applications.Biology:Clusteringgeneticmarkerstoidentifyfamilyties",
+											"name": "Biology:Clusteringgeneticmarkerstoidentifyfamilyties",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": []
+										}
+									]
+								},
+								{
+									"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Algorithms",
+									"name": "Algorithms",
+									"href": "#",
+									"type": "",
+									"shortdescription": "",
+									"description": "",
+									"children": [
+										{
+											"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Algorithms.Partitioned-basedClustering",
+											"name": "Partitioned-basedClustering",
+											"href": "#partition-based-clustering",
+											"type": "",
+											"shortdescription": "",
+											"description": "Relativelyefficient<br>E.g.k-Means,k-Median,Fuzzyc-Means",
+											"children": [
+												{
+													"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Algorithms.Partitioned-basedClustering.k-MeansClustering",
+													"name": "k-MeansClustering",
+													"href": "#k-means-clustering",
+													"type": "",
+													"shortdescription": "",
+													"description": "<ahref='pages machine-learning/ml0101en-clus-k-means-customer-seg-module-4.ipynb'download="">DownloadSampleJupyterNotebook<br>1.Initializek=(numberofclusters)centroidsrandomly<br>2.Calculatethedistanceofeachpointfromeachcentroid<br>3.Assigneachdatapoint(object)toitsclosestcentroid,creatingacluster<br>4.Recalculatethepositionofthekcentroids<br>5.Repeatuntiltherearenomorechanges=&gt;Converged<br><img src='assets/images/datascience.machinelearningwithpython.unsupervisedlearning.clustering.k-means-clustering.jpg' />",
+													"children": []
+												}
+											]
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Algorithms.HierarchicalClustering",
+											"name": "HierarchicalClustering",
+											"href": "#hierarchical-clustering",
+											"type": "",
+											"shortdescription": "",
+											"description": "Buildahierarchyofclusterswhereeachnodeisaclusterconsistsoftheclustersofitsdaughternodes<br>Producestreesofclusters<br>E.g.Agglomerative,Divisive<br><br>Top-down:divisive;Bottom-Up:agglomerative<br><img src='assets/images/datascience.machinelearningwithpython.unsupervisedlearning.clustering.hierarchicalclustering.jpg' />",
+											"children": [
+												{
+													"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Algorithms.HierarchicalClustering.AgglomerativeClustering",
+													"name": "AgglomerativeClustering",
+													"href": "#agglomerative-clustering",
+													"type": "",
+													"shortdescription": "",
+													"description": "<ahref='pages machine-learning/ml0101en-clus-hierarchical-cars-py-v1-module-4.ipynb'download="">DownloadSampleJupyterNotebook<br>1.Createnclusters,oneforeachdatapoint<br>2.ComputetheProximityMatrix(distancebetweeneachclusters)<br>3.Selecttwoclosestclustersaccordingtodistancebetweeneachpairofpoints(distancemeasurementcaneitherbeEuclidean,Pearson,averagedistanceormanyothersdependingondatatypeanddomainknowledge)<br>4.Mergetwoclosestclustersintooneclusterandcalculatethedistancebetweenthenewcluster(centeroftwocluster)tootherclusters<br>5.Repeatstep3untilonlyasingleclusterremains<br><img src='assets/images/datascience.machinelearningwithpython.unsupervisedlearning.clustering.agglomerativeclustering.jpg' />",
+													"children": []
+												},
+												{
+													"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Algorithms.HierarchicalClustering.Distancebetweenclusters",
+													"name": "Distancebetweenclusters",
+													"href": "#distance-between-clusters",
+													"type": "",
+													"shortdescription": "",
+													"description": "<img src='assets/images/datascience.machinelearningwithpython.unsupervisedlearning.clustering.hierarchicalclustering.distancebetweenclusters.jpg' />",
+													"children": [
+														{
+															"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Algorithms.HierarchicalClustering.Distancebetweenclusters.Single-LinkageClustering",
+															"name": "Single-LinkageClustering",
+															"href": "#",
+															"type": "",
+															"shortdescription": "",
+															"description": "",
+															"children": []
+														},
+														{
+															"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Algorithms.HierarchicalClustering.Distancebetweenclusters.Complete-LinkageClustering",
+															"name": "Complete-LinkageClustering",
+															"href": "#",
+															"type": "",
+															"shortdescription": "",
+															"description": "",
+															"children": []
+														},
+														{
+															"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Algorithms.HierarchicalClustering.Distancebetweenclusters.Average-LinkageClustering",
+															"name": "Average-LinkageClustering",
+															"href": "#",
+															"type": "",
+															"shortdescription": "",
+															"description": "",
+															"children": []
+														},
+														{
+															"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Algorithms.HierarchicalClustering.Distancebetweenclusters.Centroid-LinkageClustering",
+															"name": "Centroid-LinkageClustering",
+															"href": "#",
+															"type": "",
+															"shortdescription": "",
+															"description": "",
+															"children": []
+														}
+													]
+												},
+												{
+													"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Algorithms.HierarchicalClustering.Distancemeasurement",
+													"name": "Distancemeasurement",
+													"href": "#distance-measurement",
+													"type": "",
+													"shortdescription": "",
+													"description": "",
+													"children": [
+														{
+															"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Algorithms.HierarchicalClustering.Distancemeasurement.Euclidean",
+															"name": "Euclidean",
+															"href": "#",
+															"type": "",
+															"shortdescription": "",
+															"description": "",
+															"children": []
+														},
+														{
+															"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Algorithms.HierarchicalClustering.Distancemeasurement.Pearson",
+															"name": "Pearson",
+															"href": "#",
+															"type": "",
+															"shortdescription": "",
+															"description": "",
+															"children": []
+														},
+														{
+															"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Algorithms.HierarchicalClustering.Distancemeasurement.Averagedistance",
+															"name": "Averagedistance",
+															"href": "#",
+															"type": "",
+															"shortdescription": "",
+															"description": "",
+															"children": []
+														}
+													]
+												}
+											]
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Algorithms.Density-basedClustering",
+											"name": "Density-basedClustering",
+											"href": "#density-based-clustering",
+											"type": "",
+											"shortdescription": "",
+											"description": "Producesarbitraryshapedclusters<br>E.g.DBSCAN",
+											"children": [
+												{
+													"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Algorithms.Density-basedClustering.DBSCANClustering",
+													"name": "DBSCANClustering",
+													"href": "#dbscan-clustering",
+													"type": "",
+													"shortdescription": "",
+													"description": "<ahref='pages machine-learning/ml0101en-clus-dbscn-weather-py-v1-module-4.ipynb'download="">DownloadSampleJupyterNotebook<br>Density-BasedSpatialClusteringofApplicationswithNoise<br>R(Radiusofneighborhood)thatifincludesenoughnumberofpointswithin,wecallitadensearea<br>M(Minnumberofneighbors)Theminimumnumberofdatapointswewantinaneighborhoodtodefineacluster<br><br>Let'spickapointrandomly.First,wechecktoseewhetherit'sacoredatapoint.<br>AdatapointisacorepointifwithinneighborhoodofthepointthereareatleastMpoints.<br>Forexample,astherearesixpointsinthetwocentimeterneighboroftheredpoint,wemarkthispointasacorepoint.<br>AdatapointisaborderpointifA;itsneighbourhoodcontainslessthanMdatapointsorB;itisreachablefromsomecorepoint.<br>Here,reachabilitymeansitiswithinourdistancefromacorepoint.Itmeansthateventhoughtheyellowpointiswithinthetwocentimeterneighborhoodoftheredpoint,itisnotbyitselfacorepointbecauseitdoesnothaveatleastsixpointsinitsneighborhood.<br>Thegreypointisnotacorepointnorisitaborderpoint.So,we'dlabelitasanoutlier.Anoutlierisapointthatisnotacorepointandalsoisnotcloseenoughtobereachablefromacorepoint.Wecontinueandvisitallthepointsinthedatasetandlabelthemaseithercore,border,oroutlier.<br>Thenextstepistoconnectcorepointsthatareneighborsandputtheminthesamecluster.So,aclusterisformedasatleastonecorepointplusallreachablecorepointsplusalltheirborders.It'ssimplyshapesalltheclustersandfindsoutliersaswell.<br><img src='assets/images/datascience.machinelearningwithpython.unsupervisedlearning.clustering.densitybasedclustering.dbscan.jpg' />",
+													"children": []
+												},
+												{
+													"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Algorithms.Density-basedClustering.Types",
+													"name": "Types",
+													"href": "#",
+													"type": "",
+													"shortdescription": "",
+													"description": "",
+													"children": [
+														{
+															"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Algorithms.Density-basedClustering.Types.Spherical-shapeclusters",
+															"name": "Spherical-shapeclusters",
+															"href": "#spherical-shape-clusters",
+															"type": "",
+															"shortdescription": "",
+															"description": "<img src='assets/images/datascience.machinelearningwithpython.unsupervisedlearning.clustering.densitybasedclustering.sphericalshapecluster.jpg' />",
+															"children": []
+														},
+														{
+															"id": "DataScience.MachineLearningwithPython.UnsupervisedLearning.Clustering.Algorithms.Density-basedClustering.Types.Arbitrary-shapeclusters",
+															"name": "Arbitrary-shapeclusters",
+															"href": "#arbitrary-shape-clusters",
+															"type": "",
+															"shortdescription": "",
+															"description": "<img src='assets/images/datascience.machinelearningwithpython.unsupervisedlearning.clustering.densitybasedclustering.arbitraryshapecluster.jpg' />",
+															"children": []
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"id": "DataScience.MachineLearningwithPython.RecommendationSystem",
+					"name": "RecommendationSystem",
+					"href": "#",
+					"type": "",
+					"shortdescription": "",
+					"description": "",
+					"children": [
+						{
+							"id": "DataScience.MachineLearningwithPython.RecommendationSystem.Applications",
+							"name": "Applications",
+							"href": "#recommendation-system-applications",
+							"type": "",
+							"shortdescription": "",
+							"description": "Wheretobuy?E-commerce,books,movies,beer,shoes<br>Wheretoeat?<br>Whichjobtoapplyto?<br>Whoyoushouldbefriendswith?<br>Personalizeyourexperienceontheweb:Newsplatforms,newspersonalization",
+							"children": []
+						},
+						{
+							"id": "DataScience.MachineLearningwithPython.RecommendationSystem.Types",
+							"name": "Types",
+							"href": "#recommendation-system-types",
+							"type": "",
+							"shortdescription": "",
+							"description": "<img src='assets/images/datascience.machinelearningwithpython.recommendationsystem.types.jpg' />",
+							"children": [
+								{
+									"id": "DataScience.MachineLearningwithPython.RecommendationSystem.Types.Content-Based",
+									"name": "Content-Based",
+									"href": "#content-based",
+									"type": "",
+									"shortdescription": "",
+									"description": "<ahref='pages machine-learning/ml0101en-recsys-content-based-movies-py-v1-module-5.ipynb'download="">DownloadSampleJupyterNotebook<br>Similaritems",
+									"children": []
+								},
+								{
+									"id": "DataScience.MachineLearningwithPython.RecommendationSystem.Types.CollaborativeFiltering",
+									"name": "CollaborativeFiltering",
+									"href": "#collaborative-filtering",
+									"type": "",
+									"shortdescription": "",
+									"description": "<ahref='pages machine-learning/ml0101en-recsys-collaborative-filtering-movies-py-v1-module-5.ipynb'download="">DownloadSampleJupyterNotebook<br>Similarpreferences<br><img src='assets/images/datascience.machinelearningwithpython.recommendationsystem.types.collaborativefiltering.jpg' />",
+									"children": [
+										{
+											"id": "DataScience.MachineLearningwithPython.RecommendationSystem.Types.CollaborativeFiltering.User-based",
+											"name": "User-based",
+											"href": "#user-based",
+											"type": "",
+											"shortdescription": "",
+											"description": "Basedonusers'neighborhood",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.RecommendationSystem.Types.CollaborativeFiltering.Item-based",
+											"name": "Item-based",
+											"href": "#item-based",
+											"type": "",
+											"shortdescription": "",
+											"description": "Basedonitems'similarity",
+											"children": []
+										},
+										{
+											"id": "DataScience.MachineLearningwithPython.RecommendationSystem.Types.CollaborativeFiltering.Challenges",
+											"name": "Challenges",
+											"href": "#",
+											"type": "",
+											"shortdescription": "",
+											"description": "",
+											"children": [
+												{
+													"id": "DataScience.MachineLearningwithPython.RecommendationSystem.Types.CollaborativeFiltering.Challenges.DataSparsity",
+													"name": "DataSparsity",
+													"href": "#data-sparsity",
+													"type": "",
+													"shortdescription": "",
+													"description": "Usersingeneralrateonlyalimitednumberofitems",
+													"children": []
+												},
+												{
+													"id": "DataScience.MachineLearningwithPython.RecommendationSystem.Types.CollaborativeFiltering.Challenges.Coldstart",
+													"name": "Coldstart",
+													"href": "#cold-start",
+													"type": "",
+													"shortdescription": "",
+													"description": "Difficultyinrecommendationtonewusersornewitems",
+													"children": []
+												},
+												{
+													"id": "DataScience.MachineLearningwithPython.RecommendationSystem.Types.CollaborativeFiltering.Challenges.Scalability",
+													"name": "Scalability",
+													"href": "#scalability",
+													"type": "",
+													"shortdescription": "",
+													"description": "Increaseinnumberofusersoritems",
+													"children": []
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"id": "DataScience.MachineLearningwithPython.RecommendationSystem.Implementing",
+							"name": "Implementing",
+							"href": "#",
+							"type": "",
+							"shortdescription": "",
+							"description": "",
+							"children": [
+								{
+									"id": "DataScience.MachineLearningwithPython.RecommendationSystem.Implementing.Memory-based",
+									"name": "Memory-based",
+									"href": "#memory-based",
+									"type": "",
+									"shortdescription": "",
+									"description": "Usestheentireuser-itemdatasettogeneratearecommendation<br>Usesstatisticaltechniquestoapproximateusersoritemse.g.,PearsonCorrelation,CosineSimilarity,EuclideanDistance,etc.",
+									"children": []
+								},
+								{
+									"id": "DataScience.MachineLearningwithPython.RecommendationSystem.Implementing.Model-based",
+									"name": "Model-based",
+									"href": "#model-based",
+									"type": "",
+									"shortdescription": "",
+									"description": "Developsamodelofusersinanattempttolearntheirpreferences<br>ModelscanbecreatedusingMachineLearningtechniqueslikeregression,clustering,classification,etc.",
+									"children": []
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

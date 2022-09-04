@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>BBC World Service - Radio</title>
+    <meta charset='utf-8' />
+</head>
+<body>
+    
+    
+    <!--<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>-->
+
+    <script>(function(d, s){if(!window.rel){s = d.createElement("script");s.type = "text/javascript";s.async = true;s.id = "radio-de-embedded";s.src = "https://www.radio.net/inc/microsite/js/full.js";d.getElementsByTagName("head")[0].appendChild(s);window.rel = true;}}(document));</script>
+	
+	<div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="bbcworldservice" data-autoplay="true" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div>
+	
+
+	
+	<div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="bloomberg" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div>
+	
+	<div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="sciencetimes" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div>
+	
+	<div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="science360" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div>
+	
+	<div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="twit" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div>
+	
+	<script>
+		window.onload = function() {
+			var oldCssHref = document.getElementById('myCss').href;
+			if(oldCssHref.indexOf('file')===0) {
+				oldCssHref = "https"+oldCssHref.substr(4);
+				document.getElementById('myCss').href = oldCssHref;
+			}			
+		}
+	</script>
+	
+</body>
+</html>

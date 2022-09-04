@@ -1,0 +1,506 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>Gmail API demo</title>
+    <meta charset="UTF-8">
+    <style>
+        .d-flex {
+            display: -ms-flexbox !important;
+            display: flex !important;
+        }
+        .flex-grow-0 {
+            -ms-flex-positive: 0 !important;
+            flex-grow: 0 !important;
+        }
+
+        .flex-grow-1 {
+            -ms-flex-positive: 1 !important;
+            flex-grow: 1 !important;
+        }
+
+        .flex-shrink-0 {
+            -ms-flex-negative: 0 !important;
+            flex-shrink: 0 !important;
+        }
+
+        .flex-shrink-1 {
+            -ms-flex-negative: 1 !important;
+            flex-shrink: 1 !important;
+        }
+        .p-2 {
+            padding: 0.5rem !important;
+        }
+        .m-1 {
+        margin: 0.25rem !important;
+        }
+
+        .mt-1,
+        .my-1 {
+        margin-top: 0.25rem !important;
+        }
+
+        .mt-2,
+        .my-2 {
+        margin-top: 0.5rem !important;
+        }
+
+        .mt-3,
+        .my-3 {
+        margin-top: 1rem !important;
+        }
+
+        .text-left {
+        text-align: left !important;
+        }
+
+        .text-right {
+        text-align: right !important;
+        }
+
+        .text-center {
+        text-align: center !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex">
+        <div class="p-2 flex-grow-1">
+            <textarea id="txtToEncode" style="width: 100%; height: 300px;"></textarea>
+        </div>
+        <div class="p-2 text-center">
+            <div>
+                <button id="encode" onclick="document.getElementById('txtToDecode').value = b64EncodeUnicode(document.getElementById('txtToEncode').value);">Encode -&gt;</button>
+            </div>
+            <div class="mt-1">
+                <button id="decode" onclick="document.getElementById('txtToEncode').value = b64DecodeUnicode(document.getElementById('txtToDecode').value);">&lt;- Decode</button>
+            </div>
+            <div class="mt-3">
+                <button onclick="document.getElementById('txtToDecode').value = encodeQuotedPrintable(document.getElementById('txtToEncode').value);">Encode Quoted-Printable -&gt;</button>
+            </div>
+            <div class="mt-1">
+                <button onclick="document.getElementById('txtToEncode').value = utf8_from_str(decodeQuotedPrintable(document.getElementById('txtToDecode').value)); console.log(utf8_decode(decodeQuotedPrintable(document.getElementById('txtToDecode').value)));">&lt;- Decode Quoted-Printable</button>
+            </div>
+			<div class="mt-3">
+                <button onclick="onConvertDateToDOYButtonClicked()">Convert Date to Date of year -&gt;</button>
+            </div>
+            <div class="mt-1">
+                <button onclick="onConvertDOYToDateButtonClicked()">&lt;- Convert Date of year to Date</button>
+            </div>
+            <div class="mt-3">
+                <button id="removeLetterAndNumber" onclick="document.getElementById('txtToDecode').value = removeLetterAndNumber(document.getElementById('txtToEncode').value);">Remove Letters and Numbers -&gt;</button>
+            </div>
+            <div class="mt-1">
+                <button id="boDauTiengVietButton" onclick="document.getElementById('txtToDecode').value = commonfns.removeAccents(document.getElementById('txtToEncode').value);">Bỏ dấu tiếng việt -&gt;</button>
+            </div>
+        </div>
+
+        <div class="p-2 flex-grow-1">
+            <textarea id="txtToDecode" style="width: 100%; height: 300px;"></textarea>
+        </div>
+    </div>
+
+	
+    <!-- HTML SOURCE TO VIEW, Show Base 64 image -->
+    <div class="p-2">
+        <div id="input2" contenteditable="true" style="width: 100%; height: 300px; border: 1px solid black; overflow: auto;">R0lGODdhVwBXAIAAAAAAAP///ywAAAAAVwBXAAAC/4yPqcvtD6OctNqLs968+w+G4kiW5omm6sq27gvHGUDX9o0r9ZEb+A/kAIc2HY13QxKHwiUzsfMlpc5fEzCJBrQ9hBbyxYQd3CN1PG6kK+tFGXs2e+Vgulj+3OKnevjcn9eWtWdFpfRmBBhkuPHW5UiYeMgnKAFZxNg36ae0idhI+BgZx5kZaHdx+alJKkm6OhNKiYo22idamiqLyfrn2nuaa6Fq2wllG3w1KNx6zOyGOhzN0NZlHFGJPQ39bJ1Z97xcNatY7jl+Nc67SlyVro4cD5+N4i0jYn8Pkq///cBOrlahDvRM7dqUiJ+ucM6u4RKoUFquiNQW3eJzLdZEjPmWLObJeGcjL3EBOfb60C6hvIIjUjoDOLKFyz8wWaKUh/DlEofbNPIsB3GnQYYLf+akKRRYTzbkVA6c5w7UOlpJoTp5Z07nU6tE9NljCQvG16W+/L0YS9SoVKhOw14ciFVd22KvTGpkq9XtVQ9gt1Xza9Fnx26ACcMNuUxNYcWHi9bNinSqSIqO3+r1SLWxsscgLdP1nJYp0KYNH+MqMVPgua2hKycrDfo0idSZV9tupoG2yNugjwrubVb3Q7LgEleE1/lm67/IzSo3zk2uc75c1Z4MbjckXqWQO1Mm2Zy798w2+5k/jz69+vXs27t/Dz++/Pn069tnUAAAOw==</div>
+        <button id="decodeImage" onclick="document.getElementById('image').setAttribute('src', 'data:image/png;base64,'+document.getElementById('input2').innerText)">Decode Base64 Image</button>
+        <button id="convertHTMLToView" onclick="document.getElementById('content2').innerHTML = document.getElementById('input2').innerText;">View HTML</button>
+
+        <div>
+            <img id="image"/> 
+        </div>
+        <div id="content2"></div>
+    </div>
+
+    <script type="text/javascript">
+        const commonfns = {
+            removeAccents: function(str) {
+                return str.normalize('NFD')
+                            .replace(/[\u0300-\u036f]/g, '')
+                            .replace(/đ/g, 'd').replace(/Đ/g, 'D');
+            }
+        }
+		
+		const datefns = {
+			parseDate: function(dateStr) {
+				var date;
+				try {
+					// dd/MM/yyyy
+					var pattern = /(\d{2})\/(\d{2})\/(\d{4})/;
+					date = new Date(dateStr.replace(pattern,'$3-$2-$1'));
+					if(this.isValidDate(date)) {
+						return date;
+					}
+				} catch (error) {
+					console.log(error)
+				}
+				try {
+					date = new Date(dateStr);
+					if(this.isValidDate(date)) {
+						return date;
+					}                    
+				} catch (error) {
+					// Do nothing
+					console.log(error)
+				}
+				try {
+					// yyyyMMdd
+					var pattern = /(\d{4})(\d{2})(\d{2})/;
+					date = new Date(dateStr.replace(pattern,'$1-$2-$3'));
+					if(this.isValidDate(date)) {
+						return date;
+					}
+				} catch (error) {
+					console.log(error)
+				}
+				
+				return date;
+			},
+
+			// `date` is a `Date` object
+			// `locale` is a locale (en-US, pt-BR, for example)
+			// e.g. formatToLocale(new Date(), 'pt-BR')
+			formatToLocale: (date, locale) => new Intl.DateTimeFormat(locale).format(date),
+
+			dateDiff: (date, otherDate) => Math.ceil(Math.abs(date - otherDate) / (1000 * 60 * 60 * 24)),
+
+			monthDiff: (startDate, endDate) => Math.max(0, (endDate.getFullYear() - startDate.getFullYear()) * 12 - startDate.getMonth() + endDate.getMonth()),
+
+			// Convert seconds to hh mm ss format
+			// `s` is number of seconds
+			// Examples
+			// formatSecondsToHours(200);     // 00:03:20
+			formatSecondsToHours: s => new Date(s * 1000).toISOString().substr(11, 8),
+
+			// Get number of days in given month
+			// month is zero-based index
+			getDaysInMonth: (month, year) => new Date(year, month, 0).getDate(),
+
+			// Get month name of a date
+			// date is a Date object
+			getMonthName: date => ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',' November', 'December'][date.getMonth()],
+			
+			isValidDate(dateObj) {
+				if(!dateObj || !dateObj.getTime) {
+					return false;
+				}
+				return dateObj.getTime() === dateObj.getTime();
+			},
+
+			// `date` is a Date object
+			// getDayOfYear: function(date) {
+			//     if(!date) {
+			//         date = new Date();
+			//     }
+			//     var start = new Date(date.getFullYear(), 0, 0);
+			//     var diff = (date - start) + ((start.getTimezoneOffset() - date.getTimezoneOffset()) * 60 * 1000);
+			//     var oneDay = 1000 * 60 * 60 * 24;
+			//     var day = Math.floor(diff / oneDay);
+
+			//     return day;
+			// },
+
+			// `date` is a Date object
+			getDayOfYear: date => Math.floor((date - new Date(date.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24)),
+
+			getDateFromDOY: function(year, doy) {
+				if(!year || !doy || isNaN(doy)) {
+					return '';
+				}
+				var start = new Date(year, 0, 1);
+				start.setDate(start.getDate() + parseInt(doy));
+
+				return start;
+			},
+
+			toISO8601Date: function(date) {
+				if(!date) {
+					date = new Date();
+				}
+				// var dd = date.getDate();
+				// var mm = date.getMonth() + 1;
+				// var y = date.getFullYear();
+
+				// var formattedDate = y + '-' + mm + '-' + dd;
+				var formattedDate = date.toISOString().slice(0, 10);
+				return formattedDate;
+			},
+
+			// Get the weekday name of a date
+			// date is a Date object
+			getDayName: date => ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][date.getDay()],
+
+			// `arr` is an array of `Date` items
+			sortAscending: arr => arr.sort((a, b) => a.getTime() < b.getTime()),
+			sortDescending: arr => arr.sort((a, b) => a.getTime() > b.getTime()),
+
+			// Check is a year is leap year
+			isLeapYear: year => (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0)),
+		}
+
+		const numberfns = {
+			// Check if a value is number
+			isNumber: value => !isNaN(parseFloat(value)) && isFinite(value),
+
+			// Add ordinal suffix to a number
+			//addOrdinal(1);      // '1st'
+			//addOrdinal(2);      // '2nd'
+			addOrdinal: n => `${n}${['st', 'nd', 'rd'][((n + 90) % 100 - 10) % 10 - 1] || 'th'}`,
+
+			// Convert number to equivalent characters, like in Excel, 0: A, 1: B, 25: Z, 26: AA
+			toChars: n => `${n >= 26 ? toChars(Math.floor(n / 26) - 1) : ''}${'ABCDEFGHIJKLMNOPQRSTUVWXYZ'[n % 26]}`,
+
+			// Prefix integer with zeros
+			// prefixWithZeros(42, 5);     // '00042'
+			prefixWithZeros: (number, length) => (number / Math.pow(10, length)).toFixed(length).substr(2),
+
+			// Round number
+			// round(1.234567, 3);     // 1.235
+			round: (n, decimals = 0) => Number(`${Math.round(`${n}e${decimals}`)}e-${decimals}`),
+		}
+
+        String.prototype.replaceAll = function (search, replacement) {
+            var target = this;
+            return target.split(search).join(replacement);
+        };
+        
+		function isLetter(str) {
+		  return str.length === 1 && str.match(/[a-z]/i);
+		}
+		
+		function isNumber(str) {
+			return str.length === 1 && str.match(/[0-9]/i);
+		}
+		
+        function removeLetterAndNumber(str) {
+			var stringAfterRemoved='';
+			for(i=0, length=str.length; i<length; i++) {
+				if(!isLetter(str.charAt(i)) && !isNumber(str.charAt(i))) stringAfterRemoved+=str.charAt(i);
+			}
+			return stringAfterRemoved;
+		}
+
+
+        function b64EncodeUnicode(str) {
+            // first we use encodeURIComponent to get percent-encoded UTF-8,
+            // then we convert the percent encodings into raw bytes which
+            // can be fed into btoa.
+            return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
+                function toSolidBytes(match, p1) {
+                    return String.fromCharCode('0x' + p1);
+                }));
+        }
+        function b64DecodeUnicode(str) {
+            // Going backwards: from bytestream, to percent-encoding, to original string.
+            return decodeURIComponent(atob(str.replace(/-/g, '+').replace(/_/g, '/').replace(/^data:image\/(png|jpg);base64,/, '')).split('').map(function (c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+        }
+
+        function quoted_printable_decode(str) {
+            var RFC2045Decode1 = /=\r\n/gm,
+              // Decodes all equal signs followed by two hex digits
+              RFC2045Decode2IN = /=([0-9A-F]{2})/gim,
+              // the RFC states against decoding lower case encodings, but following apparent PHP behavior
+              // RFC2045Decode2IN = /=([0-9A-F]{2})/gm,
+              RFC2045Decode2OUT = function (sMatch, sHex) {
+                  return String.fromCharCode(parseInt(sHex, 16));
+              };
+            return str.replace(RFC2045Decode1, '')
+              .replace(RFC2045Decode2IN, RFC2045Decode2OUT);
+        };
+
+        function utf8_decode(str_data) {
+            var tmp_arr = [],
+              i = 0,
+              ac = 0,
+              c1 = 0,
+              c2 = 0,
+              c3 = 0,
+              c4 = 0;
+
+            str_data += '';
+
+            while (i < str_data.length) {
+                c1 = str_data.charCodeAt(i);
+                if (c1 <= 191) {
+                    tmp_arr[ac++] = String.fromCharCode(c1);
+                    i++;
+                } else if (c1 <= 223) {
+                    c2 = str_data.charCodeAt(i + 1);
+                    tmp_arr[ac++] = String.fromCharCode(((c1 & 31) << 6) | (c2 & 63));
+                    i += 2;
+                } else if (c1 <= 239) {
+                    // http://en.wikipedia.org/wiki/UTF-8#Codepage_layout
+                    c2 = str_data.charCodeAt(i + 1);
+                    c3 = str_data.charCodeAt(i + 2);
+                    tmp_arr[ac++] = String.fromCharCode(((c1 & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
+                    i += 3;
+                } else {
+                    c2 = str_data.charCodeAt(i + 1);
+                    c3 = str_data.charCodeAt(i + 2);
+                    c4 = str_data.charCodeAt(i + 3);
+                    c1 = ((c1 & 7) << 18) | ((c2 & 63) << 12) | ((c3 & 63) << 6) | (c4 & 63);
+                    c1 -= 0x10000;
+                    tmp_arr[ac++] = String.fromCharCode(0xD800 | ((c1 >> 10) & 0x3FF));
+                    tmp_arr[ac++] = String.fromCharCode(0xDC00 | (c1 & 0x3FF));
+                    i += 4;
+                }
+            }
+
+            return tmp_arr.join('');
+        }
+        
+		
+        // QUOTED PRINTABLE 
+
+        var stringFromCharCode = String.fromCharCode;
+        var decodeQuotedPrintable = function (input) {
+            return input
+                // https://tools.ietf.org/html/rfc2045#section-6.7, rule 3:
+                // “Therefore, when decoding a `Quoted-Printable` body, any trailing white
+                // space on a line must be deleted, as it will necessarily have been added
+                // by intermediate transport agents.”
+                .replace(/[\t\x20]$/gm, '')
+                // Remove hard line breaks preceded by `=`. Proper `Quoted-Printable`-
+                // encoded data only contains CRLF line  endings, but for compatibility
+                // reasons we support separate CR and LF too.
+                .replace(/=(?:\r\n?|\n|$)/g, '')
+                // Decode escape sequences of the form `=XX` where `XX` is any
+                // combination of two hexidecimal digits. For optimal compatibility,
+                // lowercase hexadecimal digits are supported as well. See
+                // https://tools.ietf.org/html/rfc2045#section-6.7, note 1.
+                .replace(/=([a-fA-F0-9]{2})/g, function ($0, $1) {
+                    var codePoint = parseInt($1, 16);
+                    return stringFromCharCode(codePoint);
+                });
+        };
+
+        var handleTrailingCharacters = function (string) {
+            return string
+                .replace(/\x20$/, '=20') // Handle trailing space.
+                .replace(/\t$/, '=09') // Handle trailing tab.
+        };
+
+        var regexUnsafeSymbols = /[\0-\x08\n-\x1F=\x7F-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]/g;
+        var encodeQuotedPrintable = function (string) {
+
+            // Encode symbols that are definitely unsafe (i.e. unsafe in any context).
+            var encoded = string.replace(regexUnsafeSymbols, function (symbol) {
+                if (symbol > '\xFF') {
+                    throw RangeError(
+                        '`quotedPrintable.encode()` expects extended ASCII input only. ' +
+                        'Don\u2019t forget to encode the input first using a character ' +
+                        'encoding like UTF-8.'
+                    );
+                }
+                var codePoint = symbol.charCodeAt(0);
+                var hexadecimal = codePoint.toString(16).toUpperCase();
+                return '=' + ('0' + hexadecimal).slice(-2);
+            });
+
+            // Limit lines to 76 characters (not counting the CRLF line endings).
+            var lines = encoded.split(/\r\n?|\n/g);
+            var lineIndex = -1;
+            var lineCount = lines.length;
+            var result = [];
+            while (++lineIndex < lineCount) {
+                var line = lines[lineIndex];
+                // Leave room for the trailing `=` for soft line breaks.
+                var LINE_LENGTH = 75;
+                var index = 0;
+                var length = line.length;
+                while (index < length) {
+                    var buffer = encoded.slice(index, index + LINE_LENGTH);
+                    // If this line ends with `=`, optionally followed by a single uppercase
+                    // hexadecimal digit, we broke an escape sequence in half. Fix it by
+                    // moving these characters to the next line.
+                    if (/=$/.test(buffer)) {
+                        buffer = buffer.slice(0, LINE_LENGTH - 1);
+                        index += LINE_LENGTH - 1;
+                    } else if (/=[A-F0-9]$/.test(buffer)) {
+                        buffer = buffer.slice(0, LINE_LENGTH - 2);
+                        index += LINE_LENGTH - 2;
+                    } else {
+                        index += LINE_LENGTH;
+                    }
+                    result.push(buffer);
+                }
+            }
+
+            // Encode space and tab characters at the end of encoded lines. Note that
+            // with the current implementation, this can only occur at the very end of
+            // the encoded string — every other line ends with `=` anyway.
+            var lastLineLength = buffer.length;
+            if (/[\t\x20]$/.test(buffer)) {
+                // There’s a space or a tab at the end of the last encoded line. Remove
+                // this line from the `result` array, as it needs to change.
+                result.pop();
+                if (lastLineLength + 2 <= LINE_LENGTH + 1) {
+                    // It’s possible to encode the character without exceeding the line
+                    // length limit.
+                    result.push(
+                        handleTrailingCharacters(buffer)
+                    );
+                } else {
+                    // It’s not possible to encode the character without exceeding the line
+                    // length limit. Remvoe the character from the line, and insert a new
+                    // line that contains only the encoded character.
+                    result.push(
+                        buffer.slice(0, lastLineLength - 1),
+                        handleTrailingCharacters(
+                            buffer.slice(lastLineLength - 1, lastLineLength)
+                        )
+                    );
+                }
+            }
+
+            // `Quoted-Printable` uses CRLF.
+            return result.join('=\r\n');
+        };
+
+        // END QUOTED PRINTABLE
+
+        function utf8_to_str(a) {
+            for (var i = 0, s = ''; i < a.length; i++) {
+                var h = a[i].toString(16);
+                if (h.length < 2) h = '0' + h;
+                s += '%' + h;
+            }
+            return decodeURIComponent(s);
+        }
+
+        function utf8_from_str(s) {
+            for (var i = 0, enc = encodeURIComponent(s), a = []; i < enc.length;) {
+                if (enc[i] === '%') {
+                    a.push(parseInt(enc.substr(i + 1, 2), 16));
+                    i += 3;
+                } else {
+                    a.push(enc.charCodeAt(i++));
+                }
+            }
+            return a;
+        }
+		
+		function onConvertDateToDOYButtonClicked() {
+            var originalDate = document.getElementById('txtToEncode').value;
+            var parsedDate = datefns.parseDate(originalDate);
+            var dayOfYear = datefns.getDayOfYear(parsedDate);
+            var result = parsedDate.getFullYear() + '' + numberfns.prefixWithZeros(dayOfYear, 3);
+            document.getElementById('txtToDecode').value = result;
+        }
+
+        function onConvertDOYToDateButtonClicked() {
+            var originalDate = document.getElementById('txtToDecode').value;
+            var parsedYear = originalDate.substring(0, 4);
+            var dayOfYear = originalDate.substring(4);
+            var result = datefns.getDateFromDOY(parsedYear, dayOfYear);
+            result = datefns.toISO8601Date(result);
+            result = result.replaceAll('-', '');
+            document.getElementById('txtToEncode').value = result;
+        }
+
+    </script>
+
+</body>
+</html>

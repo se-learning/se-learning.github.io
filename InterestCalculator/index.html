@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Interest Calculator
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  
+  <!-- CSS Files -->
+  <link href="./assets/css/material-kit.css?v=2.0.5" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="./assets/demo/demo.css" rel="stylesheet" />
+  <style>
+    .section {
+      padding: 10px 0;
+    }
+
+    .modal .modal-dialog {
+      margin-top: 20px;
+    }
+
+    label {
+      color: #464646;
+    }
+
+    .container2 {
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    tbody td {
+      white-space: nowrap;
+    }
+
+    table td {
+      border: 1px solid #b2b2b2;
+    }
+
+    .interestConvertInput {
+      border: none;
+      width: 100%;
+    }
+    
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <!-- Control section -->
+    <div class="section section-basic">
+      <div class="container">
+        <div class="ml-auto mr-auto text-center" style="max-width: 400px;">
+          <div class="bmd-form-group">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <!-- <span class="input-group-text">
+                  <i class="material-icons">face</i>
+                </span> -->
+              </div>
+              <input type="number" class="form-control" placeholder="Enter amount" id="amountTxt" value="100000000">
+            </div>
+            <div id="amountFormatted" style="text-align: right;"></div>
+          </div>
+
+          <!-- Radios -->
+          <div class="form-check" style="display: inline-block;">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="displayModeRadios" id="exampleRadios1" value="goc-va-lai"> Hiển thị gốc và lãi
+              <span class="circle">
+                <span class="check"></span>
+              </span>
+            </label>
+          </div>
+          <div class="form-check" style="display: inline-block; margin-left: 16px;">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="displayModeRadios" id="exampleRadios2" value="chi-lai" checked> Chỉ hiển thị lãi
+              <span class="circle">
+                <span class="check"></span>
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Table result section -->
+    <div class="section section-basic">
+      <div class="container2">
+        <div class="ml-auto mr-auto text-center" style="overflow-x: auto;">
+          <table id="result-table" style="width: 100%;">
+            <thead id="result-table-header">
+            </thead>
+            <tbody id="result-table-body"></tbody>
+          </table>
+        </div>
+        <div>
+          NOTE: KH = Kì hạn
+        </div>
+      </div>
+    </div>
+
+    <!-- Control section -->
+    <div class="section section-basic">
+      <div class="container">
+        <div class="ml-auto mr-auto text-center" style="max-width: 400px;">
+          <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Update Interest Rate</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <!-- Table result section -->
+    <div class="section section-basic">
+      <hr>
+      <div class="container2">
+        <h4>Quy đổi lãi suất quay vòng vốn và lãi (lãi kép) (đơn vị: %/năm)</h4>
+        <div class="ml-auto mr-auto text-center" style="overflow-x: auto;">
+          <table style="width: 100%;">
+            <thead>
+              <tr>
+                <td></td>
+                <td>KH 1 Tuần</td>
+                <td>KH 2 Tuần</td>
+                <td>KH 3 Tuần</td>
+                <td>KH 1 Tháng</td>
+                <td>KH 2 Tháng</td>
+                <td>KH 3 Tháng</td>
+                <td>KH 6 Tháng</td>
+                <td>KH 9 Tháng</td>
+                <td>KH 12 Tháng</td>
+                <td>KH 18 Tháng</td>
+                <td>KH 24 Tháng</td>
+                <td>KH 36 Tháng</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Lãi suất tương ứng</td>
+                <td><input class="interestConvertInput" data-time="0.01917808219178082191780821917808" type="number" value="" /></td>
+                <td><input class="interestConvertInput" data-time="0.03835616438356164383561643835616" type="number" value="" /></td>
+                <td><input class="interestConvertInput" data-time="0.05753424657534246575342465753425" type="number" value="" /></td>
+                <td><input class="interestConvertInput" data-time="0.08333333333333333333333333333333" type="number" value="" /></td>
+                <td><input class="interestConvertInput" data-time="0.16666666666666666666666666666667" type="number" value="" /></td>
+                <td><input class="interestConvertInput" data-time="0.25" type="number" value="" /></td>
+                <td><input class="interestConvertInput" data-time="0.5" type="number" value="" /></td>
+                <td><input class="interestConvertInput" data-time="0.75" type="number" value="" /></td>
+                <td><input class="interestConvertInput" data-time="1" type="number" value="" /></td>
+                <td><input class="interestConvertInput" data-time="1.5" type="number" value="" /></td>
+                <td><input class="interestConvertInput" data-time="2" type="number" value="" /></td>
+                <td><input class="interestConvertInput" data-time="3" type="number" value="" /></td>
+              </tr>
+            </tbody>
+          </table>          
+        </div>
+        <div>
+          NOTE: KH = Kì hạn
+        </div>
+
+        <p>hoặc</p>
+        <div class="text-center mt-3" style="overflow-x: auto;">          
+          <table class="ml-auto mr-auto text-center">
+            <tbody>
+              <tr>
+                <td>Kì hạn (tháng)</td>
+                <td>Lãi suất (%/năm)</td>
+              </tr>
+              <tr>
+                <td><input id="interestConvertInputTime" type="number" value="" class="border-0"/></td>
+                <td><input id="interestConvertInputRate" type="number" value="" class="border-0"/></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-center">Lãi suất tương ứng khi gửi kì hạn 1 năm: <span id="interestConvertResult"></span> %/năm</p>   
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <!-- Table result section -->
+    <div class="section section-basic">
+      <hr>
+      <div class="container2">
+        <h4>Quy đổi lãi suất theo năm dựa trên phần trăm tăng so với vốn ban đầu</h4>
+        <div class="text-center mt-3" style="overflow-x: auto;">          
+          <table class="ml-auto mr-auto text-center">
+            <tbody>
+              <tr>
+                <td>Thời gian gửi (tháng)</td>
+                <td>Phân trăm tăng so với vốn ban đầu (%)</td>
+              </tr>
+              <tr>
+                <td><input id="interestConvert2InputTime" type="number" value="" class="border-0"/></td>
+                <td><input id="interestConvert2InputRate" type="number" value="" class="border-0" style="width: 100%;"/></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-center">Lãi suất đơn: <span id="interestConvertInterestResult2"></span> %/năm</p>   
+        <p class="text-center">Lãi suất quay vòng vốn và lãi (lãi kép): <span id="interestConvertTTMInterestResult2"></span> %/năm</p>   
+
+        <p>hoặc</p>
+        <div class="text-center mt-3" style="overflow-x: auto;">          
+          <table class="ml-auto mr-auto text-center">
+            <tbody>
+              <tr>
+                <td>Thời gian gửi (tháng)</td>
+                <td>Số vốn ban đầu</td>
+                <td>Số tiền lãi</td>
+              </tr>
+              <tr>
+                <td><input id="interestConvert2InputTime2" type="number" value="" class="border-0"/></td>
+                <td><input id="interestConvert2InputBalance" type="number" value="" class="border-0"/></td>
+                <td><input id="interestConvert2InputInterest" type="number" value="" class="border-0"/></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-center">Lãi suất đơn: <span id="interestConvert2InterestResult2"></span> %/năm</p>   
+        <p class="text-center">Lãi suất quay vòng vốn và lãi (lãi kép): <span id="interestConvert2TTMInterestResult2"></span> %/năm</p>   
+      </div>
+    </div>
+  </div>
+
+  <!-- Classic Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Interest rate</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <i class="material-icons">clear</i>
+          </button>
+        </div>
+        <div class="modal-body" id="interestRateForm">
+          <div class="ml-auto mr-auto text-center">
+            <div class="bmd-form-group" style="padding-top: 0px;">
+              <!-- <div class="input-group row">
+                <div class="input-group-prepend col-md-6">
+                  <span class="input-group-text" style="padding-left: 0px;">
+                    One month
+                  </span>
+                </div>
+                <div class="col-md-6">
+                  <input type="text" class="form-control rate-input-field" placeholder="Enter rate" data-id="ONE_WEEK">
+                </div>                
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-link">Nice Button</button> -->
+          <button type="button" class="btn btn-danger btn-link" data-dismiss="modal" id="saveRateBtn">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  End Modal -->
+
+  <!--   Core JS Files   -->
+  <script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
+  <script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
+  <script src="./assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+  
+  <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+  <script src="./assets/js/material-kit.js?v=2.0.5" type="text/javascript"></script>
+  <script>
+    
+    function scrollToDownload() {
+      if ($('.section-download').length != 0) {
+        $("html, body").animate({
+          scrollTop: $('.section-download').offset().top
+        }, 1000);
+      }
+    }
+
+    $(document).ready(function() {
+      const RATES = [
+        {id: 'ONE_WEEK', name: '1 Tuần', rate: 0.8, time: 7.0/365},
+        {id: 'TWO_WEEK', name: '2 Tuần', rate: 0.8, time: 14.0/365},
+        {id: 'THREE_WEEK', name: '3 Tuần', rate: 0.8, time: 21.0/365},
+        {id: 'ONE_MONTH', name: '1 Tháng', rate: 4.85, time: 1.0/12},
+        {id: 'TWO_MONTH', name: '2 Tháng', rate: 4.95, time: 1.0/6},
+        {id: 'THREE_MONTH', name: '3 Tháng', rate: 5, time: 1.0/4},
+        {id: 'SIX_MONTH', name: '6 Tháng', rate: 6.8, time: 1.0/2},
+        {id: 'NINE_MONTH', name: '9 Tháng', rate: 7.05, time: 3.0/4},
+        {id: 'ONE_YEAR', name: '12 Tháng', rate: 7.4, time: 1},
+        {id: 'EIGHTEEN_MONTH', name: '18 Tháng', rate: 7.6, time: 3.0/2},
+        {id: 'TWO_YEAR', name: '24 Tháng', rate: 7.6, time: 2},
+        {id: 'THREE_YEAR', name: '36 Tháng', rate: 7.6, time: 3},        
+      ]
+
+      updateTableHeader(getAllRateNames(RATES, 'KH '));
+      generateInterestInputForm(RATES);
+      updateResultTable(parseFloat($("#amountTxt").val()));
+      $("#amountFormatted").text(formatMoney($("#amountTxt").val(), 0) + ' VND');
+      $("#amountTxt").change(() => {
+        let amount = $("#amountTxt").val();
+        if(!amount || isNaN(amount)) {
+          return;
+        }
+        updateResultTable(parseFloat($("#amountTxt").val()));
+        $("#amountFormatted").text(formatMoney(amount, 0) + ' VND');
+      });
+
+      $("#amountTxt").keyup(() => {
+        let amount = $("#amountTxt").val();
+        if(!amount || isNaN(amount)) {
+          return;
+        }
+        $("#amountFormatted").text(formatMoney(amount, 0) + ' VND');
+      });
+
+      $("#saveRateBtn").click(() => {
+        updateInterestRate();
+        updateResultTable(parseFloat($("#amountTxt").val()));
+      })
+
+      $("input[name='displayModeRadios']").change(() => {
+        updateResultTable(parseFloat($("#amountTxt").val()));
+      });
+
+      function getAllRateNames(ratesArr, prefix = '') {
+        if(!ratesArr) {
+          return [];
+        }
+
+        let rateNames = [];
+        for(let i=0; i<ratesArr.length; i++) {
+          let rateItem = ratesArr[i];
+          rateNames.push(prefix + rateItem['name']);
+        }
+        return rateNames;
+      }
+
+      function makeTableRowHtml(data) {
+        let trHtml = document.createElement('tr');
+        let tdHtml;
+        for(let i=0; i<data.length; i++) {
+          tdHtml = document.createElement('td');
+          tdHtml.innerText = data[i];
+          trHtml.appendChild(tdHtml);
+        }        
+        return trHtml;
+      }
+
+      function updateTableHeader(names) {
+        if(!names) {
+          return;
+        }
+        names.unshift('');
+        let trHtml = makeTableRowHtml(names);
+        let headerEl = document.getElementById('result-table-header');
+        headerEl.innerHTML = '';
+        headerEl.appendChild(trHtml);
+      }
+
+      function generateInterestInputForm(rates) {
+        if(!rates) {
+          return;
+        }
+        for(let i=0; i<rates.length; i++) {
+          let rateItem = rates[i];
+          if(rateItem) {
+            let formInputEl = document.createElement('div');
+            formInputEl.className = 'input-group row';
+            formInputEl.innerHTML = `
+                <div class="input-group-prepend col-md-6">
+                  <span class="input-group-text" style="padding-left: 0px;">
+                    ${rateItem.name}
+                  </span>
+                </div>
+                <div class="col-md-6">
+                  <input type="number" class="form-control rate-input-field" placeholder="Enter ${rateItem.name} rate" data-id="${rateItem.id}" value="${rateItem.rate}">
+                </div>`;
+            $("#interestRateForm .bmd-form-group")[0].appendChild(formInputEl);
+          }
+        }
+      }
+
+      function updateSingleInterestRate(key, value) {
+        if(!key || !value || isNaN(value)) {
+          return;
+        }
+        // Loop through rates array and update value
+        for(let i=0; i<RATES.length; i++) {
+          let rateItem = RATES[i];
+          if(rateItem.id === key) {
+            rateItem.rate = value;
+            break;
+          }          
+        }
+      }
+
+      function updateInterestRate() {
+        let rateInputFormEls = $(".rate-input-field");
+        if(!rateInputFormEls) {
+          return;
+        }
+        for(let i=0; i<rateInputFormEls.length; i++) {
+          let inputEl = rateInputFormEls[i];
+          let key = $(inputEl).attr('data-id');
+          let value = $(inputEl).val();
+          
+          updateSingleInterestRate(key, value);
+        }
+      }
+
+      function formatMoney(amount, decimalCount = 2, decimal = ".", thousands = ",") {
+        try {
+          decimalCount = Math.abs(decimalCount);
+          decimalCount = isNaN(decimalCount) ? 2 : decimalCount;
+
+          const negativeSign = amount < 0 ? "-" : "";
+
+          let i = parseInt(amount = Math.abs(Number(amount) || 0).toFixed(decimalCount)).toString();
+          let j = (i.length > 3) ? i.length % 3 : 0;
+
+          return negativeSign + (j ? i.substr(0, j) + thousands : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousands) + (decimalCount ? decimal + Math.abs(amount - i).toFixed(decimalCount).slice(2) : "");
+        } catch (e) {
+          console.log(e)
+        }
+      };
+
+      function updateResultTable(initialAmount) {
+        if(!initialAmount || isNaN(initialAmount)) {
+          return;
+        }
+        initialAmount = parseFloat(initialAmount);
+        let tableResultEl = document.getElementById('result-table-body');
+        tableResultEl.innerHTML = '';
+
+        for(let i=0; i<RATES.length; i++) {
+          let rateItem = RATES[i];
+          let tableRowValues = [];
+
+          tableRowValues.push('Sau ' + rateItem.name);
+
+          for (let j = 0; j < RATES.length; j++) {
+            let amountAfter;
+            let interestAmount;
+
+            let amountAfterFormatted;
+            let interestAmountFormatted;
+            //todo
+            let interestRate = RATES[j].rate;
+            let timeLength = RATES[j].time;
+
+            if (i == j) {
+              amountAfter = initialAmount + initialAmount * interestRate * timeLength / 100;              
+              amountAfterFormatted = formatMoney(amountAfter, 2);
+              interestAmount = amountAfter - initialAmount;
+              interestAmountFormatted = formatMoney(interestAmount, 2);
+            } else if (i > j && (RATES[i].time % RATES[j].time == 0 || RATES[i].time % RATES[j].time < 0.0000001)) {
+              let multiply = RATES[i].time / RATES[j].time;
+
+              amountAfter = initialAmount;
+              for (let k = 0; k < multiply; k++) {
+                amountAfter += (amountAfter * interestRate * timeLength / 100);
+              }
+              
+              amountAfterFormatted = formatMoney(amountAfter, 2);
+              interestAmount = amountAfter - initialAmount;
+              interestAmountFormatted = formatMoney(interestAmount, 2);
+            } else {
+              amountAfterFormatted = '-';
+              interestAmountFormatted = '-';
+            }
+
+            if($("input[name='displayModeRadios']:checked"). val() === 'goc-va-lai') {
+              tableRowValues.push(amountAfterFormatted);
+            } else {
+              tableRowValues.push(interestAmountFormatted);
+            }            
+          }
+          let trHtml = makeTableRowHtml(tableRowValues);
+          
+          tableResultEl.appendChild(trHtml);
+        }
+      }
+    });
+
+
+    // Interest rate converter
+    $(".interestConvertInput").change(function() {
+      let rate = $(this).val();
+      let time = $(this).attr('data-time');
+      if(!rate || isNaN(rate) || !time || isNaN(time)) {
+        return;
+      }
+
+      let interestConvertEls = $(".interestConvertInput");
+      for(let i=0; i<interestConvertEls.length; i++) {
+        let el = interestConvertEls[i];
+        let elTime = $(el).attr('data-time');
+
+        // let oneYearRate = Math.pow(1+((rate/100)*time), 1/time) - 1;
+
+        // Convert interest rate
+        if(time != elTime) {
+          let value = (Math.pow(1+((rate/100)*time), elTime/time) - 1)/elTime;
+          $(el).val(value * 100);
+        }
+
+        // if(time < elTime) {
+        //   let value = Math.pow(1+((rate/100)*time/elTime), elTime/time) - 1;
+        //   $(el).val(value * 100);
+        // } else if(time > elTime) {
+        //   let value = (Math.pow(1+(rate/100), elTime/time ) - 1) * time/elTime;
+        //   $(el).val(value * 100);
+        // }
+      }
+    });
+
+    $("#interestConvertInputTime, #interestConvertInputRate").change(function() {
+      let rate = $("#interestConvertInputRate").val();
+      let time = $("#interestConvertInputTime").val();
+      if(!rate || isNaN(rate) || !time || isNaN(time)) {
+        return;
+      }
+
+      time = time/12;
+
+      let oneYearRate = Math.pow(1+((rate/100)*time), 1/time) - 1;
+      $("#interestConvertResult").text(oneYearRate*100);      
+    });
+
+    $("#interestConvert2InputTime, #interestConvert2InputRate").change(function() {
+      let rate = $("#interestConvert2InputRate").val();
+      let time = $("#interestConvert2InputTime").val();
+      if(!rate || isNaN(rate) || !time || isNaN(time)) {
+        return;
+      }
+
+      // time = time/12;
+
+      // Convert interest rate
+      // if(time < 12) {
+      //   let value = Math.pow(1+((rate/100)), 12/time) - 1;
+      //   $("#interestConvertTTMInterestResult2").text(value * 100);
+      // } else if(time > 12) {
+      //   let value = (Math.pow(1+(rate/100), 12/time ) - 1) * time/12;
+      //   $("#interestConvertTTMInterestResult2").text(value * 100);
+      // } else {
+      //   $("#interestConvertTTMInterestResult2").text(rate);
+      // }
+
+      let value = Math.pow(1+((rate/100)), 12/time) - 1;
+      $("#interestConvertTTMInterestResult2").text(value * 100);
+
+      $("#interestConvertInterestResult2").text(rate*(12/time));
+      
+    });
+
+    $("#interestConvert2InputTime2, #interestConvert2InputBalance, #interestConvert2InputInterest").change(function() {
+      let time = $("#interestConvert2InputTime2").val();
+      let balance = $("#interestConvert2InputBalance").val();
+      let interest = $("#interestConvert2InputInterest").val();
+      if(!time || isNaN(time) || !balance || isNaN(balance) || !interest || isNaN(interest)) {
+        return;
+      }
+
+      // time = time/12;
+
+      // Convert interest rate
+      let rate = 100 * (interest/balance);
+      // if(time < 12) {
+      //   let value = Math.pow(1+((rate/100)), 12/time) - 1;        
+      //   $("#interestConvert2TTMInterestResult2").text(value * 100);
+      // } else if(time > 12) {
+      //   let value = (Math.pow(1+(rate/100), 12/time ) - 1) * time/12;
+      //   $("#interestConvert2TTMInterestResult2").text(value * 100);
+      // } else {
+      //   $("#interestConvert2TTMInterestResult2").text(rate);
+      // }
+
+      let value = Math.pow(1+((rate/100)), 12/time) - 1;        
+      $("#interestConvert2TTMInterestResult2").text(value * 100);
+
+      $("#interestConvert2InterestResult2").text(100 * interest*(12/time)/balance);
+    });
+
+  </script>
+</body>
+
+</html>

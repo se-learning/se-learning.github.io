@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="./assets/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>Apps & Tools</title>
+  <style>
+    .v-card--reveal {
+      bottom: 0;
+      opacity: 1 !important;
+      position: absolute;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <v-app>
+      <v-main>
+        <v-container>
+          <template v-for="section in sections">
+            <h2 class="text-center mt-6" v-text="section.name"></h2>
+            <div class="d-flex justify-center flex-wrap">
+              <v-hover v-for="app in section.apps" v-slot="{ hover }">
+                <v-card class="mx-3 my-6" width="250" min-width="250" :href="app.link">
+                  <v-responsive :aspect-ratio="1" class="text-center align-center">
+                    <v-img v-if="app.image" aspect-ratio="1" :src="app.image"></v-img>
+                    <v-icon v-else-if="app.icon" size="100" :color="app.color ? app.color : 'green darken-2'">
+                      {{ app.icon }}</v-icon>
+                    <v-icon v-else size="100" color="green darken-2">mdi-application</v-icon>
+                  </v-responsive>
+
+                  <v-card-title v-text="app.name"></v-card-title>
+
+                  <v-card-text class="py-0">
+                    <div v-text="app.description"></div>
+                  </v-card-text>
+
+                  <v-card-actions>
+                    <v-btn color="deep-purple lighten-2" text :href="app.link">
+                      Go
+                    </v-btn>
+                  </v-card-actions>
+
+                  <v-expand-transition>
+                    <v-card v-if="hover" class="transition-fast-in-fast-out v-card--reveal" style="height: 100%">
+                      <v-card-title v-text="app.name"></v-card-title>
+
+                      <v-card-text class="py-0">
+                        <div v-text="app.description"></div>
+                        <!-- <iframe :src="app.link"></iframe> -->
+                      </v-card-text>
+                    </v-card>
+                  </v-expand-transition>
+                </v-card>
+              </v-hover>
+            </div>
+
+          </template>
+
+        </v-container>
+      </v-main>
+    </v-app>
+  </div>
+
+  <script src="./assets/vue.min.js"></script>
+  <script src="./assets/vuetify.min.js"></script>
+  <script src="./config.js"></script>
+  <script>
+
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+      data: function () {
+        return {
+          sections: [
+            {
+              name: 'Apps & Tools',
+              apps: [
+                {
+                  name: 'Interest Calculator',
+                  link: 'InterestCalculator/index.html',
+                  description: 'Công cụ tính lãi suất, chuyển đổi lãi suất',
+                  color: '',
+                  icon: 'mdi-calculator',
+                  image: '',
+                },
+                {
+                  name: 'Crawler',
+                  link: 'Javascript/crawler.js',
+                  description: 'Công cụ crawler từ web sử dụng javascript',
+                  color: 'cyan darken-2',
+                  icon: 'mdi-language-javascript',
+                  image: '',
+                },
+                {
+                  name: 'JSON Formatter',
+                  link: 'Javascript/json-formatter/index.html',
+                  description: 'Simple JSON Formatter using javascript',
+                  color: 'pink darken-2',
+                  icon: 'mdi-code-json',
+                  image: '',
+                },
+                {
+                  name: 'Encode/Decode Tools',
+                  link: 'Javascript/encode-decode/index.html',
+                  description: 'Encode/Decode base64; decode base64 to image; remove letter and number using javascript; Bỏ dấu tiếng việt',
+                  color: 'yellow darken-3',
+                  icon: 'mdi-language-javascript',
+                  image: '',
+                },
+                {
+                  name: 'QRCode Encode/Decode tool',
+                  link: 'Javascript/qrcode-master/index.html',
+                  description: 'Encode text to QRCode image or Decode QRCode image to text',
+                  color: 'grey darken-2',
+                  icon: 'mdi-qrcode',
+                  image: '',
+                },
+                {
+                  name: 'Javadoc to table tools',
+                  link: 'Javascript/genjavadoctool/genjavadoctool.html',
+                  description: 'Convert from java doc to table format (need run on server)',
+                  color: 'blue darken-2',
+                  icon: 'mdi-language-java',
+                  image: '',
+                },
+				{
+                  name: 'ToastUI Markdown Editor',
+                  link: 'Javascript/ToastUIMarkdownEditor/index.html',
+                  description: 'WYSIWYG Markdown Editor with plugins (chart, diagram)',
+                  color: 'grey darken-2',
+                  icon: 'mdi-language-markdown-outline',
+                  image: '',
+                },
+              ]
+            },
+            {
+              name: 'Design',
+              apps: [
+                {
+                  name: 'Vuetify Section HTML Templates',
+                  link: 'VuetifySectionTemplates/index.html',
+                  description: 'HTML Templates theo từng section: Hero, Header, Features, ...',
+                  color: 'blue darken-2',
+                  icon: 'mdi-vuetify',
+                  image: '',
+                },
+                {
+                  name: 'HTML Templates',
+                  link: 'HtmlTemplates/index.html',
+                  description: 'HTML Templates using iframe',
+                  color: 'purple',
+                  icon: 'mdi-iframe-braces-outline',
+                  image: '',
+                },
+                {
+                  name: 'Material Color Palette',
+                  link: 'CSS/Color-Material-UI.pdf',
+                  description: 'Bảng màu theo thiết kế Material Design',
+                  color: 'teal',
+                  icon: 'mdi-format-color-fill',
+                  image: '',
+                },
+                {
+                  name: 'Color Palette Collection',
+                  link: 'CSS/color.html',
+                  description: 'Bảng màu thu thập từ nhiều nguồn',
+                  color: 'brown',
+                  icon: 'mdi-format-color-fill',
+                  image: '',
+                },
+                {
+                  name: 'Elementor Template 1',
+                  link: 'HtmlTemplates/Elementor%20templates%201%20-%20Green%20Agri.html',
+                  description: 'Wordpress elementor template',
+                  color: 'red',
+                  icon: 'mdi-language-html5',
+                  image: '',
+                },
+                {
+                  name: 'Elementor Template 2',
+                  link: 'HtmlTemplates/Elementor%20templates%202%20-%20Green%20Agri.html',
+                  description: 'Wordpress elementor template',
+                  color: 'red',
+                  icon: 'mdi-language-html5',
+                  image: '',
+                },
+                {
+                  name: 'CSS Image Hover Effects',
+                  link: 'CSS/imageHoverAnimation.html',
+                  description: 'Zoom In, Zoom Out, Slide, Rotate, Blur, Gray Scale, Sepia, Opacity, Flashing, Shine, Circle',
+                  color: 'blue darken-3',
+                  icon: 'mdi-language-css3',
+                  image: '',
+                },
+                {
+                  name: 'PhotoSwipe JavaScript gallery',
+                  link: 'Javascript/PhotoSwipe/index.html',
+                  description: 'Javascript gallery',
+                  color: 'deep-purple',
+                  icon: 'mdi-image-multiple-outline',
+                  image: '',
+                },
+				{
+                  name: 'CSS Tips',
+                  link: 'CSS/csstips.html',
+                  description: 'Super centered',
+                  color: 'blue darken-3',
+                  icon: 'mdi-language-css3',
+                  image: '',
+                },
+              ]
+            },
+            {
+              name: 'Learning',
+              apps: [
+                {
+                  name: 'AI Wiki',
+                  link: 'WikiMindMap/public/index.html',
+                  description: 'AI Wikipedia for quick reference and learning',
+                  color: 'grey',
+                  icon: 'mdi-brain',
+                  image: '',
+                },
+              ]
+            },
+            {
+              name: 'English',
+              apps: [
+                {
+                  name: 'BBC World Service Radio',
+                  link: 'BBCWorldService/BBCWorldService.html',
+                  description: 'BBC World Service Radio',
+                  color: 'green',
+                  icon: 'mdi-radio',
+                  image: '',
+                },
+              ]
+            },
+            {
+              name: 'Others',
+              apps: [
+                {
+                  name: 'Calm Meditation',
+                  link: 'Calm/Calm.html',
+                  description: 'Calm music for meditation',
+                  color: 'green darken-2',
+                  icon: 'mdi-meditation',
+                  image: '',
+                },
+              ]
+            },
+          ]
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

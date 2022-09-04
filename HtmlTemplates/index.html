@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content='width=device-width, initial-scale=1' name='viewport' />
+    <title>
+        Html Templates
+    </title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <!-- <link href="assets/vuetify.min.css" rel="stylesheet"> -->
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+
+    <style>
+        .iframe-template {
+            width: 100%;
+            height: 700px;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <v-app>            
+            <v-app-bar app style="background-color: white;">
+                <v-app-bar-nav-icon @click="homepage.drawer = !homepage.drawer"></v-app-bar-nav-icon>
+        
+                <v-toolbar-title>Application</v-toolbar-title>
+
+                <v-spacer></v-spacer>
+
+                <div>
+                    <v-tabs class="hidden-sm-and-down">
+                        <v-tab v-for="(link, i) in menus" v-bind="link" :key="i" :ripple="false"
+                            active-class="text--primary" class="font-weight-bold" min-width="96" text>
+                            {{ link.text }}
+                        </v-tab>
+                    </v-tabs>
+                </div>
+            </v-app-bar>
+        
+            <v-navigation-drawer v-model="homepage.drawer" fixed temporary>
+                <v-list color="white" shaped>
+                    <v-list-item v-for="(link, i) in menus" :key="i" v-bind="link" color="primary">
+                        <v-list-item-content>
+                            <v-list-item-title>{{ link.text }}</v-list-item-title>
+                        </v-list-item-content>
+                    </v-list-item>
+                </v-list>
+            </v-navigation-drawer>
+        
+            <v-main class="">
+                <!-- <v-container> -->
+                    <transition name="fade">                        
+                        <router-view></router-view>                        
+                    </transition>
+                <!-- </v-container> -->
+            </v-main>
+        </v-app>
+    </div>
+    
+    <!-- Vue Router Pages -->
+    <script type="text/x-template" id="page-templates">
+		<div>
+            <div v-for="section in sections">
+                <h3 :id="section.id" class="text-center mt-6" v-text="section.name"></h3>
+                <div v-for="(component, i) in section.templates" :key="i" >
+                    <div class="text-center">
+                        <v-btn
+                            rounded
+                            color="teal"
+                            dark
+                            :href="component.src"
+                            style="text-transform: none;"
+                        >
+                            {{ component.src }}
+                        </v-btn>
+                    </div>
+                    
+                    <iframe :src="component.src" class="iframe-template" loading="lazy"></iframe>
+                </div>
+            </div>
+            
+        </div>
+    </script>
+    <!-- End Vue Router Pages -->
+    
+    <!-- <script src="assets/vue.min.js"></script>
+    <script src="assets/vuetify.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+
+    <script src="assets/vue-router.min.js"></script>
+    
+    <script src="assets/commonfns.js"></script>
+
+    <script>
+
+        var BasePage = {
+            data() {
+                return {
+                    
+                }                
+            },
+            methods: {
+                
+            }
+        }
+
+        const IndexPage = {
+            template: '#page-templates',
+            extends: BasePage,
+            data() {
+                return {
+                    sections: [
+                        {
+                            id: '3d-card-effect',
+                            name: '3d-card-effect',
+                            templates: [
+                                { src: 'developedbyedTemplates/3d-card-effect-master/index.html' },                             
+                            ]
+                        },
+                        {
+                            id: 'dreamer',
+                            name: 'dreamer',
+                            templates: [
+                                { src: 'developedbyedTemplates/dreamer-master/index.html' },
+                            ]
+                        },
+                        {
+                            id: 'glass-website',
+                            name: 'glass-website',
+                            templates: [
+                                { src: 'developedbyedTemplates/glass-website-master/index.html' },
+                            ]
+                        },
+                        {
+                            id: 'laptop-ui',
+                            name: 'laptop-ui',
+                            templates: [
+                                { src: 'developedbyedTemplates/laptop-ui-master/index.html' },
+                            ]
+                        },
+                    ]
+                }
+            },
+        }
+        const PlaygroundsPage = {
+            template: '#page-templates', 
+            extends: BasePage,
+            data() {
+                return {
+                    sections: [
+                        {
+                            id: 'playgrounds-template-section',
+                            name: 'Playgrounds',
+                            templates: [
+                                {
+                                    tag: 'template-playground1'
+                                },
+                                {
+                                    tag: 'template-feature5',
+                                    data: {
+                                        title: 'PROMOTE YOUR BUSINESS WITH ZERO',
+                                        subtitle: 'Infographic hypotheses influencer user experience Long madel ture gen-z paradigm shift client partner network product seilans solve management influencer analytics leverage virality. incubator seed round massmarket. buyer agile development growth hacking business-to-consumer ecosystem',
+                                        buttonPrimary: {
+                                            name: 'Discover more',
+                                            to: '/',
+                                        },
+                                        buttonSecondary: {
+                                            name: 'Get started now',
+                                            to: '/about',
+                                        },
+                                        background: 'assets/images/stairway55516411920.jpg',
+                                    }
+                                },
+                                
+                            ]
+                        },
+                    ]
+                }
+            },
+        }
+
+		const routes = [
+			{ path:'/', component: IndexPage },
+            { path:'/playgrounds', component: PlaygroundsPage },
+		]
+
+		const router = new VueRouter({
+			routes
+        })
+        
+        var app = new Vue({
+            el: '#app',
+            router: router,
+            vuetify: new Vuetify(),
+            
+            data() {
+                return {
+                    homepage: {
+                        drawer: null,
+                        
+                    },
+                    menus: [
+                        {
+                            text: 'Developed By Ed',
+                            to: '/',
+                        },
+                        {
+                            text: 'Playgrounds',
+                            to: '/playgrounds',
+                        },
+                    ],
+                    
+                }
+            },
+
+            computed: {
+
+            },
+
+            watch: {
+
+            },
+
+            mounted: function() {
+
+            },
+
+            methods: {
+                
+            }
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content='width=device-width, initial-scale=1' name='viewport' />
+    <title>
+        Vuetify Section Templates
+    </title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="assets/vuetify.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="app">
+        <v-app>            
+            <v-app-bar app>
+                <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+        
+                <v-toolbar-title>Application</v-toolbar-title>
+            </v-app-bar>
+        
+            <v-navigation-drawer v-model="drawer" fixed temporary>
+                <!--  -->
+            </v-navigation-drawer>
+        
+            <v-main class="grey lighten-2">
+                <v-container v-if="currentpage == 'home'">
+                    <v-row>
+                        <template v-for="n in 4">
+                            <v-col :key="n" class="mt-2" cols="12">
+                                <strong>Category {{ n }}</strong>
+                            </v-col>
+        
+                            <v-col v-for="j in 6" :key="`${n}${j}`" cols="6" md="2">
+                                <v-sheet height="150"></v-sheet>
+                            </v-col>
+                        </template>
+                    </v-row>
+                </v-container>
+                <v-container v-if="currentpage == 'about'">
+                    About page
+                </v-container>
+            </v-main>
+        </v-app>
+    </div>
+
+    <script src="assets/vue.min.js"></script>
+    <script src="assets/vuetify.min.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            vuetify: new Vuetify(),
+            
+            data() {
+                return {
+                    currentpage: 'home',
+                    pages: {
+                        homepage: {
+                            id: 'home',
+
+                        },
+
+                        about: {
+                            id: 'about',
+                            
+                        },
+                    },
+
+                    drawer: null,
+                    menu: [],
+                    posts: [],
+                    products: [],
+                    comments: [],
+                    settings: [
+                        {key: 'phone-number', value: ''},
+                        {key: 'address', value: ''},
+                        {key: 'email', value: ''},
+                        {key: 'social-facebook-link', value: ''},
+                        {key: 'social-twitter-link', value: ''},
+                        {key: 'social-youtube-link', value: ''},
+                        {key: 'social-email-link', value: ''},
+                        {key: 'social-pinterest-link', value: ''},
+                        {key: 'social-instagram-link', value: ''},
+                        
+                    ],
+                    
+                }
+            },
+
+            computed: {
+
+            },
+
+            watch: {
+
+            },
+
+            mounted: function() {
+
+            },
+
+            methods: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>
