@@ -20,6 +20,61 @@
 <body>
   <div id="app">
     <v-app>
+		<v-app-bar app style="background-color: white;">
+			<v-app-bar-nav-icon @click="homepage.drawer = !homepage.drawer"></v-app-bar-nav-icon>
+	
+			<v-toolbar-title>Applications</v-toolbar-title>
+
+			<v-spacer></v-spacer>
+
+			<div>
+				<v-btn icon>
+                    <v-icon>mdi-magnify</v-icon>
+                </v-btn>
+				
+				<v-btn icon>
+					<v-icon>mdi-apps</v-icon>
+				</v-btn>
+				
+				<v-btn icon>
+					<v-icon>mdi-dots-vertical</v-icon>
+				</v-btn>
+			</div>
+		</v-app-bar>
+	
+		<v-navigation-drawer v-model="homepage.drawer" fixed temporary>
+			<v-list color="white" shaped>
+				<template v-for="(sectionItem, sectionIndex) in sections">
+					<v-subheader
+						:key="sectionItem.name"
+                    >
+						{{ sectionItem.name }}
+                    </v-subheader>
+					
+					<v-list-item
+						v-for="(item, index) in sectionItem.apps"
+						:key="item.name"
+						:href="item.link"
+						:title="item.name + ': ' + item.description"
+                    >
+						<v-list-item-action>
+							<v-icon :color="item.color ? item.color : 'green darken-2'">
+								{{ item.icon ? item.icon : 'mdi-application' }}
+							</v-icon>
+						</v-list-item-action>
+						
+						<v-list-item-content>
+							<v-list-item-title>{{ item.name }}</v-list-item-title>
+						</v-list-item-content>
+                    </v-list-item>
+					
+					<v-divider
+						:key="sectionIndex"
+                    ></v-divider>
+				</template>
+			</v-list>
+		</v-navigation-drawer>
+		
       <v-main>
         <v-container>
           <template v-for="section in sections">
@@ -29,9 +84,9 @@
                 <v-card class="mx-3 my-6" width="250" min-width="250" :href="app.link">
                   <v-responsive :aspect-ratio="1" class="text-center align-center">
                     <v-img v-if="app.image" aspect-ratio="1" :src="app.image"></v-img>
-                    <v-icon v-else-if="app.icon" size="100" :color="app.color ? app.color : 'green darken-2'">
-                      {{ app.icon }}</v-icon>
-                    <v-icon v-else size="100" color="green darken-2">mdi-application</v-icon>
+                    <v-icon v-else size="100" :color="app.color ? app.color : 'green darken-2'">
+						{{ app.icon ? app.icon : 'mdi-application' }}
+					</v-icon>
                   </v-responsive>
 
                   <v-card-title v-text="app.name"></v-card-title>
@@ -77,6 +132,10 @@
       vuetify: new Vuetify(),
       data: function () {
         return {
+			homepage: {
+				drawer: null,
+				
+			},
           sections: [
             {
               name: 'Apps & Tools',
