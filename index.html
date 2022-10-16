@@ -20,7 +20,7 @@
 <body>
   <div id="app">
     <v-app>
-		<v-app-bar app style="background-color: white;">
+		<v-app-bar app clipped-left style="background-color: white;">
 			<v-app-bar-nav-icon @click="homepage.drawer = !homepage.drawer"></v-app-bar-nav-icon>
 	
 			<v-toolbar-title>Applications</v-toolbar-title>
@@ -42,7 +42,7 @@
 			</div>
 		</v-app-bar>
 	
-		<v-navigation-drawer v-model="homepage.drawer" app>
+		<v-navigation-drawer v-model="homepage.drawer" app clipped>
 			<v-list color="white" shaped>
 				<template v-for="(sectionItem, sectionIndex) in sections">
 					<v-subheader
