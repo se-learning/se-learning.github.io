@@ -70,27 +70,59 @@
         <div class="p-2 text-center">
             <div>
                 <button id="encode" onclick="document.getElementById('txtToDecode').value = b64EncodeUnicode(document.getElementById('txtToEncode').value);">Encode -&gt;</button>
-            </div>
-            <div class="mt-1">
+                <button
+                    title="Example: abcd : &quot;efgh&quot; -> YWJjZCA6ICJlZmdoIg=="
+                    onclick="document.getElementById('txtToEncode').value = 'abcd : &quot;efgh&quot;'; document.getElementById('txtToDecode').value = b64EncodeUnicode(document.getElementById('txtToEncode').value);"
+                >i</button>
                 <button id="decode" onclick="document.getElementById('txtToEncode').value = b64DecodeUnicode(document.getElementById('txtToDecode').value);">&lt;- Decode</button>
             </div>
             <div class="mt-3">
                 <button onclick="document.getElementById('txtToDecode').value = encodeQuotedPrintable(document.getElementById('txtToEncode').value);">Encode Quoted-Printable -&gt;</button>
-            </div>
-            <div class="mt-1">
                 <button onclick="document.getElementById('txtToEncode').value = utf8_from_str(decodeQuotedPrintable(document.getElementById('txtToDecode').value)); console.log(utf8_decode(decodeQuotedPrintable(document.getElementById('txtToDecode').value)));">&lt;- Decode Quoted-Printable</button>
+            </div>
+            <div class="mt-3">
+                <button id="toUnicodeButton" onclick="document.getElementById('txtToDecode').value = document.getElementById('txtToEncode').value.toUnicode();">Encode Unicode -&gt;</button>
+                <button
+                    title="Example: tiếng việt みどりいろ -> \u0074\u0069\u1ebf\u006e\u0067\u0020\u0076\u0069\u1ec7\u0074\u0020\u307f\u3069\u308a\u3044\u308d"
+                    onclick="document.getElementById('txtToEncode').value = 'tiếng việt みどりいろ'; document.getElementById('txtToDecode').value = document.getElementById('txtToEncode').value.toUnicode();"
+                >i</button>
+                <button id="decodeUnicodeButton" title="Decode Unicode/Decode URI Component" onclick="document.getElementById('txtToEncode').value = eval('decodeURIComponent(&quot;' + document.getElementById('txtToDecode').value + '&quot;)');">&lt;- Decode Unicode</button>
             </div>
 			<div class="mt-3">
                 <button onclick="onConvertDateToDOYButtonClicked()">Convert Date to Date of year -&gt;</button>
-            </div>
-            <div class="mt-1">
+                <button
+                    title="Example: 2022-02-01 -> 2022032"
+                    onclick="document.getElementById('txtToEncode').value = '2022-02-01'; onConvertDateToDOYButtonClicked();"
+                >i</button>
                 <button onclick="onConvertDOYToDateButtonClicked()">&lt;- Convert Date of year to Date</button>
             </div>
             <div class="mt-3">
                 <button id="removeLetterAndNumber" onclick="document.getElementById('txtToDecode').value = removeLetterAndNumber(document.getElementById('txtToEncode').value);">Remove Letters and Numbers -&gt;</button>
+                <button
+                    title="Example: abc 1234 : &quot;/&%&quot; ->   : &quot;/&%&quot;"
+                    onclick="document.getElementById('txtToEncode').value = 'abc 1234 : &quot;/&%&quot;'; document.getElementById('txtToDecode').value = removeLetterAndNumber(document.getElementById('txtToEncode').value);"
+                >i</button>
             </div>
             <div class="mt-1">
                 <button id="boDauTiengVietButton" onclick="document.getElementById('txtToDecode').value = commonfns.removeAccents(document.getElementById('txtToEncode').value);">Bỏ dấu tiếng việt -&gt;</button>
+                <button
+                    title="Example: hello Tiếng Việt -> hello Tieng Viet"
+                    onclick="document.getElementById('txtToEncode').value = 'hello Tiếng Việt'; document.getElementById('txtToDecode').value = commonfns.removeAccents(document.getElementById('txtToEncode').value);"
+                >i</button>
+            </div>
+            <div class="mt-1">
+                <button id="decodeImage" onclick="document.getElementById('image').setAttribute('src', 'data:image/png;base64,'+document.getElementById('txtToEncode').value)">Decode Base64 Image</button>
+                <button
+                    title="Load example"
+                    onclick="document.getElementById('txtToEncode').value = decodeURIComponent('R0lGODdhVwBXAIAAAAAAAP%2F%2F%2FywAAAAAVwBXAAAC%2F4yPqcvtD6OctNqLs968%2Bw%2BG4kiW5omm6sq27gvHGUDX9o0r9ZEb%2BA%2FkAIc2HY13QxKHwiUzsfMlpc5fEzCJBrQ9hBbyxYQd3CN1PG6kK%2BtFGXs2e%2BVgulj%2B3OKnevjcn9eWtWdFpfRmBBhkuPHW5UiYeMgnKAFZxNg36ae0idhI%2BBgZx5kZaHdx%2BalJKkm6OhNKiYo22idamiqLyfrn2nuaa6Fq2wllG3w1KNx6zOyGOhzN0NZlHFGJPQ39bJ1Z97xcNatY7jl%2BNc67SlyVro4cD5%2BN4i0jYn8Pkq%2F%2F%2FcBOrlahDvRM7dqUiJ%2BucM6u4RKoUFquiNQW3eJzLdZEjPmWLObJeGcjL3EBOfb60C6hvIIjUjoDOLKFyz8wWaKUh%2FDlEofbNPIsB3GnQYYLf%2BakKRRYTzbkVA6c5w7UOlpJoTp5Z07nU6tE9NljCQvG16W%2B%2FL0YS9SoVKhOw14ciFVd22KvTGpkq9XtVQ9gt1Xza9Fnx26ACcMNuUxNYcWHi9bNinSqSIqO3%2Br1SLWxsscgLdP1nJYp0KYNH%2BMqMVPgua2hKycrDfo0idSZV9tupoG2yNugjwrubVb3Q7LgEleE1%2Flm67%2FIzSo3zk2uc75c1Z4MbjckXqWQO1Mm2Zy798w2%2B5k%2Fjz69%2BvXs27t%2FDz%2B%2B%2FPn069tnUAAAOw%3D%3D'); document.getElementById('image').setAttribute('src', 'data:image/png;base64,'+document.getElementById('txtToEncode').value)"
+                >i</button>
+            </div>
+            <div class="mt-1">
+                <button id="convertHTMLToView" onclick="document.getElementById('content2').innerHTML = document.getElementById('txtToEncode').value;">View HTML</button>
+                <button
+                    title="Load example"
+                    onclick="document.getElementById('txtToEncode').value = '&lt;h1&gt;Header 1&lt;/h1&gt;&lt;h2&gt;Header 2&lt;/h2&gt;&lt;p style=&quot;color: red;&quot;&gt;Paragraph&lt;/p&gt;'; document.getElementById('content2').innerHTML = document.getElementById('txtToEncode').value;"
+                >i</button>
             </div>
         </div>
 
@@ -102,10 +134,8 @@
 	
     <!-- HTML SOURCE TO VIEW, Show Base 64 image -->
     <div class="p-2">
-        <div id="input2" contenteditable="true" style="width: 100%; height: 300px; border: 1px solid black; overflow: auto;">R0lGODdhVwBXAIAAAAAAAP///ywAAAAAVwBXAAAC/4yPqcvtD6OctNqLs968+w+G4kiW5omm6sq27gvHGUDX9o0r9ZEb+A/kAIc2HY13QxKHwiUzsfMlpc5fEzCJBrQ9hBbyxYQd3CN1PG6kK+tFGXs2e+Vgulj+3OKnevjcn9eWtWdFpfRmBBhkuPHW5UiYeMgnKAFZxNg36ae0idhI+BgZx5kZaHdx+alJKkm6OhNKiYo22idamiqLyfrn2nuaa6Fq2wllG3w1KNx6zOyGOhzN0NZlHFGJPQ39bJ1Z97xcNatY7jl+Nc67SlyVro4cD5+N4i0jYn8Pkq///cBOrlahDvRM7dqUiJ+ucM6u4RKoUFquiNQW3eJzLdZEjPmWLObJeGcjL3EBOfb60C6hvIIjUjoDOLKFyz8wWaKUh/DlEofbNPIsB3GnQYYLf+akKRRYTzbkVA6c5w7UOlpJoTp5Z07nU6tE9NljCQvG16W+/L0YS9SoVKhOw14ciFVd22KvTGpkq9XtVQ9gt1Xza9Fnx26ACcMNuUxNYcWHi9bNinSqSIqO3+r1SLWxsscgLdP1nJYp0KYNH+MqMVPgua2hKycrDfo0idSZV9tupoG2yNugjwrubVb3Q7LgEleE1/lm67/IzSo3zk2uc75c1Z4MbjckXqWQO1Mm2Zy798w2+5k/jz69+vXs27t/Dz++/Pn069tnUAAAOw==</div>
-        <button id="decodeImage" onclick="document.getElementById('image').setAttribute('src', 'data:image/png;base64,'+document.getElementById('input2').innerText)">Decode Base64 Image</button>
-        <button id="convertHTMLToView" onclick="document.getElementById('content2').innerHTML = document.getElementById('input2').innerText;">View HTML</button>
-
+        <!--<div id="input2" contenteditable="true" style="width: 100%; height: 300px; border: 1px solid black; overflow: auto;">R0lGODdhVwBXAIAAAAAAAP///ywAAAAAVwBXAAAC/4yPqcvtD6OctNqLs968+w+G4kiW5omm6sq27gvHGUDX9o0r9ZEb+A/kAIc2HY13QxKHwiUzsfMlpc5fEzCJBrQ9hBbyxYQd3CN1PG6kK+tFGXs2e+Vgulj+3OKnevjcn9eWtWdFpfRmBBhkuPHW5UiYeMgnKAFZxNg36ae0idhI+BgZx5kZaHdx+alJKkm6OhNKiYo22idamiqLyfrn2nuaa6Fq2wllG3w1KNx6zOyGOhzN0NZlHFGJPQ39bJ1Z97xcNatY7jl+Nc67SlyVro4cD5+N4i0jYn8Pkq///cBOrlahDvRM7dqUiJ+ucM6u4RKoUFquiNQW3eJzLdZEjPmWLObJeGcjL3EBOfb60C6hvIIjUjoDOLKFyz8wWaKUh/DlEofbNPIsB3GnQYYLf+akKRRYTzbkVA6c5w7UOlpJoTp5Z07nU6tE9NljCQvG16W+/L0YS9SoVKhOw14ciFVd22KvTGpkq9XtVQ9gt1Xza9Fnx26ACcMNuUxNYcWHi9bNinSqSIqO3+r1SLWxsscgLdP1nJYp0KYNH+MqMVPgua2hKycrDfo0idSZV9tupoG2yNugjwrubVb3Q7LgEleE1/lm67/IzSo3zk2uc75c1Z4MbjckXqWQO1Mm2Zy798w2+5k/jz69+vXs27t/Dz++/Pn069tnUAAAOw==</div-->
+        
         <div>
             <img id="image"/> 
         </div>
@@ -262,6 +292,15 @@
         String.prototype.replaceAll = function (search, replacement) {
             var target = this;
             return target.split(search).join(replacement);
+        };
+
+        String.prototype.toUnicode = function(){
+            var result = "";
+            for(var i = 0; i < this.length; i++){
+                // Assumption: all characters are < 0xffff
+                result += "\\u" + ("000" + this[i].charCodeAt(0).toString(16)).substr(-4);
+            }
+            return result;
         };
         
 		function isLetter(str) {
