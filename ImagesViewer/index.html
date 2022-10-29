@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="./assets/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>Image Gallery</title>
+  
+  <style>
+	.img-magnifier-container {
+	  position:relative;
+	}
+
+	.img-magnifier-glass {
+	  position: absolute;
+	  border: 3px solid #000;
+	  border-radius: 10%;
+	  cursor: none;
+	  /*Set the size of the magnifier glass:*/
+	  width: 600px;
+	  height: 450px;
+
+	  display: none;
+	  z-index: 9;
+	}
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <v-app>
+		<!-- Top app bar -->
+		<v-app-bar>
+			<v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+	
+			<v-toolbar-title>Application</v-toolbar-title>
+
+			<v-spacer></v-spacer>
+
+			<div>
+				<v-menu
+					open-on-hover
+					offset-y
+					v-for="(item, i) in collections" 
+					:key="i" 
+				>
+					<template v-slot:activator="{ on, attrs }">
+						<v-btn 							
+							class="hidden-sm-and-down" 
+							text
+							:href="'?id='+item.id"
+							:disabled="item.id == currentCollectionId"							
+							v-bind="attrs"
+							v-on="on"
+						>
+							{{ item.id }}
+						</v-btn>
+					</template>
+
+					<v-card
+						class="mx-auto"
+						:href="'?id='+item.id"
+					>
+						<v-img
+							:src="getFeatureImage(item)"
+							style="max-width: 300px"
+							loading=lazy
+						></v-img>
+					</v-card>
+				</v-menu>
+			</div>
+		</v-app-bar>
+	
+		<!-- Sidebar navigation -->
+		<v-navigation-drawer v-model="drawer" fixed temporary>
+			<v-list shaped>
+				<v-list-item v-for="(item, i) in collections" :key="i" :href="'?id='+item.id" color="primary">
+					<v-list-item-content>
+						<v-list-item-title>{{ item.id }}</v-list-item-title>
+					</v-list-item-content>
+				</v-list-item>
+			</v-list>
+			
+			<v-list
+				flat
+				subheader
+				three-line
+            >
+				<v-subheader>Settings</v-subheader>
+
+				<v-list-item-group
+					v-model="settings"
+					multiple
+					active-class=""
+				>
+					<v-list-item>
+						<template v-slot:default="{ active }">
+							<v-list-item-action>
+								<v-checkbox :input-value="active"></v-checkbox>
+							</v-list-item-action>
+
+							<v-list-item-content>
+								<v-list-item-title>Show single image</v-list-item-title>
+								<v-list-item-subtitle>{{ active }}</v-list-item-subtitle>
+							</v-list-item-content>
+						</template>
+					</v-list-item>
+
+					<v-list-item @click="$vuetify.theme.dark = !$vuetify.theme.dark">
+						<template v-slot:default="{ active }">
+							<v-list-item-action>
+								<v-checkbox :input-value="active"></v-checkbox>
+							</v-list-item-action>
+
+							<v-list-item-content>
+								<v-list-item-title>Dark mode</v-list-item-title>
+								<v-list-item-subtitle>{{ active }}</v-list-item-subtitle>
+							</v-list-item-content>
+						</template>
+					</v-list-item>
+				</v-list-item-group>
+			</v-list>			
+		</v-navigation-drawer>
+
+		<!-- Main content -->
+      <v-main>
+		  <!-- Show one image per page -->
+		<v-container v-if="showSingleImage">
+			<div class="text-center">
+				<v-carousel 
+					hide-delimiters
+					height="100vh"
+					v-model="banners.active"
+				>
+					<v-carousel-item
+						v-for="(item,i) in currentItemsNotPaginated"
+						:key="i"
+						
+					>
+						<img 
+							:src="item"
+							style="max-width: 100%; min-height: 100vh; max-height: 110vh;"
+							loading=lazy
+						/>
+					</v-carousel-item>
+				</v-carousel>
+
+				<!-- <v-slide-group
+					v-model="banners.active"
+					class="py-4"
+					mandatory
+					show-arrows
+					center-active
+					ref="bannerSlideGroup"
+				>
+					<v-slide-item
+						v-for="(item,i) in currentItems"
+						:key="i"
+						v-slot:default="{ active, toggle }"                                
+					>
+						<v-card
+							:color="active ? 'primary' : 'grey lighten-1'"
+							class="ma-2"
+							height="60"
+							width="60"
+							@click="toggle"
+						>                                    
+							<v-img
+								height="60"
+								width="60"
+								position="center center"
+								:src="item"
+								:gradient="active ? '' : 'to top right, rgba(25,32,72,.5), rgba(25,32,72,.5)'"
+								:style="active ? 'border: 1px solid orange' : ''"
+							></v-img>
+						</v-card>
+					</v-slide-item>
+				</v-slide-group> -->
+			</div>
+		</v-container>
+		
+		<!-- Show multiple images per page -->
+        <v-container v-else>
+			<div class="text-center">
+				<v-pagination
+				  v-model="page"
+				  :length="pageLength"
+				  circle
+				></v-pagination>
+			</div>
+
+			<div v-if="enableMagnifier">
+				<a v-for="(item, i) in currentItems" class="image-link" :href="item" target="blank">
+					<div class="img-magnifier-container text-center" :data-imgid="'image'+i">					
+						<img 
+							:src="item"
+							class="mt-2"
+							:id="'image'+i" 
+							style="max-width: 100%;"
+							loading=lazy
+							/>
+					</div>			
+				</a>
+			</div>
+
+			<div v-else>
+				<v-card
+					class="mx-auto my-6"
+					v-for="(item, index) in currentItems"
+					:key="index"
+					:href="item"
+					target="blank"
+				>
+					<video v-if="item.endsWith('.m') || item.endsWith('.mp4')" controls style="height: 100vh; max-width: 100%">
+						<source :src="item" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+					<v-img
+						v-else
+						:src="item"
+						style="max-width: 100%; max-height: 250vh;"
+						loading=lazy
+					></v-img>
+					
+				</v-card>
+
+			</div>
+
+			<div class="text-center">
+				<v-pagination
+				  v-model="page"
+				  :length="pageLength"
+				  circle
+				></v-pagination>
+			</div>
+		</v-container>
+		
+      </v-main>
+    </v-app>
+  </div>
+	
+  <script src="./assets/vue.js"></script>
+  <script src="./assets/vuetify.min.js"></script>
+
+  <script src="./config.js"></script>
+
+  <script>
+	
+    var app = new Vue({
+		el: '#app',
+		vuetify: new Vuetify({
+			theme: {
+				dark: true,
+				// options: {
+				// 	themeCache: {
+				// 		get: key => localStorage.getItem(key),
+				// 		set: (key, value) => localStorage.setItem(key, value),
+				// 	},
+				// },
+			},
+		}),
+		data: function () {
+			return {
+				drawer: null,
+				settings: [],
+				enableMagnifier: false,
+				itemsPerPage: 16,
+				currentCollectionId: null,
+				page: 1,
+				collections: MEDIA_COLLECTIONS,
+				banners: {
+					active: 0
+				},
+			}
+		},
+
+		computed: {
+			itemsPerPageOverriden() {
+				var currentCollection = this.collections.filter(item => item.id == this.currentCollectionId)[0];
+				var itemsPerPage = currentCollection.itemsPerPage || this.itemsPerPage;
+				return itemsPerPage;
+			},
+
+			currentItems() {
+				if(!this.currentCollectionId) {
+					return [];
+				}
+				var items = this.collections.filter(item => item.id == this.currentCollectionId)[0].items
+									
+				return items.slice(this.itemsPerPageOverriden*(this.page-1), this.itemsPerPageOverriden*this.page);
+			},
+
+			currentItemsNotPaginated() {
+				if(!this.currentCollectionId) {
+					return [];
+				}
+				var items = this.collections.filter(item => item.id == this.currentCollectionId)[0].items
+				return items;
+			},
+			
+			pageLength() {
+				if(!this.currentCollectionId) {
+					return 1;
+				}
+				var currentCollection = this.collections.filter(item => item.id == this.currentCollectionId)[0];
+				return Math.ceil(currentCollection.items.length / this.itemsPerPageOverriden);
+			},
+
+			showSingleImage() {
+				return !!this.settings && this.settings[0] == 0;
+			},
+
+			// darkMode: {
+			// 	get() {
+			// 		return !!this.settings && this.settings[1] == 1;
+			// 	},
+
+			// 	set(val) {
+			// 		this.$vuetify.theme.dark = !!val;
+			// 	}
+			// }
+		},
+
+		watch: {
+			page() {
+				this.goToTop();
+			}
+		},
+
+		mounted: function() {
+			this.currentCollectionId = this.getUrlParam(location.href, 'id') || '1';
+			
+		},
+		
+		updated: function() {
+			if(this.enableMagnifier) {
+				for(var i=0; i<this.itemsPerPageOverriden; i++) {
+					var magnifierEls = document.querySelectorAll(`[data-id='image${i}']`)
+					if(magnifierEls.length>0) {
+						// User change page, update image src of magnifier
+						magnifierEls[0].style.backgroundImage = "url('" + document.getElementById('image'+i).src + "')";
+						continue;
+					}
+					magnify('image'+i, 3);
+				}
+
+				// magnify('image0', 3);
+			}
+		},
+
+		methods: {
+			// Get param value from an url
+			getUrlParam: (url, param) => new URLSearchParams(new URL(url).search).get(param),
+			
+			goToTop() {
+				this.$vuetify.goTo(0, {
+					duration: 600,
+					offset: 0,
+					easing: 'easeInOutCubic',
+				})
+			},
+
+			getFeatureImage(collection) {
+				return collection.featureImg || collection.items[0];
+			}
+			
+		}
+	})
+	
+	function magnify(imgID, zoom) {
+		var img, glass, w, h, bw;
+		img = document.getElementById(imgID);
+
+		if (img.complete) {
+			// Continue
+		} else {
+			img.addEventListener('load', function() {
+				magnify(imgID, zoom)
+			}, { once: true })
+			img.addEventListener('error', function() {
+				console.log('error')
+			})
+			return;
+		}
+
+		/*create magnifier glass:*/
+		glass = document.createElement("DIV");
+		glass.setAttribute("class", "img-magnifier-glass");
+		glass.setAttribute("data-id", imgID);
+		/*insert magnifier glass:*/
+		img.parentElement.insertBefore(glass, img);
+		/*set background properties for the magnifier glass:*/
+		glass.style.backgroundImage = "url('" + img.src + "')";
+		glass.style.backgroundRepeat = "no-repeat";
+		glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
+		bw = 3;
+		w = glass.offsetWidth / 2;
+		h = glass.offsetHeight / 2;
+		/*execute a function when someone moves the magnifier glass over the image:*/
+		glass.addEventListener("mousemove", moveMagnifier);
+		img.addEventListener("mousemove", moveMagnifier);
+		/*and also for touch screens:*/
+		glass.addEventListener("touchmove", moveMagnifier);
+		img.addEventListener("touchmove", moveMagnifier);
+
+		img.addEventListener("mouseleave", function() {
+			// console.log('img mouse leave');
+		});
+
+		glass.addEventListener("mouseleave", function() {
+			this.style.display = 'none';
+		});
+
+		function moveMagnifier(e) {
+			try {
+				var imageId = this.id || this.getAttribute('data-id');
+				document.querySelectorAll(`[data-id='${imageId}']`)[0].style.display='block';	
+			} catch (error) {
+				
+			}			
+
+			var pos, x, y;
+			/*prevent any other actions that may occur when moving over the image*/
+			e.preventDefault();
+			/*get the cursor's x and y positions:*/
+			pos = getCursorPos(e);
+			x = pos.x;
+			y = pos.y;
+			/*prevent the magnifier glass from being positioned outside the image:*/
+			if (x > img.width - (w / zoom)) {x = img.width - (w / zoom);}
+			if (x < w / zoom) {x = w / zoom;}
+			if (y > img.height - (h / zoom)) {y = img.height - (h / zoom);}
+			if (y < h / zoom) {y = h / zoom;}
+			/*set the position of the magnifier glass:*/
+			glass.style.left = (x - w) + "px";
+			glass.style.top = (y - h) + "px";
+			/*display what the magnifier glass "sees":*/
+			glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
+		}
+		function getCursorPos(e) {
+			var a, x = 0, y = 0;
+			e = e || window.event;
+			/*get the x and y positions of the image:*/
+			a = img.getBoundingClientRect();
+			/*calculate the cursor's x and y coordinates, relative to the image:*/
+			x = e.pageX - a.left;
+			y = e.pageY - a.top;
+			/*consider any page scrolling:*/
+			x = x - window.pageXOffset;
+			y = y - window.pageYOffset;
+			return {x : x, y : y};
+		}
+	}
+
+  </script>
+  
+<!--
+https://mrcong.com/xiaoyu-vol-461-72-anh/
+https://mrcong.com/mfstar-vol-368-han-jingan-52-anh/5/
+https://mrcong.com/imiss-vol-558-mimi-51-anh/
+https://mrcong.com/xiuren-no-3157-cici-68-anh/5/
+https://mrcong.com/artgravia-vol-224-son-ye-eun-82-anh/4/
+https://mrcong.com/xiuren-no-3152-yoo-53-anh/
+https://mrcong.com/xiuren-no-2574-jeninfer-41-anh/2/
+https://mrcong.com/coser-hana-bunny-aphrodite-shuumatsu-no-valkyrie-11-anh/
+https://mrcong.com/xiaoyu-vol-570-meng-xin-yue-62-anh/6/
+https://mrcong.com/mfstar-vol-510-wu-xue-yao-47-anh/5/
+https://mrcong.com/xiuren-no-3882-53-anh/5/
+
+
+https://mrcong.com/ugirls-ai-you-wu-app-no-1785-xia-ling-man-35-anh/
+https://mrcong.com/mfstar-vol-440-er-38-anh/
+https://mrcong.com/xiuren-no-2824-56-anh/
+https://mrcong.com/xiuren-no-2792-fairy-36-anh/3/
+https://mrcong.com/xiuren-no-2154-xu-an-an-94-anh/8/
+https://mrcong.com/xiuren-no-3112-lin-rui-xi-42-anh/2/
+https://mrcong.com/ugirls-ai-you-wu-app-no-1947-35-anh/
+https://mrcong.com/imiss-vol-584-sisy-72-anh/6/
+https://mrcong.com/ugirls-ai-you-wu-app-no-2086-rou-rou-35-anh/
+https://mrcong.com/xiuren-no-2976-54-anh/
+https://mrcong.com/imiss-vol-191-nguoi-mau-yu-wei-vivian-34-anh/
+https://mrcong.com/xiuren-no-3268-cherry-63-anh/4/
+https://mrcong.com/ugirls-ai-you-wu-app-no-2049-35-anh/3/
+https://mrcong.com/ugirls-ai-you-wu-app-no-1630-li-bao-er-35-anh/3/
+https://mrcong.com/ugirls-ai-you-wu-app-no-1403-nguoi-mau-bao-li-35-anh/
+https://mrcong.com/xiuren-no-3499-mini-54-anh/6/
+https://mrcong.com/leehee-express-ledg-017ab-j-a-102-anh/7/
+https://mrcong.com/xiaoyu-vol-591-58-anh/5/
+https://mrcong.com/xiuren-no-3511-zhang-xin-xin-58-anh/
+
+https://phimsex69.xyz/vietsub-bo-chong-di-massage-gap-con-dau-phuc-vu-858.html
+https://hihisex.tv/dit-em-gai-lon-hong-xinh-xan-shen-nana-dam-dang/
+-->
+</body>
+
+</html>
