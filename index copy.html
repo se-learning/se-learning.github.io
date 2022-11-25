@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="./assets/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>Apps & Tools</title>
+  <style>
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <v-app>
+      <v-main>
+        <v-container>
+          <v-card class="mx-auto">
+            <v-sheet class="pa-4 primary">
+              <v-text-field v-model="search" label="Search" dark flat solo-inverted hide-details
+                clearable clear-icon="mdi-close-circle-outline"></v-text-field>
+              <v-checkbox v-model="caseSensitive" dark hide-details label="Case sensitive search"></v-checkbox>
+            </v-sheet>
+            <v-card-text>
+              <v-treeview
+                :items="items"
+                :search="search"
+                :filter="filter"
+                :open.sync="open"
+                open-on-click
+                dense
+              >
+                <template v-slot:prepend="{ item, open }">
+                  <v-icon v-if="item.children && item.children.length>0">
+                    {{ open ? 'mdi-folder-open' : 'mdi-folder' }}
+                  </v-icon>
+                  <v-icon v-else>
+                    mdi-file-document-outline
+                  </v-icon>
+                </template>
+
+                <template v-slot:label="{ item }">
+                  <v-tooltip v-if="item.description" bottom>
+                    <template v-slot:activator="{ on, attrs }">
+                      <span
+                        text
+                        @click.stop="openDialog(item)"
+                        v-bind="attrs"
+                        v-on="on"
+                      >
+                      {{ item.name }}
+                      </span>
+                    </template>
+        
+                    <v-card>
+                      <v-card-title>
+                        <span class="text-h5"></span>
+                      </v-card-title>
+                      <v-card-text v-html="item.description">
+                      </v-card-text>
+                    </v-card>
+                  </v-tooltip>
+
+                  <span
+                    v-else
+                    text
+                    @click.stop="openDialog(item)"
+                  >
+                    {{ item.name }}
+                  </span>                  
+                </template>
+
+
+                <template v-slot:append="{ item }">
+                  <v-chip
+                    v-for="tag in item.tags"
+                    class="ma-1"
+                    color="primary"
+                    label
+                    small
+                  >
+                    {{ tag }}
+                  </v-chip>
+                </template>
+              </v-treeview>
+
+            </v-card-text>
+          </v-card>
+
+          
+          <v-dialog
+            v-model="dialog"
+            width="600px"
+          >            
+            <v-card>
+              <v-card-title>
+                <span>{{ selectedItem?.name }}</span>
+              </v-card-title>
+              <v-divider></v-divider>
+              <v-card-text class="pt-5" v-html="selectedItem?.description">
+              </v-card-text>
+              <v-divider></v-divider>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn
+                  color="green darken-1"
+                  text
+                  @click="dialog = false"
+                >
+                  Close
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+        </v-container>
+      </v-main>
+    </v-app>
+  </div>
+
+  <script src="./assets/vue.min.js"></script>
+  <script src="./assets/vuetify.min.js"></script>
+  <script src="./config.js"></script>
+  <script src="./data-science2.js"></script>
+  <script>
+
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+      data: function () {
+        return {
+          dialog: false,
+          selectedItem: null,
+
+          open: [1, 2],
+          search: null,
+          caseSensitive: false,
+          items: itemList
+		  /*[
+            {
+              id: 1,
+              name: 'Vuetify Human Resources',
+              children: [
+                {
+                  id: 2,
+                  name: 'Core team',
+                  children: [
+                    {
+                      id: 201,
+                      name: 'John',
+                      tags: ['Engineer', 'Designer'],
+                    },
+                    {
+                      id: 202,
+                      name: 'Kael',
+                    },
+                    {
+                      id: 203,
+                      name: 'Nekosaur',
+                    },
+                    {
+                      id: 204,
+                      name: 'Jacek',
+                    },
+                    {
+                      id: 205,
+                      name: 'Andrew',
+                    },
+                  ],
+                },
+                {
+                  id: 3,
+                  name: 'Administrators',
+                  children: [
+                    {
+                      id: 301,
+                      name: 'Mike',
+                    },
+                    {
+                      id: 302,
+                      name: 'Hunt',
+                    },
+                  ],
+                },
+                {
+                  id: 4,
+                  name: 'Contributors',
+                  children: [
+                    {
+                      id: 401,
+                      name: 'Phlow',
+                    },
+                    {
+                      id: 402,
+                      name: 'Brandon',
+                    },
+                    {
+                      id: 403,
+                      name: 'Sean',
+                    },
+                  ],
+                },
+              ],
+            },
+          ]*/
+        }
+      },
+      computed: {
+        filter () {
+          return this.caseSensitive
+            ? (item, search, textKey) => item[textKey].indexOf(search) > -1
+            : undefined
+        },
+      },
+      methods: {
+        openDialog(item) {
+          if (item === null || item === undefined) {
+            return;
+          }
+          this.selectedItem = item
+          this.dialog = true
+        },
+
+      }
+    })
+  </script>
+</body>
+
+</html>
