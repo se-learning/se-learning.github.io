@@ -178,8 +178,6 @@
 					class="mx-auto my-6"
 					v-for="(item, index) in currentItems"
 					:key="index"
-					:href="item"
-					target="blank"
 				>
 					<video v-if="item.endsWith('.m') || item.endsWith('.mp4')" controls style="height: 100vh; max-width: 100%">
 						<source :src="item" type="video/mp4">
@@ -194,8 +192,8 @@
 					></v-img>-->
 					<img v-else
 						:src="item"
-						class="zoom-img"
-						style="max-width: 100%; max-height: 250vh;"
+						class="zoom-img mx-auto"
+						style="max-width: 100%; max-height: 250vh; display: block"
 						loading=lazy
 					></img>
 					
