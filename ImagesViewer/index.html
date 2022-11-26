@@ -193,7 +193,7 @@
 					<img v-else
 						:src="item"
 						class="zoom-img mx-auto"
-						style="max-width: 100%; max-height: 250vh; display: block"
+						style="min-width: 40vw; max-width: 100%; max-height: 250vh; display: block"
 						loading=lazy
 					></img>
 					
@@ -210,6 +210,50 @@
 			</div>
 		</v-container>
 		
+		<!-- Fab buttons/Speed dial -->
+		<v-speed-dial
+		  v-model="fab"
+		  bottom
+		  right
+		  open-on-hover
+		  fixed
+		>
+		  <template v-slot:activator>
+			<v-btn
+			  v-model="fab"
+			  color="blue darken-2"
+			  dark
+			  fab
+			>
+			  <v-icon v-if="fab">
+				mdi-close
+			  </v-icon>
+			  <v-icon v-else>
+				mdi-menu
+			  </v-icon>
+			</v-btn>
+		  </template>
+		  <v-btn
+			fab
+			dark
+			small
+			color="indigo"
+			title="Go to top"
+			@click="goToTop()"
+		  >
+			<v-icon>mdi-arrow-up</v-icon>
+		  </v-btn>
+		  <v-btn
+			fab
+			dark
+			small
+			color="green"
+			title="Reset wheelzoom"
+			@click="destroyWheelZoom(); initWheelZoom()"
+		  >
+			<v-icon>mdi-refresh</v-icon>
+		  </v-btn>
+		</v-speed-dial>
       </v-main>
     </v-app>
   </div>
@@ -246,6 +290,7 @@
 				banners: {
 					active: 0
 				},
+				fab: false,
 			}
 		},
 
@@ -308,18 +353,11 @@
 		},
 		
 		beforeUpdate: function() {			
-			var zoomImgItems = document.querySelectorAll('.zoom-img')
-			for (var i=0; i<zoomImgItems.length; i++) {
-				zoomImgItems[i].dispatchEvent(new CustomEvent('wheelzoom.reset'));
-				zoomImgItems[i].dispatchEvent(new CustomEvent('wheelzoom.destroy'));
-			}
+			this.destroyWheelZoom()
 		},
 		
 		updated: function() {			
-			var zoomImgItems = document.querySelectorAll('.zoom-img')
-			for (var i=0; i<zoomImgItems.length; i++) {
-				wheelzoom(zoomImgItems[i]);
-			}
+			this.initWheelZoom()
 		},
 
 		methods: {
@@ -336,8 +374,22 @@
 
 			getFeatureImage(collection) {
 				return collection.featureImg || collection.items[0];
-			}
+			},
 			
+			destroyWheelZoom() {
+				var zoomImgItems = document.querySelectorAll('.zoom-img')
+				for (var i=0; i<zoomImgItems.length; i++) {
+					zoomImgItems[i].dispatchEvent(new CustomEvent('wheelzoom.reset'));
+					zoomImgItems[i].dispatchEvent(new CustomEvent('wheelzoom.destroy'));
+				}
+			},
+			
+			initWheelZoom() {
+				var zoomImgItems = document.querySelectorAll('.zoom-img')
+				for (var i=0; i<zoomImgItems.length; i++) {
+					wheelzoom(zoomImgItems[i]);
+				}
+			}
 		}
 	})
 	
