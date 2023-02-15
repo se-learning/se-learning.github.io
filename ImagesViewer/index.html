@@ -195,6 +195,7 @@
 						class="zoom-img mx-auto"
 						style="min-width: 40vw; max-width: 100%; max-height: 250vh; display: block"
 						loading=lazy
+						:title="item"
 					></img>
 					
 				</v-card>
@@ -359,7 +360,12 @@
 		updated: function() {			
 			this.initWheelZoom()
 		},
-
+		created() {
+			window.addEventListener('keyup', this.onKeyPress);
+		},
+		beforeDestroy() {
+			window.removeEventListener('keyup', this.onKeyPress);
+		},
 		methods: {
 			// Get param value from an url
 			getUrlParam: (url, param) => new URLSearchParams(new URL(url).search).get(param),
@@ -389,7 +395,34 @@
 				for (var i=0; i<zoomImgItems.length; i++) {
 					wheelzoom(zoomImgItems[i]);
 				}
-			}
+			},
+			
+			goToPrevPage() {
+				if (this.page <= 1) {
+					this.page = this.pageLength
+				} else {
+					this.page = this.page - 1
+				}
+			},
+			
+			goToNextPage() {
+				if (this.page >= this.pageLength) {
+					this.page = 1
+				} else {
+					this.page = this.page + 1
+				}
+			},
+			
+			onKeyPress(e) {				
+				if (e.code === 'ArrowLeft') {
+					this.goToPrevPage()
+				} else if (e.code === 'ArrowRight') {
+					this.goToNextPage()
+				} else if (e.code === 'Numpad0') {
+					this.destroyWheelZoom();
+					this.initWheelZoom()
+				}
+			},
 		}
 	})
 	
