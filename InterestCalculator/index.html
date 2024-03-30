@@ -191,12 +191,29 @@
     <div class="section section-basic">
       <hr>
       <div class="container2">
-        <h4>Quy đổi lãi suất theo năm dựa trên phần trăm tăng so với vốn ban đầu</h4>
+        <h4>Quy đổi lãi suất theo năm dựa trên phần trăm tăng so với vốn ban đầu (
+		<!-- Radios -->
+          <div class="form-check" style="display: inline-block;">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="monthOrDaysRadios" id="byMonthRadio" value="byMonth"> theo tháng
+              <span class="circle">
+                <span class="check"></span>
+              </span>
+            </label>
+          </div>
+          <div class="form-check" style="display: inline-block; margin-left: 16px;">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="monthOrDaysRadios" id="byDayRadio" value="byDay" checked> theo ngày
+              <span class="circle">
+                <span class="check"></span>
+              </span>
+            </label>
+          </div>)</h4>
         <div class="text-center mt-3" style="overflow-x: auto;">          
           <table class="ml-auto mr-auto text-center">
             <tbody>
               <tr>
-                <td>Thời gian gửi (tháng)</td>
+                <td>Thời gian gửi (<span data-daysOrMonthLabel="">ngày</span>)</td>
                 <td>Phân trăm tăng so với vốn ban đầu (%)</td>
               </tr>
               <tr>
@@ -214,7 +231,7 @@
           <table class="ml-auto mr-auto text-center">
             <tbody>
               <tr>
-                <td>Thời gian gửi (tháng)</td>
+                <td>Thời gian gửi (<span data-daysOrMonthLabel="">ngày</span>)</td>
                 <td>Số vốn ban đầu</td>
                 <td>Số tiền lãi</td>
               </tr>
@@ -328,6 +345,20 @@
 
       $("input[name='displayModeRadios']").change(() => {
         updateResultTable(parseFloat($("#amountTxt").val()));
+      });
+	  
+	  $("input[name='monthOrDaysRadios']").change(() => {
+        updateToInterestRate();
+		updateToInterestRate2();
+		let els = document.querySelectorAll("[data-daysOrMonthLabel]")
+		for (let i=0; i<els.length; i++) {
+			let useMonth = !!($("input[name='monthOrDaysRadios']:checked"). val() === 'byMonth')
+			if (useMonth) {
+				els[i].innerText = "tháng"
+			} else {
+				els[i].innerText = "ngày"
+			}
+		}
       });
 
       function getAllRateNames(ratesArr, prefix = '') {
@@ -536,59 +567,89 @@
     });
 
     $("#interestConvert2InputTime, #interestConvert2InputRate").change(function() {
-      let rate = $("#interestConvert2InputRate").val();
-      let time = $("#interestConvert2InputTime").val();
-      if(!rate || isNaN(rate) || !time || isNaN(time)) {
-        return;
-      }
-
-      // time = time/12;
-
-      // Convert interest rate
-      // if(time < 12) {
-      //   let value = Math.pow(1+((rate/100)), 12/time) - 1;
-      //   $("#interestConvertTTMInterestResult2").text(value * 100);
-      // } else if(time > 12) {
-      //   let value = (Math.pow(1+(rate/100), 12/time ) - 1) * time/12;
-      //   $("#interestConvertTTMInterestResult2").text(value * 100);
-      // } else {
-      //   $("#interestConvertTTMInterestResult2").text(rate);
-      // }
-
-      let value = Math.pow(1+((rate/100)), 12/time) - 1;
-      $("#interestConvertTTMInterestResult2").text(value * 100);
-
-      $("#interestConvertInterestResult2").text(rate*(12/time));
-      
+		updateToInterestRate()
     });
-
+	
     $("#interestConvert2InputTime2, #interestConvert2InputBalance, #interestConvert2InputInterest").change(function() {
-      let time = $("#interestConvert2InputTime2").val();
-      let balance = $("#interestConvert2InputBalance").val();
-      let interest = $("#interestConvert2InputInterest").val();
-      if(!time || isNaN(time) || !balance || isNaN(balance) || !interest || isNaN(interest)) {
-        return;
-      }
-
-      // time = time/12;
-
-      // Convert interest rate
-      let rate = 100 * (interest/balance);
-      // if(time < 12) {
-      //   let value = Math.pow(1+((rate/100)), 12/time) - 1;        
-      //   $("#interestConvert2TTMInterestResult2").text(value * 100);
-      // } else if(time > 12) {
-      //   let value = (Math.pow(1+(rate/100), 12/time ) - 1) * time/12;
-      //   $("#interestConvert2TTMInterestResult2").text(value * 100);
-      // } else {
-      //   $("#interestConvert2TTMInterestResult2").text(rate);
-      // }
-
-      let value = Math.pow(1+((rate/100)), 12/time) - 1;        
-      $("#interestConvert2TTMInterestResult2").text(value * 100);
-
-      $("#interestConvert2InterestResult2").text(100 * interest*(12/time)/balance);
+		updateToInterestRate2()
     });
+	
+	function updateToInterestRate() {
+		let rate = $("#interestConvert2InputRate").val();
+		let time = $("#interestConvert2InputTime").val();
+		if(!rate || isNaN(rate) || !time || isNaN(time)) {
+		return;
+		}
+
+		let useMonth = !!($("input[name='monthOrDaysRadios']:checked"). val() === 'byMonth')
+
+		$("#interestConvertTTMInterestResult2").text(convertToYearlyRateTTM(rate, time, useMonth));
+		$("#interestConvertInterestResult2").text(convertToYearlyRate(rate, time, useMonth));
+	}
+	
+	function updateToInterestRate2() {
+		let time = $("#interestConvert2InputTime2").val();
+		let balance = $("#interestConvert2InputBalance").val();
+		let interest = $("#interestConvert2InputInterest").val();
+		if(!time || isNaN(time) || !balance || isNaN(balance) || !interest || isNaN(interest)) {
+		return;
+		}
+
+		let useMonth = !!($("input[name='monthOrDaysRadios']:checked"). val() === 'byMonth')
+
+		// Convert interest rate
+		$("#interestConvert2TTMInterestResult2").text(convertToYearlyRateTTM2(balance, interest, time, useMonth));
+		$("#interestConvert2InterestResult2").text(convertToYearlyRate2(balance, interest, time, useMonth));
+	}
+	
+	function convertToYearlyRate(rate, daysOrMonth, useMonth) {
+		if(!rate || isNaN(rate) || !daysOrMonth || isNaN(daysOrMonth)) {
+			return 0;
+		}
+		if (!!useMonth) {
+			return rate*(12/daysOrMonth)
+		}
+		return rate*(365/daysOrMonth)
+	}
+	
+	function convertToYearlyRateTTM(rate, daysOrMonth, useMonth) {
+		if(!rate || isNaN(rate) || !daysOrMonth || isNaN(daysOrMonth)) {
+			return 0;
+		}
+		let value = 0
+		if (!!useMonth) {
+			value = Math.pow(1+((rate/100)), 12/daysOrMonth) - 1;
+		} else {
+			value = Math.pow(1+((rate/100)), 365/daysOrMonth) - 1;
+		}
+		return value * 100;
+	}
+	
+	function convertToYearlyRate2(orgBalance, interest, daysOrMonth, useMonth) {
+		if(!orgBalance || isNaN(orgBalance) || !interest || isNaN(interest) || !daysOrMonth || isNaN(daysOrMonth)) {
+			return 0;
+		}
+		let rate = 100 * (interest/orgBalance);
+		
+		if (!!useMonth) {
+			return rate*(12/daysOrMonth)
+		}
+		return rate*(365/daysOrMonth)
+	}
+	
+	function convertToYearlyRateTTM2(orgBalance, interest, daysOrMonth, useMonth) {
+		if(!orgBalance || isNaN(orgBalance) || !interest || isNaN(interest) || !daysOrMonth || isNaN(daysOrMonth)) {
+			return 0;
+		}
+		let rate = 100 * (interest/orgBalance);
+		let value = 0
+		if (!!useMonth) {
+			value = Math.pow(1+((rate/100)), 12/daysOrMonth) - 1;
+		} else {
+			value = Math.pow(1+((rate/100)), 365/daysOrMonth) - 1;
+		}
+		return value * 100;
+	}
 
   </script>
 </body>
